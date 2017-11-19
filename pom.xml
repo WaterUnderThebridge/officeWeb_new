@@ -5,7 +5,7 @@
 
 	<groupId>com.tlgc</groupId>
 	<artifactId>tlgc</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>API-0.0.1</version>
 	<packaging>jar</packaging>
 
 	<name>tlgc</name>
