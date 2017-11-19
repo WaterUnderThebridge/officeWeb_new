@@ -1,0 +1,19 @@
+spring:
+  datasource:
+    url: jdbc:sqlserver://127.0.0.1:1433;DatabaseName=TLGDB
+    username: interface
+    password: Lanyueyang@
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    database: sql_server
+
+
+logging:
+  path: E:\tomcat8\apache-tomcat-8.0.42\logs\mylogs
+  level: trace
+
+filePath: E:\tomcat8\apache-tomcat-8.0.42\files

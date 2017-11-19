@@ -1,0 +1,34 @@
+spring:
+  datasource:
+    url: jdbc:sqlserver://localhost:1433;DatabaseName=TLGDB
+    username: sa
+    password: 1
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    database: sql_server
+
+
+
+
+
+#  devtools:
+#    restart:
+#      enabled: true
+logging:
+  path: d:/
+  level: trace
+  config: classpath:logback-spring-dev.xml
+
+server:
+  port: 88
+
+filePath: D:\files
+
+test:
+      name : jerry
+      age: 19
+
