@@ -1,6 +1,6 @@
 spring:
   profiles:
-    active: prod
+    active: dev
 
   jpa:
     hibernate:
@@ -8,11 +8,8 @@ spring:
         strategy: org.hibernate.cfg.DefaultNamingStrategy
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
 
-mybatis:
-  config-location: classpath:mybatis-config.xml
-  mapper-locations: classpath:mapper/*.xml
-# jackson:
-#   default-property-inclusion: non_null
+ jackson:
+    default-property-inclusion: non_null
 # redis:
 #   host: 192.168.30.113
 #   port: 6379
@@ -21,7 +18,9 @@ mybatis:
 #   context-path: /index
 #   error:
 #     path: /error
-
+mybatis:
+  config-location: classpath:mybatis-config.xml
+  mapper-locations: classpath:mapper/*.xml
 
 mail_appid : 10034
 mail_appkey : 6e88cf3e26b914c70b9e57b5ebb26b21

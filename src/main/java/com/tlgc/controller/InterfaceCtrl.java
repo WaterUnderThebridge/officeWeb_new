@@ -41,7 +41,10 @@ public class InterfaceCtrl {
     private MyConfig myConfig;
 
     @GetMapping(value = "/getPro")
-    private JSONObject getProvince(){
+    private JSONObject getProvince(HttpServletResponse rsp){
+        rsp.addHeader("Access-Control-Allow-Origin", "*");
+        rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
+
         //  PageHelper.startPage(3,2);
         List<Province> p = provinceMapper.getAll();
         return DateConvert.toJson(ResultUtil.success(p));

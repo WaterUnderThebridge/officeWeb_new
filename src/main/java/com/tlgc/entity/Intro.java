@@ -16,7 +16,7 @@ public class Intro {
     private Integer City;
     private String Province;
     private String BabyName;
-    private String BabyBrithday;
+    private String BabyBirthday;
     private String Email;
     private String ParentPhone;
     private String Channel;
