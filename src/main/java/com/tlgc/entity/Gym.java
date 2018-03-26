@@ -12,11 +12,11 @@ import javax.persistence.Table;
  */
 
 @Data
-@Table(name="LG_Enterprise")
+@Table(name="TLG_Gym")
 public class Gym {
     @Id
-    private Integer Id;
-    private String CH_Name;
-    private Integer CityId;
-    private Integer status;
+    private Integer code;
+    private String name;
+    private Integer cityId;
+    private byte status;
 }

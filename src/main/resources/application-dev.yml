@@ -5,6 +5,7 @@ spring:
     password: 1
     driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
 
+
   jpa:
     show-sql: true
     hibernate:
