@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tlgc.mapper.IntroMapper" >
+
+    <select id="getIntro" resultType="hashmap">
+        select g.CH_Name,a.BabyName,a.BabyBrithday,a.ParentPhone,a.Email,a.Remark,convert(varchar(10),a.CreateTime,120)dt,a.IsAd,a.Status
+        from [TLG_FreeAppointment] a join TLG_Gym g on a.gymCode=g.id
+        <if test="gymCode!=''">
+            and g.id=${gymCode}
+        </if>
+        <where>
+            <if test="dtBegin!='' and dtEnd!=''">
+                a.CreateTime BETWEEN ${dtBegin} and ${dtEnd}
+            </if>
+        </where>
+    </select>
+
+
+</mapper>

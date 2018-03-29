@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -67,7 +68,6 @@ public class InterfaceCtrl {
     public Result createAppoint(HttpServletResponse rsp, Intro intro){
         rsp.addHeader("Access-Control-Allow-Origin", "*");
         rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
-
         intro.setMailStatus(0);
         intro.setChannel("php");
         intro.setCreateTime(new Date());
@@ -76,6 +76,15 @@ public class InterfaceCtrl {
         }else {
             return ResultUtil.error();
         }
+    }
+
+    @RequestMapping(value = "/getIntro")
+    public JSONObject getAppoint(HttpServletResponse rsp,
+                                 @RequestParam(value = "gymCode",defaultValue = "") String gymCode,
+                                 @RequestParam(value = "dtBegin",defaultValue = "") String dtBegin,
+                                 @RequestParam(value = "dtEnd",defaultValue = "") String dtEnd){
+        List<HashMap> Intros = introMapper.getIntro(gymCode,dtBegin,dtEnd);
+        return DateConvert.toJson(ResultUtil.success(Intros));
     }
 
 
