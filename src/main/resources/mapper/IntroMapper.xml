@@ -6,11 +6,11 @@
         select g.CH_Name,a.BabyName,a.BabyBrithday,a.ParentPhone,a.Email,a.Remark,convert(varchar(10),a.CreateTime,120)dt,a.IsAd,a.Status
         from [TLG_FreeAppointment] a join TLG_Gym g on a.gymCode=g.id
         <if test="gymCode!=''">
-            and g.id=${gymCode}
+            and g.id=#{gymCode}
         </if>
         <where>
             <if test="dtBegin!='' and dtEnd!=''">
-                a.CreateTime BETWEEN ${dtBegin} and ${dtEnd}
+                a.CreateTime BETWEEN #{dtBegin} and #{dtEnd}
             </if>
         </where>
     </select>
