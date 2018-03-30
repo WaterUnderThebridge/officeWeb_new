@@ -2,9 +2,8 @@ package com.tlgc.entity;
 
 import lombok.Data;
 
-
+import javax.persistence.Id;
 import java.util.Date;
-import javax.persistence.*;
 /**
  * Created by TONY on 2017/11/19.
  */
@@ -22,4 +21,22 @@ public class Intro {
     private String Channel;
     private Integer MailStatus;
     private Date CreateTime;
+    private String search;
+
+    @Override
+    public String toString() {
+        return "Intro{" +
+                "Id=" + Id +
+                ", Center=" + Center +
+                ", City=" + City +
+                ", Province='" + Province + '\'' +
+                ", BabyName='" + BabyName + '\'' +
+                ", BabyBirthday='" + BabyBirthday + '\'' +
+                ", Email='" + Email + '\'' +
+                ", ParentPhone='" + ParentPhone + '\'' +
+                ", Channel='" + Channel + '\'' +
+                ", MailStatus=" + MailStatus +
+                ", CreateTime=" + CreateTime +
+                '}';
+    }
 }

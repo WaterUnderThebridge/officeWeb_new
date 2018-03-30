@@ -3,7 +3,7 @@
 <mapper namespace="com.tlgc.mapper.IntroMapper" >
 
     <select id="getIntro" resultType="hashmap">
-        select g.CH_Name,a.BabyName,a.BabyBrithday,a.ParentPhone,a.Email,a.Remark,convert(varchar(10),a.CreateTime,120)dt,a.IsAd,a.Status
+        select g.CH_Name,a.BabyName,convert(varchar(10),cast(a.BabyBrithday as datetime),120)BabyBrithday,a.ParentPhone,a.Email,a.Remark,convert(varchar(10),a.CreateTime,120)dt,a.channel,a.Status
         from [TLG_FreeAppointment] a join TLG_Gym g on a.gymCode=g.id
         <if test="gymCode!=''">
             and g.id=#{gymCode}
@@ -12,7 +12,11 @@
             <if test="dtBegin!='' and dtEnd!=''">
                 a.CreateTime BETWEEN #{dtBegin} and #{dtEnd}
             </if>
+            <if test="keyWord!=''">
+                and charindex(#{keyWord},search)>0
+            </if>
         </where>
+        order by a.CreateTime desc
     </select>
 
 

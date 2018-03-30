@@ -1,0 +1,64 @@
+2018-03-26 09:54:15.102 [restartedMain] INFO  com.tlgc.TlgcApplication -Starting TlgcApplication on tony-Satellite-L700 with PID 5258 (/home/tony/IdeaProjects/tlgc/target/classes started by tony in /home/tony/IdeaProjects/tlgc)
+2018-03-26 09:54:15.104 [restartedMain] INFO  com.tlgc.TlgcApplication -The following profiles are active: dev
+2018-03-26 09:54:15.287 [restartedMain] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext -Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@363daf2f: startup date [Mon Mar 26 09:54:15 CST 2018]; root of context hierarchy
+2018-03-26 09:54:17.896 [restartedMain] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor -JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-03-26 09:54:18.200 [restartedMain] WARN  o.h.v.m.ParameterMessageInterpolator -HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2018-03-26 09:54:18.794 [restartedMain] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer -Tomcat initialized with port(s): 88 (http)
+2018-03-26 09:54:18.809 [restartedMain] INFO  o.a.catalina.core.StandardService -Starting service [Tomcat]
+2018-03-26 09:54:18.811 [restartedMain] INFO  o.a.catalina.core.StandardEngine -Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-03-26 09:54:18.934 [localhost-startStop-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] -Initializing Spring embedded WebApplicationContext
+2018-03-26 09:54:18.935 [localhost-startStop-1] INFO  o.s.web.context.ContextLoader -Root WebApplicationContext: initialization completed in 3649 ms
+2018-03-26 09:54:19.155 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean -Mapping servlet: 'dispatcherServlet' to [/]
+2018-03-26 09:54:19.161 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-03-26 09:54:19.162 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-03-26 09:54:19.162 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-03-26 09:54:19.162 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'requestContextFilter' to: [/*]
+2018-03-26 09:54:19.633 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean -Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-03-26 09:54:19.649 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper -HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-03-26 09:54:19.734 [restartedMain] INFO  org.hibernate.Version -HHH000412: Hibernate Core {5.0.12.Final}
+2018-03-26 09:54:19.736 [restartedMain] INFO  org.hibernate.cfg.Environment -HHH000206: hibernate.properties not found
+2018-03-26 09:54:19.738 [restartedMain] INFO  org.hibernate.cfg.Environment -HHH000021: Bytecode provider name : javassist
+2018-03-26 09:54:19.793 [restartedMain] INFO  o.h.annotations.common.Version -HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-03-26 09:54:34.546 [restartedMain] WARN  o.h.e.j.e.i.JdbcEnvironmentInitiator -HHH000342: Could not obtain connection to query metadata : 通过端口 1433 连接到主机 localhost 的 TCP/IP 连接失败。错误:“拒绝连接 (Connection refused)。请验证连接属性。确保 SQL Server 的实例正在主机上运行，且在此端口接受 TCP/IP 连接，还要确保防火墙没有阻止到此端口的 TCP 连接。”。
+2018-03-26 09:54:34.561 [restartedMain] INFO  org.hibernate.dialect.Dialect -HHH000400: Using dialect: org.hibernate.dialect.SQLServer2008Dialect
+2018-03-26 09:54:34.611 [restartedMain] INFO  o.h.e.j.e.i.LobCreatorBuilderImpl -HHH000422: Disabling contextual LOB creation as connection was null
+2018-03-26 09:54:35.468 [restartedMain] INFO  o.h.tool.hbm2ddl.SchemaUpdate -HHH000228: Running hbm2ddl schema update
+2018-03-26 09:54:49.998 [restartedMain] WARN  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext -Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaAutoConfiguration.class]: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory
+2018-03-26 09:54:50.003 [restartedMain] INFO  o.a.catalina.core.StandardService -Stopping service [Tomcat]
+2018-03-26 09:54:50.026 [restartedMain] INFO  o.s.b.a.l.AutoConfigurationReportLoggingInitializer -
+
+Error starting ApplicationContext. To display the auto-configuration report re-run your application with 'debug' enabled.
+2018-03-26 10:22:45.227 [restartedMain] INFO  com.tlgc.TlgcApplication -Starting TlgcApplication on tony-Satellite-L700 with PID 7654 (/home/tony/IdeaProjects/tlgc/target/classes started by tony in /home/tony/IdeaProjects/tlgc)
+2018-03-26 10:22:45.235 [restartedMain] INFO  com.tlgc.TlgcApplication -The following profiles are active: dev
+2018-03-26 10:22:45.452 [restartedMain] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext -Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@4193047f: startup date [Mon Mar 26 10:22:45 CST 2018]; root of context hierarchy
+2018-03-26 10:22:47.951 [restartedMain] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor -JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-03-26 10:22:48.245 [restartedMain] WARN  o.h.v.m.ParameterMessageInterpolator -HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2018-03-26 10:22:48.750 [restartedMain] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer -Tomcat initialized with port(s): 88 (http)
+2018-03-26 10:22:48.763 [restartedMain] INFO  o.a.catalina.core.StandardService -Starting service [Tomcat]
+2018-03-26 10:22:48.765 [restartedMain] INFO  o.a.catalina.core.StandardEngine -Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-03-26 10:22:48.904 [localhost-startStop-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] -Initializing Spring embedded WebApplicationContext
+2018-03-26 10:22:48.905 [localhost-startStop-1] INFO  o.s.web.context.ContextLoader -Root WebApplicationContext: initialization completed in 3453 ms
+2018-03-26 10:22:49.112 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean -Mapping servlet: 'dispatcherServlet' to [/]
+2018-03-26 10:22:49.117 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-03-26 10:22:49.118 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-03-26 10:22:49.119 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-03-26 10:22:49.119 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'requestContextFilter' to: [/*]
+2018-03-26 10:22:49.575 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean -Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-03-26 10:22:49.590 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper -HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-03-26 10:22:49.661 [restartedMain] INFO  org.hibernate.Version -HHH000412: Hibernate Core {5.0.12.Final}
+2018-03-26 10:22:49.663 [restartedMain] INFO  org.hibernate.cfg.Environment -HHH000206: hibernate.properties not found
+2018-03-26 10:22:49.665 [restartedMain] INFO  org.hibernate.cfg.Environment -HHH000021: Bytecode provider name : javassist
+2018-03-26 10:22:49.710 [restartedMain] INFO  o.h.annotations.common.Version -HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-03-26 10:23:04.413 [restartedMain] WARN  o.h.e.j.e.i.JdbcEnvironmentInitiator -HHH000342: Could not obtain connection to query metadata : 通过端口 1433 连接到主机 localhost 的 TCP/IP 连接失败。错误:“拒绝连接 (Connection refused)。请验证连接属性。确保 SQL Server 的实例正在主机上运行，且在此端口接受 TCP/IP 连接，还要确保防火墙没有阻止到此端口的 TCP 连接。”。
+2018-03-26 10:23:04.423 [restartedMain] INFO  org.hibernate.dialect.Dialect -HHH000400: Using dialect: org.hibernate.dialect.SQLServer2008Dialect
+2018-03-26 10:23:04.441 [restartedMain] INFO  o.h.e.j.e.i.LobCreatorBuilderImpl -HHH000422: Disabling contextual LOB creation as connection was null
+2018-03-26 10:23:04.927 [restartedMain] INFO  o.h.tool.hbm2ddl.SchemaUpdate -HHH000228: Running hbm2ddl schema update
+2018-03-26 10:23:19.463 [restartedMain] WARN  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext -Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaAutoConfiguration.class]: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory
+2018-03-26 10:23:19.469 [restartedMain] INFO  o.a.catalina.core.StandardService -Stopping service [Tomcat]
+2018-03-26 10:23:19.497 [restartedMain] INFO  o.s.b.a.l.AutoConfigurationReportLoggingInitializer -
+
+Error starting ApplicationContext. To display the auto-configuration report re-run your application with 'debug' enabled.

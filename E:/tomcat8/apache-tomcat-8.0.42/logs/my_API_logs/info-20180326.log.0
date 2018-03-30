@@ -1,0 +1,557 @@
+2018-03-26 10:24:18.208 [restartedMain] INFO  com.tlgc.TlgcApplication -Starting TlgcApplication on tony-Satellite-L700 with PID 7966 (/home/tony/IdeaProjects/tlgc/target/classes started by tony in /home/tony/IdeaProjects/tlgc)
+2018-03-26 10:24:18.217 [restartedMain] INFO  com.tlgc.TlgcApplication -The following profiles are active: prod
+2018-03-26 10:24:18.467 [restartedMain] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext -Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@1de20cb7: startup date [Mon Mar 26 10:24:18 CST 2018]; root of context hierarchy
+2018-03-26 10:24:20.732 [restartedMain] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor -JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-03-26 10:24:21.010 [restartedMain] WARN  o.h.v.m.ParameterMessageInterpolator -HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2018-03-26 10:24:21.505 [restartedMain] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer -Tomcat initialized with port(s): 8080 (http)
+2018-03-26 10:24:21.518 [restartedMain] INFO  o.a.catalina.core.StandardService -Starting service [Tomcat]
+2018-03-26 10:24:21.519 [restartedMain] INFO  o.a.catalina.core.StandardEngine -Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-03-26 10:24:21.649 [localhost-startStop-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] -Initializing Spring embedded WebApplicationContext
+2018-03-26 10:24:21.650 [localhost-startStop-1] INFO  o.s.web.context.ContextLoader -Root WebApplicationContext: initialization completed in 3183 ms
+2018-03-26 10:24:21.851 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean -Mapping servlet: 'dispatcherServlet' to [/]
+2018-03-26 10:24:21.858 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-03-26 10:24:21.859 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-03-26 10:24:21.860 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-03-26 10:24:21.860 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'requestContextFilter' to: [/*]
+2018-03-26 10:24:22.329 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean -Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-03-26 10:24:22.344 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper -HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-03-26 10:24:22.417 [restartedMain] INFO  org.hibernate.Version -HHH000412: Hibernate Core {5.0.12.Final}
+2018-03-26 10:24:22.418 [restartedMain] INFO  org.hibernate.cfg.Environment -HHH000206: hibernate.properties not found
+2018-03-26 10:24:22.420 [restartedMain] INFO  org.hibernate.cfg.Environment -HHH000021: Bytecode provider name : javassist
+2018-03-26 10:24:22.464 [restartedMain] INFO  o.h.annotations.common.Version -HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-03-26 10:24:23.777 [restartedMain] INFO  org.hibernate.dialect.Dialect -HHH000400: Using dialect: org.hibernate.dialect.SQLServer2008Dialect
+2018-03-26 10:24:24.334 [restartedMain] INFO  o.h.tool.hbm2ddl.SchemaUpdate -HHH000228: Running hbm2ddl schema update
+2018-03-26 10:24:24.426 [restartedMain] INFO  o.h.t.s.e.i.InformationExtractorJdbcDatabaseMetaDataImpl -HHH000262: Table not found: TLG_Admin
+2018-03-26 10:24:25.235 [restartedMain] INFO  o.h.t.s.e.i.InformationExtractorJdbcDatabaseMetaDataImpl -HHH000262: Table not found: TLG_City
+2018-03-26 10:24:25.667 [restartedMain] INFO  o.h.t.s.e.i.InformationExtractorJdbcDatabaseMetaDataImpl -HHH000262: Table not found: TLG_Province
+2018-03-26 10:24:25.739 [restartedMain] INFO  o.h.t.s.e.i.InformationExtractorJdbcDatabaseMetaDataImpl -HHH000262: Table not found: TLG_Role
+2018-03-26 10:24:25.840 [restartedMain] INFO  o.h.t.s.e.i.InformationExtractorJdbcDatabaseMetaDataImpl -HHH000262: Table not found: TLG_Admin
+2018-03-26 10:24:25.867 [restartedMain] INFO  o.h.t.s.e.i.InformationExtractorJdbcDatabaseMetaDataImpl -HHH000262: Table not found: TLG_City
+2018-03-26 10:24:25.891 [restartedMain] INFO  o.h.t.s.e.i.InformationExtractorJdbcDatabaseMetaDataImpl -HHH000262: Table not found: TLG_Province
+2018-03-26 10:24:26.123 [restartedMain] INFO  o.h.t.s.e.i.InformationExtractorJdbcDatabaseMetaDataImpl -HHH000262: Table not found: TLG_Role
+2018-03-26 10:24:26.148 [restartedMain] INFO  o.h.t.s.e.i.InformationExtractorJdbcDatabaseMetaDataImpl -HHH000262: Table not found: TLG_Admin
+2018-03-26 10:24:26.697 [restartedMain] INFO  o.h.t.s.e.i.InformationExtractorJdbcDatabaseMetaDataImpl -HHH000262: Table not found: TLG_City
+2018-03-26 10:24:26.749 [restartedMain] INFO  o.h.t.s.e.i.InformationExtractorJdbcDatabaseMetaDataImpl -HHH000262: Table not found: TLG_Province
+2018-03-26 10:24:26.983 [restartedMain] INFO  o.h.t.s.e.i.InformationExtractorJdbcDatabaseMetaDataImpl -HHH000262: Table not found: TLG_Role
+2018-03-26 10:24:27.025 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean -Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-03-26 10:24:27.584 [restartedMain] WARN  o.h.v.m.ParameterMessageInterpolator -HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2018-03-26 10:24:28.110 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter -Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@1de20cb7: startup date [Mon Mar 26 10:24:18 CST 2018]; root of context hierarchy
+2018-03-26 10:24:28.181 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/httpclient]}" onto public java.lang.String com.tlgc.controller.HttpClientController.test() throws java.lang.Exception
+2018-03-26 10:24:28.186 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/getGym/{cityId}],methods=[GET]}" onto private com.alibaba.fastjson.JSONObject com.tlgc.controller.InterfaceCtrl.getCity(java.lang.Integer)
+2018-03-26 10:24:28.187 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/createIntro],methods=[POST]}" onto public com.tlgc.entity.Result com.tlgc.controller.InterfaceCtrl.createAppoint(javax.servlet.http.HttpServletResponse,com.tlgc.entity.Intro)
+2018-03-26 10:24:28.187 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/getPro],methods=[GET]}" onto private com.alibaba.fastjson.JSONObject com.tlgc.controller.InterfaceCtrl.getProvince(javax.servlet.http.HttpServletResponse)
+2018-03-26 10:24:28.188 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/getCity/{provinceId}],methods=[GET]}" onto private com.alibaba.fastjson.JSONObject com.tlgc.controller.InterfaceCtrl.getGym(java.lang.Integer)
+2018-03-26 10:24:28.190 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/interface/getGym/{cityId}],methods=[GET]}" onto private com.alibaba.fastjson.JSONObject com.tlgc.controller.testCtrl.getCity(java.lang.Integer)
+2018-03-26 10:24:28.191 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/interface/createIntro],methods=[POST]}" onto public com.tlgc.entity.Result com.tlgc.controller.testCtrl.createAppoint(javax.servlet.http.HttpServletResponse,com.tlgc.entity.Intro)
+2018-03-26 10:24:28.191 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/interface/admin],methods=[GET]}" onto private com.tlgc.entity.Admin com.tlgc.controller.testCtrl.who()
+2018-03-26 10:24:28.192 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/interface/getPro],methods=[GET]}" onto private com.alibaba.fastjson.JSONObject com.tlgc.controller.testCtrl.getProvince()
+2018-03-26 10:24:28.192 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/interface/getCity/{provinceId}],methods=[GET]}" onto private com.alibaba.fastjson.JSONObject com.tlgc.controller.testCtrl.getGym(java.lang.Integer)
+2018-03-26 10:24:28.193 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/interface/conf],methods=[GET]}" onto private java.lang.String com.tlgc.controller.testCtrl.config()
+2018-03-26 10:24:28.195 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-03-26 10:24:28.196 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-03-26 10:24:28.231 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping -Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-03-26 10:24:28.231 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping -Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-03-26 10:24:28.250 [restartedMain] INFO  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver -Detected @ExceptionHandler methods in exceptionHandle
+2018-03-26 10:24:28.275 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping -Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-03-26 10:24:28.675 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer -LiveReload server is running on port 35729
+2018-03-26 10:24:28.761 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter -Registering beans for JMX exposure on startup
+2018-03-26 10:24:28.824 [restartedMain] INFO  o.a.catalina.core.StandardService -Stopping service [Tomcat]
+2018-03-26 10:24:28.847 [restartedMain] INFO  o.s.b.a.l.AutoConfigurationReportLoggingInitializer -
+
+Error starting ApplicationContext. To display the auto-configuration report re-run your application with 'debug' enabled.
+2018-03-26 10:24:28.857 [restartedMain] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext -Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@1de20cb7: startup date [Mon Mar 26 10:24:18 CST 2018]; root of context hierarchy
+2018-03-26 10:24:28.860 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter -Unregistering JMX-exposed beans on shutdown
+2018-03-26 10:24:28.863 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean -Closing JPA EntityManagerFactory for persistence unit 'default'
+2018-03-26 10:29:27.360 [restartedMain] INFO  com.tlgc.TlgcApplication -Starting TlgcApplication on tony-Satellite-L700 with PID 9512 (/home/tony/IdeaProjects/tlgc/target/classes started by tony in /home/tony/IdeaProjects/tlgc)
+2018-03-26 10:29:27.362 [restartedMain] INFO  com.tlgc.TlgcApplication -The following profiles are active: prod
+2018-03-26 10:29:27.467 [restartedMain] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext -Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@5d3a0264: startup date [Mon Mar 26 10:29:27 CST 2018]; root of context hierarchy
+2018-03-26 10:29:30.265 [restartedMain] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor -JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-03-26 10:29:30.868 [restartedMain] WARN  o.h.v.m.ParameterMessageInterpolator -HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2018-03-26 10:29:31.593 [restartedMain] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer -Tomcat initialized with port(s): 8080 (http)
+2018-03-26 10:29:31.610 [restartedMain] INFO  o.a.catalina.core.StandardService -Starting service [Tomcat]
+2018-03-26 10:29:31.612 [restartedMain] INFO  o.a.catalina.core.StandardEngine -Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-03-26 10:29:31.747 [localhost-startStop-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] -Initializing Spring embedded WebApplicationContext
+2018-03-26 10:29:31.747 [localhost-startStop-1] INFO  o.s.web.context.ContextLoader -Root WebApplicationContext: initialization completed in 4280 ms
+2018-03-26 10:29:31.989 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean -Mapping servlet: 'dispatcherServlet' to [/]
+2018-03-26 10:29:31.997 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-03-26 10:29:31.999 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-03-26 10:29:32.000 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-03-26 10:29:32.000 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'requestContextFilter' to: [/*]
+2018-03-26 10:29:32.572 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean -Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-03-26 10:29:32.588 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper -HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-03-26 10:29:32.661 [restartedMain] INFO  org.hibernate.Version -HHH000412: Hibernate Core {5.0.12.Final}
+2018-03-26 10:29:32.663 [restartedMain] INFO  org.hibernate.cfg.Environment -HHH000206: hibernate.properties not found
+2018-03-26 10:29:32.665 [restartedMain] INFO  org.hibernate.cfg.Environment -HHH000021: Bytecode provider name : javassist
+2018-03-26 10:29:32.715 [restartedMain] INFO  o.h.annotations.common.Version -HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-03-26 10:29:33.579 [restartedMain] INFO  org.hibernate.dialect.Dialect -HHH000400: Using dialect: org.hibernate.dialect.SQLServer2008Dialect
+2018-03-26 10:29:34.269 [restartedMain] INFO  o.h.tool.hbm2ddl.SchemaUpdate -HHH000228: Running hbm2ddl schema update
+2018-03-26 10:29:34.320 [restartedMain] INFO  o.h.t.s.e.i.InformationExtractorJdbcDatabaseMetaDataImpl -HHH000262: Table not found: TLG_Admin
+2018-03-26 10:29:34.643 [restartedMain] INFO  o.h.t.s.e.i.InformationExtractorJdbcDatabaseMetaDataImpl -HHH000262: Table not found: TLG_City
+2018-03-26 10:29:34.716 [restartedMain] INFO  o.h.t.s.e.i.InformationExtractorJdbcDatabaseMetaDataImpl -HHH000262: Table not found: TLG_Province
+2018-03-26 10:29:34.790 [restartedMain] INFO  o.h.t.s.e.i.InformationExtractorJdbcDatabaseMetaDataImpl -HHH000262: Table not found: TLG_Role
+2018-03-26 10:29:34.840 [restartedMain] INFO  o.h.t.s.e.i.InformationExtractorJdbcDatabaseMetaDataImpl -HHH000262: Table not found: TLG_Admin
+2018-03-26 10:29:34.866 [restartedMain] INFO  o.h.t.s.e.i.InformationExtractorJdbcDatabaseMetaDataImpl -HHH000262: Table not found: TLG_City
+2018-03-26 10:29:34.888 [restartedMain] INFO  o.h.t.s.e.i.InformationExtractorJdbcDatabaseMetaDataImpl -HHH000262: Table not found: TLG_Province
+2018-03-26 10:29:34.912 [restartedMain] INFO  o.h.t.s.e.i.InformationExtractorJdbcDatabaseMetaDataImpl -HHH000262: Table not found: TLG_Role
+2018-03-26 10:29:34.936 [restartedMain] INFO  o.h.t.s.e.i.InformationExtractorJdbcDatabaseMetaDataImpl -HHH000262: Table not found: TLG_Admin
+2018-03-26 10:29:35.665 [restartedMain] INFO  o.h.t.s.e.i.InformationExtractorJdbcDatabaseMetaDataImpl -HHH000262: Table not found: TLG_City
+2018-03-26 10:29:35.716 [restartedMain] INFO  o.h.t.s.e.i.InformationExtractorJdbcDatabaseMetaDataImpl -HHH000262: Table not found: TLG_Province
+2018-03-26 10:29:35.739 [restartedMain] INFO  o.h.t.s.e.i.InformationExtractorJdbcDatabaseMetaDataImpl -HHH000262: Table not found: TLG_Role
+2018-03-26 10:29:35.785 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean -Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-03-26 10:29:36.303 [restartedMain] WARN  o.h.v.m.ParameterMessageInterpolator -HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2018-03-26 10:29:36.783 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter -Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@5d3a0264: startup date [Mon Mar 26 10:29:27 CST 2018]; root of context hierarchy
+2018-03-26 10:29:36.862 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/httpclient]}" onto public java.lang.String com.tlgc.controller.HttpClientController.test() throws java.lang.Exception
+2018-03-26 10:29:36.869 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/getGym/{cityId}],methods=[GET]}" onto private com.alibaba.fastjson.JSONObject com.tlgc.controller.InterfaceCtrl.getCity(java.lang.Integer)
+2018-03-26 10:29:36.870 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/createIntro],methods=[POST]}" onto public com.tlgc.entity.Result com.tlgc.controller.InterfaceCtrl.createAppoint(javax.servlet.http.HttpServletResponse,com.tlgc.entity.Intro)
+2018-03-26 10:29:36.870 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/getPro],methods=[GET]}" onto private com.alibaba.fastjson.JSONObject com.tlgc.controller.InterfaceCtrl.getProvince(javax.servlet.http.HttpServletResponse)
+2018-03-26 10:29:36.871 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/getCity/{provinceId}],methods=[GET]}" onto private com.alibaba.fastjson.JSONObject com.tlgc.controller.InterfaceCtrl.getGym(java.lang.Integer)
+2018-03-26 10:29:36.875 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/interface/getGym/{cityId}],methods=[GET]}" onto private com.alibaba.fastjson.JSONObject com.tlgc.controller.testCtrl.getCity(java.lang.Integer)
+2018-03-26 10:29:36.876 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/interface/createIntro],methods=[POST]}" onto public com.tlgc.entity.Result com.tlgc.controller.testCtrl.createAppoint(javax.servlet.http.HttpServletResponse,com.tlgc.entity.Intro)
+2018-03-26 10:29:36.877 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/interface/admin],methods=[GET]}" onto private com.tlgc.entity.Admin com.tlgc.controller.testCtrl.who()
+2018-03-26 10:29:36.877 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/interface/getPro],methods=[GET]}" onto private com.alibaba.fastjson.JSONObject com.tlgc.controller.testCtrl.getProvince()
+2018-03-26 10:29:36.878 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/interface/getCity/{provinceId}],methods=[GET]}" onto private com.alibaba.fastjson.JSONObject com.tlgc.controller.testCtrl.getGym(java.lang.Integer)
+2018-03-26 10:29:36.878 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/interface/conf],methods=[GET]}" onto private java.lang.String com.tlgc.controller.testCtrl.config()
+2018-03-26 10:29:36.883 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-03-26 10:29:36.884 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-03-26 10:29:36.934 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping -Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-03-26 10:29:36.935 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping -Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-03-26 10:29:36.970 [restartedMain] INFO  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver -Detected @ExceptionHandler methods in exceptionHandle
+2018-03-26 10:29:37.010 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping -Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-03-26 10:29:37.426 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer -LiveReload server is running on port 35729
+2018-03-26 10:29:37.538 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter -Registering beans for JMX exposure on startup
+2018-03-26 10:29:37.595 [restartedMain] INFO  o.a.catalina.core.StandardService -Stopping service [Tomcat]
+2018-03-26 10:29:37.614 [restartedMain] INFO  o.s.b.a.l.AutoConfigurationReportLoggingInitializer -
+
+Error starting ApplicationContext. To display the auto-configuration report re-run your application with 'debug' enabled.
+2018-03-26 10:29:37.622 [restartedMain] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext -Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@5d3a0264: startup date [Mon Mar 26 10:29:27 CST 2018]; root of context hierarchy
+2018-03-26 10:29:37.625 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter -Unregistering JMX-exposed beans on shutdown
+2018-03-26 10:29:37.627 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean -Closing JPA EntityManagerFactory for persistence unit 'default'
+2018-03-26 10:30:54.144 [restartedMain] INFO  com.tlgc.TlgcApplication -Starting TlgcApplication on tony-Satellite-L700 with PID 9971 (/home/tony/IdeaProjects/tlgc/target/classes started by tony in /home/tony/IdeaProjects/tlgc)
+2018-03-26 10:30:54.147 [restartedMain] INFO  com.tlgc.TlgcApplication -The following profiles are active: prod
+2018-03-26 10:30:54.298 [restartedMain] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext -Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@4e424871: startup date [Mon Mar 26 10:30:54 CST 2018]; root of context hierarchy
+2018-03-26 10:30:57.161 [restartedMain] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor -JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-03-26 10:30:57.802 [restartedMain] WARN  o.h.v.m.ParameterMessageInterpolator -HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2018-03-26 10:30:58.878 [restartedMain] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer -Tomcat initialized with port(s): 8886 (http)
+2018-03-26 10:30:58.913 [restartedMain] INFO  o.a.catalina.core.StandardService -Starting service [Tomcat]
+2018-03-26 10:30:58.915 [restartedMain] INFO  o.a.catalina.core.StandardEngine -Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-03-26 10:30:59.049 [localhost-startStop-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] -Initializing Spring embedded WebApplicationContext
+2018-03-26 10:30:59.050 [localhost-startStop-1] INFO  o.s.web.context.ContextLoader -Root WebApplicationContext: initialization completed in 4752 ms
+2018-03-26 10:30:59.431 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean -Mapping servlet: 'dispatcherServlet' to [/]
+2018-03-26 10:30:59.438 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-03-26 10:30:59.439 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-03-26 10:30:59.439 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-03-26 10:30:59.440 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'requestContextFilter' to: [/*]
+2018-03-26 10:31:00.101 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean -Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-03-26 10:31:00.131 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper -HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-03-26 10:31:00.256 [restartedMain] INFO  org.hibernate.Version -HHH000412: Hibernate Core {5.0.12.Final}
+2018-03-26 10:31:00.260 [restartedMain] INFO  org.hibernate.cfg.Environment -HHH000206: hibernate.properties not found
+2018-03-26 10:31:00.263 [restartedMain] INFO  org.hibernate.cfg.Environment -HHH000021: Bytecode provider name : javassist
+2018-03-26 10:31:00.358 [restartedMain] INFO  o.h.annotations.common.Version -HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-03-26 10:31:01.989 [restartedMain] INFO  org.hibernate.dialect.Dialect -HHH000400: Using dialect: org.hibernate.dialect.SQLServer2008Dialect
+2018-03-26 10:31:02.841 [restartedMain] INFO  o.h.tool.hbm2ddl.SchemaUpdate -HHH000228: Running hbm2ddl schema update
+2018-03-26 10:31:02.896 [restartedMain] INFO  o.h.t.s.e.i.InformationExtractorJdbcDatabaseMetaDataImpl -HHH000262: Table not found: TLG_Admin
+2018-03-26 10:31:03.222 [restartedMain] INFO  o.h.t.s.e.i.InformationExtractorJdbcDatabaseMetaDataImpl -HHH000262: Table not found: TLG_City
+2018-03-26 10:31:03.302 [restartedMain] INFO  o.h.t.s.e.i.InformationExtractorJdbcDatabaseMetaDataImpl -HHH000262: Table not found: TLG_Province
+2018-03-26 10:31:03.591 [restartedMain] INFO  o.h.t.s.e.i.InformationExtractorJdbcDatabaseMetaDataImpl -HHH000262: Table not found: TLG_Role
+2018-03-26 10:31:03.643 [restartedMain] INFO  o.h.t.s.e.i.InformationExtractorJdbcDatabaseMetaDataImpl -HHH000262: Table not found: TLG_Admin
+2018-03-26 10:31:03.669 [restartedMain] INFO  o.h.t.s.e.i.InformationExtractorJdbcDatabaseMetaDataImpl -HHH000262: Table not found: TLG_City
+2018-03-26 10:31:03.694 [restartedMain] INFO  o.h.t.s.e.i.InformationExtractorJdbcDatabaseMetaDataImpl -HHH000262: Table not found: TLG_Province
+2018-03-26 10:31:03.928 [restartedMain] INFO  o.h.t.s.e.i.InformationExtractorJdbcDatabaseMetaDataImpl -HHH000262: Table not found: TLG_Role
+2018-03-26 10:31:03.954 [restartedMain] INFO  o.h.t.s.e.i.InformationExtractorJdbcDatabaseMetaDataImpl -HHH000262: Table not found: TLG_Admin
+2018-03-26 10:31:04.247 [restartedMain] INFO  o.h.t.s.e.i.InformationExtractorJdbcDatabaseMetaDataImpl -HHH000262: Table not found: TLG_City
+2018-03-26 10:31:04.297 [restartedMain] INFO  o.h.t.s.e.i.InformationExtractorJdbcDatabaseMetaDataImpl -HHH000262: Table not found: TLG_Province
+2018-03-26 10:31:04.321 [restartedMain] INFO  o.h.t.s.e.i.InformationExtractorJdbcDatabaseMetaDataImpl -HHH000262: Table not found: TLG_Role
+2018-03-26 10:31:04.378 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean -Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-03-26 10:31:05.037 [restartedMain] WARN  o.h.v.m.ParameterMessageInterpolator -HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2018-03-26 10:31:05.580 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter -Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@4e424871: startup date [Mon Mar 26 10:30:54 CST 2018]; root of context hierarchy
+2018-03-26 10:31:05.667 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/httpclient]}" onto public java.lang.String com.tlgc.controller.HttpClientController.test() throws java.lang.Exception
+2018-03-26 10:31:05.674 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/createIntro],methods=[POST]}" onto public com.tlgc.entity.Result com.tlgc.controller.InterfaceCtrl.createAppoint(javax.servlet.http.HttpServletResponse,com.tlgc.entity.Intro)
+2018-03-26 10:31:05.675 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/getPro],methods=[GET]}" onto private com.alibaba.fastjson.JSONObject com.tlgc.controller.InterfaceCtrl.getProvince(javax.servlet.http.HttpServletResponse)
+2018-03-26 10:31:05.675 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/getCity/{provinceId}],methods=[GET]}" onto private com.alibaba.fastjson.JSONObject com.tlgc.controller.InterfaceCtrl.getGym(java.lang.Integer)
+2018-03-26 10:31:05.676 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/getGym/{cityId}],methods=[GET]}" onto private com.alibaba.fastjson.JSONObject com.tlgc.controller.InterfaceCtrl.getCity(java.lang.Integer)
+2018-03-26 10:31:05.679 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/interface/createIntro],methods=[POST]}" onto public com.tlgc.entity.Result com.tlgc.controller.testCtrl.createAppoint(javax.servlet.http.HttpServletResponse,com.tlgc.entity.Intro)
+2018-03-26 10:31:05.680 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/interface/admin],methods=[GET]}" onto private com.tlgc.entity.Admin com.tlgc.controller.testCtrl.who()
+2018-03-26 10:31:05.680 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/interface/getPro],methods=[GET]}" onto private com.alibaba.fastjson.JSONObject com.tlgc.controller.testCtrl.getProvince()
+2018-03-26 10:31:05.681 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/interface/getCity/{provinceId}],methods=[GET]}" onto private com.alibaba.fastjson.JSONObject com.tlgc.controller.testCtrl.getGym(java.lang.Integer)
+2018-03-26 10:31:05.682 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/interface/getGym/{cityId}],methods=[GET]}" onto private com.alibaba.fastjson.JSONObject com.tlgc.controller.testCtrl.getCity(java.lang.Integer)
+2018-03-26 10:31:05.682 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/interface/conf],methods=[GET]}" onto private java.lang.String com.tlgc.controller.testCtrl.config()
+2018-03-26 10:31:05.685 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-03-26 10:31:05.685 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-03-26 10:31:05.727 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping -Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-03-26 10:31:05.727 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping -Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-03-26 10:31:05.753 [restartedMain] INFO  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver -Detected @ExceptionHandler methods in exceptionHandle
+2018-03-26 10:31:05.787 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping -Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-03-26 10:31:06.229 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer -LiveReload server is running on port 35729
+2018-03-26 10:31:06.357 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter -Registering beans for JMX exposure on startup
+2018-03-26 10:31:06.425 [restartedMain] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer -Tomcat started on port(s): 8886 (http)
+2018-03-26 10:31:06.432 [restartedMain] INFO  com.tlgc.TlgcApplication -Started TlgcApplication in 13.397 seconds (JVM running for 14.893)
+2018-03-26 10:36:27.641 [Thread-38] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext -Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@4e424871: startup date [Mon Mar 26 10:30:54 CST 2018]; root of context hierarchy
+2018-03-26 10:36:27.646 [Thread-38] INFO  o.s.j.e.a.AnnotationMBeanExporter -Unregistering JMX-exposed beans on shutdown
+2018-03-26 10:36:27.649 [Thread-38] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean -Closing JPA EntityManagerFactory for persistence unit 'default'
+2018-03-26 10:36:34.622 [restartedMain] INFO  com.tlgc.TlgcApplication -Starting TlgcApplication on tony-Satellite-L700 with PID 11686 (/home/tony/IdeaProjects/tlgc/target/classes started by tony in /home/tony/IdeaProjects/tlgc)
+2018-03-26 10:36:34.625 [restartedMain] INFO  com.tlgc.TlgcApplication -The following profiles are active: prod
+2018-03-26 10:36:34.811 [restartedMain] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext -Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@16617ae1: startup date [Mon Mar 26 10:36:34 CST 2018]; root of context hierarchy
+2018-03-26 10:36:37.665 [restartedMain] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor -JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-03-26 10:36:38.111 [restartedMain] WARN  o.h.v.m.ParameterMessageInterpolator -HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2018-03-26 10:36:38.666 [restartedMain] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer -Tomcat initialized with port(s): 8886 (http)
+2018-03-26 10:36:38.686 [restartedMain] INFO  o.a.catalina.core.StandardService -Starting service [Tomcat]
+2018-03-26 10:36:38.688 [restartedMain] INFO  o.a.catalina.core.StandardEngine -Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-03-26 10:36:38.865 [localhost-startStop-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] -Initializing Spring embedded WebApplicationContext
+2018-03-26 10:36:38.866 [localhost-startStop-1] INFO  o.s.web.context.ContextLoader -Root WebApplicationContext: initialization completed in 4055 ms
+2018-03-26 10:36:39.137 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean -Mapping servlet: 'dispatcherServlet' to [/]
+2018-03-26 10:36:39.145 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-03-26 10:36:39.147 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-03-26 10:36:39.147 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-03-26 10:36:39.148 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'requestContextFilter' to: [/*]
+2018-03-26 10:36:39.649 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean -Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-03-26 10:36:39.665 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper -HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-03-26 10:36:39.737 [restartedMain] INFO  org.hibernate.Version -HHH000412: Hibernate Core {5.0.12.Final}
+2018-03-26 10:36:39.739 [restartedMain] INFO  org.hibernate.cfg.Environment -HHH000206: hibernate.properties not found
+2018-03-26 10:36:39.741 [restartedMain] INFO  org.hibernate.cfg.Environment -HHH000021: Bytecode provider name : javassist
+2018-03-26 10:36:39.786 [restartedMain] INFO  o.h.annotations.common.Version -HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-03-26 10:36:40.809 [restartedMain] INFO  org.hibernate.dialect.Dialect -HHH000400: Using dialect: org.hibernate.dialect.SQLServer2008Dialect
+2018-03-26 10:36:41.843 [restartedMain] INFO  o.h.tool.hbm2ddl.SchemaUpdate -HHH000228: Running hbm2ddl schema update
+2018-03-26 10:36:41.897 [restartedMain] INFO  o.h.t.s.e.i.InformationExtractorJdbcDatabaseMetaDataImpl -HHH000262: Table not found: dbo.TLG_Admin
+2018-03-26 10:36:41.914 [restartedMain] INFO  o.h.t.s.e.i.InformationExtractorJdbcDatabaseMetaDataImpl -HHH000262: Table not found: dbo.TLG_Admin
+2018-03-26 10:36:41.961 [restartedMain] WARN  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext -Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaAutoConfiguration.class]: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory
+2018-03-26 10:36:41.970 [restartedMain] INFO  o.a.catalina.core.StandardService -Stopping service [Tomcat]
+2018-03-26 10:36:42.005 [restartedMain] INFO  o.s.b.a.l.AutoConfigurationReportLoggingInitializer -
+
+Error starting ApplicationContext. To display the auto-configuration report re-run your application with 'debug' enabled.
+2018-03-26 10:38:30.832 [restartedMain] INFO  com.tlgc.TlgcApplication -Starting TlgcApplication on tony-Satellite-L700 with PID 12046 (/home/tony/IdeaProjects/tlgc/target/classes started by tony in /home/tony/IdeaProjects/tlgc)
+2018-03-26 10:38:30.838 [restartedMain] INFO  com.tlgc.TlgcApplication -The following profiles are active: prod
+2018-03-26 10:38:31.092 [restartedMain] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext -Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@11469345: startup date [Mon Mar 26 10:38:31 CST 2018]; root of context hierarchy
+2018-03-26 10:38:35.111 [restartedMain] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor -JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-03-26 10:38:35.531 [restartedMain] WARN  o.h.v.m.ParameterMessageInterpolator -HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2018-03-26 10:38:36.214 [restartedMain] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer -Tomcat initialized with port(s): 8886 (http)
+2018-03-26 10:38:36.233 [restartedMain] INFO  o.a.catalina.core.StandardService -Starting service [Tomcat]
+2018-03-26 10:38:36.235 [restartedMain] INFO  o.a.catalina.core.StandardEngine -Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-03-26 10:38:36.370 [localhost-startStop-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] -Initializing Spring embedded WebApplicationContext
+2018-03-26 10:38:36.371 [localhost-startStop-1] INFO  o.s.web.context.ContextLoader -Root WebApplicationContext: initialization completed in 5279 ms
+2018-03-26 10:38:36.588 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean -Mapping servlet: 'dispatcherServlet' to [/]
+2018-03-26 10:38:36.595 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-03-26 10:38:36.596 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-03-26 10:38:36.596 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-03-26 10:38:36.597 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'requestContextFilter' to: [/*]
+2018-03-26 10:38:37.115 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean -Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-03-26 10:38:37.131 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper -HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-03-26 10:38:37.213 [restartedMain] INFO  org.hibernate.Version -HHH000412: Hibernate Core {5.0.12.Final}
+2018-03-26 10:38:37.215 [restartedMain] INFO  org.hibernate.cfg.Environment -HHH000206: hibernate.properties not found
+2018-03-26 10:38:37.217 [restartedMain] INFO  org.hibernate.cfg.Environment -HHH000021: Bytecode provider name : javassist
+2018-03-26 10:38:37.275 [restartedMain] INFO  o.h.annotations.common.Version -HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-03-26 10:38:38.670 [restartedMain] INFO  org.hibernate.dialect.Dialect -HHH000400: Using dialect: org.hibernate.dialect.SQLServer2008Dialect
+2018-03-26 10:38:39.391 [restartedMain] INFO  o.h.tool.hbm2ddl.SchemaUpdate -HHH000228: Running hbm2ddl schema update
+2018-03-26 10:38:39.466 [restartedMain] WARN  o.h.e.jdbc.spi.SqlExceptionHelper -SQL Error: 1038, SQLState: S0004
+2018-03-26 10:38:39.473 [restartedMain] WARN  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext -Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaAutoConfiguration.class]: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory
+2018-03-26 10:38:39.481 [restartedMain] INFO  o.a.catalina.core.StandardService -Stopping service [Tomcat]
+2018-03-26 10:38:39.512 [restartedMain] INFO  o.s.b.a.l.AutoConfigurationReportLoggingInitializer -
+
+Error starting ApplicationContext. To display the auto-configuration report re-run your application with 'debug' enabled.
+2018-03-26 10:40:44.207 [restartedMain] INFO  com.tlgc.TlgcApplication -Starting TlgcApplication on tony-Satellite-L700 with PID 12384 (/home/tony/IdeaProjects/tlgc/target/classes started by tony in /home/tony/IdeaProjects/tlgc)
+2018-03-26 10:40:44.218 [restartedMain] INFO  com.tlgc.TlgcApplication -The following profiles are active: prod
+2018-03-26 10:40:44.594 [restartedMain] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext -Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@719b54b4: startup date [Mon Mar 26 10:40:44 CST 2018]; root of context hierarchy
+2018-03-26 10:40:48.663 [restartedMain] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor -JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-03-26 10:40:49.001 [restartedMain] WARN  o.h.v.m.ParameterMessageInterpolator -HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2018-03-26 10:40:49.603 [restartedMain] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer -Tomcat initialized with port(s): 8886 (http)
+2018-03-26 10:40:49.624 [restartedMain] INFO  o.a.catalina.core.StandardService -Starting service [Tomcat]
+2018-03-26 10:40:49.626 [restartedMain] INFO  o.a.catalina.core.StandardEngine -Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-03-26 10:40:49.748 [localhost-startStop-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] -Initializing Spring embedded WebApplicationContext
+2018-03-26 10:40:49.749 [localhost-startStop-1] INFO  o.s.web.context.ContextLoader -Root WebApplicationContext: initialization completed in 5155 ms
+2018-03-26 10:40:49.976 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean -Mapping servlet: 'dispatcherServlet' to [/]
+2018-03-26 10:40:49.982 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-03-26 10:40:49.983 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-03-26 10:40:49.984 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-03-26 10:40:49.984 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'requestContextFilter' to: [/*]
+2018-03-26 10:40:50.503 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean -Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-03-26 10:40:50.525 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper -HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-03-26 10:40:50.610 [restartedMain] INFO  org.hibernate.Version -HHH000412: Hibernate Core {5.0.12.Final}
+2018-03-26 10:40:50.612 [restartedMain] INFO  org.hibernate.cfg.Environment -HHH000206: hibernate.properties not found
+2018-03-26 10:40:50.614 [restartedMain] INFO  org.hibernate.cfg.Environment -HHH000021: Bytecode provider name : javassist
+2018-03-26 10:40:50.665 [restartedMain] INFO  o.h.annotations.common.Version -HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-03-26 10:40:51.810 [restartedMain] INFO  org.hibernate.dialect.Dialect -HHH000400: Using dialect: org.hibernate.dialect.SQLServer2008Dialect
+2018-03-26 10:40:52.547 [restartedMain] INFO  o.h.tool.hbm2ddl.SchemaUpdate -HHH000228: Running hbm2ddl schema update
+2018-03-26 10:40:52.587 [restartedMain] INFO  o.h.t.s.e.i.InformationExtractorJdbcDatabaseMetaDataImpl -HHH000262: Table not found: TLG_Admin
+2018-03-26 10:40:52.706 [restartedMain] INFO  o.h.t.s.e.i.InformationExtractorJdbcDatabaseMetaDataImpl -HHH000262: Table not found: TLG_City
+2018-03-26 10:40:53.005 [restartedMain] INFO  o.h.t.s.e.i.InformationExtractorJdbcDatabaseMetaDataImpl -HHH000262: Table not found: TLG_Province
+2018-03-26 10:40:53.098 [restartedMain] INFO  o.h.t.s.e.i.InformationExtractorJdbcDatabaseMetaDataImpl -HHH000262: Table not found: TLG_Role
+2018-03-26 10:40:53.151 [restartedMain] INFO  o.h.t.s.e.i.InformationExtractorJdbcDatabaseMetaDataImpl -HHH000262: Table not found: TLG_Admin
+2018-03-26 10:40:53.178 [restartedMain] INFO  o.h.t.s.e.i.InformationExtractorJdbcDatabaseMetaDataImpl -HHH000262: Table not found: TLG_City
+2018-03-26 10:40:53.204 [restartedMain] INFO  o.h.t.s.e.i.InformationExtractorJdbcDatabaseMetaDataImpl -HHH000262: Table not found: TLG_Province
+2018-03-26 10:40:53.232 [restartedMain] INFO  o.h.t.s.e.i.InformationExtractorJdbcDatabaseMetaDataImpl -HHH000262: Table not found: TLG_Role
+2018-03-26 10:40:53.468 [restartedMain] INFO  o.h.t.s.e.i.InformationExtractorJdbcDatabaseMetaDataImpl -HHH000262: Table not found: TLG_Admin
+2018-03-26 10:40:53.763 [restartedMain] INFO  o.h.t.s.e.i.InformationExtractorJdbcDatabaseMetaDataImpl -HHH000262: Table not found: TLG_City
+2018-03-26 10:40:54.031 [restartedMain] INFO  o.h.t.s.e.i.InformationExtractorJdbcDatabaseMetaDataImpl -HHH000262: Table not found: TLG_Province
+2018-03-26 10:40:54.057 [restartedMain] INFO  o.h.t.s.e.i.InformationExtractorJdbcDatabaseMetaDataImpl -HHH000262: Table not found: TLG_Role
+2018-03-26 10:40:54.109 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean -Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-03-26 10:40:54.731 [restartedMain] WARN  o.h.v.m.ParameterMessageInterpolator -HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2018-03-26 10:40:55.283 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter -Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@719b54b4: startup date [Mon Mar 26 10:40:44 CST 2018]; root of context hierarchy
+2018-03-26 10:40:55.370 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/httpclient]}" onto public java.lang.String com.tlgc.controller.HttpClientController.test() throws java.lang.Exception
+2018-03-26 10:40:55.376 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/getCity/{provinceId}],methods=[GET]}" onto private com.alibaba.fastjson.JSONObject com.tlgc.controller.InterfaceCtrl.getGym(java.lang.Integer)
+2018-03-26 10:40:55.377 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/getGym/{cityId}],methods=[GET]}" onto private com.alibaba.fastjson.JSONObject com.tlgc.controller.InterfaceCtrl.getCity(java.lang.Integer)
+2018-03-26 10:40:55.378 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/createIntro],methods=[POST]}" onto public com.tlgc.entity.Result com.tlgc.controller.InterfaceCtrl.createAppoint(javax.servlet.http.HttpServletResponse,com.tlgc.entity.Intro)
+2018-03-26 10:40:55.379 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/getPro],methods=[GET]}" onto private com.alibaba.fastjson.JSONObject com.tlgc.controller.InterfaceCtrl.getProvince(javax.servlet.http.HttpServletResponse)
+2018-03-26 10:40:55.383 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/interface/getCity/{provinceId}],methods=[GET]}" onto private com.alibaba.fastjson.JSONObject com.tlgc.controller.testCtrl.getGym(java.lang.Integer)
+2018-03-26 10:40:55.383 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/interface/getGym/{cityId}],methods=[GET]}" onto private com.alibaba.fastjson.JSONObject com.tlgc.controller.testCtrl.getCity(java.lang.Integer)
+2018-03-26 10:40:55.384 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/interface/createIntro],methods=[POST]}" onto public com.tlgc.entity.Result com.tlgc.controller.testCtrl.createAppoint(javax.servlet.http.HttpServletResponse,com.tlgc.entity.Intro)
+2018-03-26 10:40:55.384 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/interface/getPro],methods=[GET]}" onto private com.alibaba.fastjson.JSONObject com.tlgc.controller.testCtrl.getProvince()
+2018-03-26 10:40:55.384 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/interface/admin],methods=[GET]}" onto private com.tlgc.entity.Admin com.tlgc.controller.testCtrl.who()
+2018-03-26 10:40:55.385 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/interface/conf],methods=[GET]}" onto private java.lang.String com.tlgc.controller.testCtrl.config()
+2018-03-26 10:40:55.388 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-03-26 10:40:55.389 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-03-26 10:40:55.430 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping -Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-03-26 10:40:55.431 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping -Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-03-26 10:40:55.456 [restartedMain] INFO  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver -Detected @ExceptionHandler methods in exceptionHandle
+2018-03-26 10:40:55.488 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping -Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-03-26 10:40:55.928 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer -LiveReload server is running on port 35729
+2018-03-26 10:40:56.030 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter -Registering beans for JMX exposure on startup
+2018-03-26 10:40:56.100 [restartedMain] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer -Tomcat started on port(s): 8886 (http)
+2018-03-26 10:40:56.107 [restartedMain] INFO  com.tlgc.TlgcApplication -Started TlgcApplication in 13.988 seconds (JVM running for 16.819)
+2018-03-26 10:43:57.680 [http-nio-8886-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] -Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-03-26 10:43:57.680 [http-nio-8886-exec-1] INFO  o.s.web.servlet.DispatcherServlet -FrameworkServlet 'dispatcherServlet': initialization started
+2018-03-26 10:43:57.697 [http-nio-8886-exec-1] INFO  o.s.web.servlet.DispatcherServlet -FrameworkServlet 'dispatcherServlet': initialization completed in 17 ms
+2018-03-26 10:50:02.937 [Thread-39] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext -Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@719b54b4: startup date [Mon Mar 26 10:40:44 CST 2018]; root of context hierarchy
+2018-03-26 10:50:02.947 [Thread-39] INFO  o.s.j.e.a.AnnotationMBeanExporter -Unregistering JMX-exposed beans on shutdown
+2018-03-26 10:50:02.951 [Thread-39] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean -Closing JPA EntityManagerFactory for persistence unit 'default'
+2018-03-26 10:50:12.432 [restartedMain] INFO  com.tlgc.TlgcApplication -Starting TlgcApplication on tony-Satellite-L700 with PID 12777 (/home/tony/IdeaProjects/tlgc/target/classes started by tony in /home/tony/IdeaProjects/tlgc)
+2018-03-26 10:50:12.435 [restartedMain] INFO  com.tlgc.TlgcApplication -The following profiles are active: prod
+2018-03-26 10:50:12.843 [restartedMain] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext -Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@3e1708a: startup date [Mon Mar 26 10:50:12 CST 2018]; root of context hierarchy
+2018-03-26 10:50:16.705 [restartedMain] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor -JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-03-26 10:50:18.170 [restartedMain] WARN  o.h.v.m.ParameterMessageInterpolator -HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2018-03-26 10:50:20.697 [restartedMain] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer -Tomcat initialized with port(s): 8886 (http)
+2018-03-26 10:50:20.731 [restartedMain] INFO  o.a.catalina.core.StandardService -Starting service [Tomcat]
+2018-03-26 10:50:20.754 [restartedMain] INFO  o.a.catalina.core.StandardEngine -Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-03-26 10:50:21.075 [localhost-startStop-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] -Initializing Spring embedded WebApplicationContext
+2018-03-26 10:50:21.076 [localhost-startStop-1] INFO  o.s.web.context.ContextLoader -Root WebApplicationContext: initialization completed in 8233 ms
+2018-03-26 10:50:21.471 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean -Mapping servlet: 'dispatcherServlet' to [/]
+2018-03-26 10:50:21.483 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-03-26 10:50:21.484 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-03-26 10:50:21.485 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-03-26 10:50:21.491 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'requestContextFilter' to: [/*]
+2018-03-26 10:50:22.381 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean -Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-03-26 10:50:22.410 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper -HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-03-26 10:50:22.527 [restartedMain] INFO  org.hibernate.Version -HHH000412: Hibernate Core {5.0.12.Final}
+2018-03-26 10:50:22.530 [restartedMain] INFO  org.hibernate.cfg.Environment -HHH000206: hibernate.properties not found
+2018-03-26 10:50:22.534 [restartedMain] INFO  org.hibernate.cfg.Environment -HHH000021: Bytecode provider name : javassist
+2018-03-26 10:50:22.628 [restartedMain] INFO  o.h.annotations.common.Version -HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-03-26 10:50:24.317 [restartedMain] INFO  org.hibernate.dialect.Dialect -HHH000400: Using dialect: org.hibernate.dialect.SQLServer2008Dialect
+2018-03-26 10:50:25.005 [restartedMain] INFO  o.h.tool.hbm2ddl.SchemaUpdate -HHH000228: Running hbm2ddl schema update
+2018-03-26 10:50:25.061 [restartedMain] INFO  o.h.t.s.e.i.InformationExtractorJdbcDatabaseMetaDataImpl -HHH000262: Table not found: dbo.TLG_Admin
+2018-03-26 10:50:25.077 [restartedMain] INFO  o.h.t.s.e.i.InformationExtractorJdbcDatabaseMetaDataImpl -HHH000262: Table not found: dbo.TLG_Admin
+2018-03-26 10:50:25.105 [restartedMain] WARN  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext -Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaAutoConfiguration.class]: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory
+2018-03-26 10:50:25.111 [restartedMain] INFO  o.a.catalina.core.StandardService -Stopping service [Tomcat]
+2018-03-26 10:50:25.141 [restartedMain] INFO  o.s.b.a.l.AutoConfigurationReportLoggingInitializer -
+
+Error starting ApplicationContext. To display the auto-configuration report re-run your application with 'debug' enabled.
+2018-03-26 10:54:29.391 [restartedMain] INFO  com.tlgc.TlgcApplication -Starting TlgcApplication on tony-Satellite-L700 with PID 13105 (/home/tony/IdeaProjects/tlgc/target/classes started by tony in /home/tony/IdeaProjects/tlgc)
+2018-03-26 10:54:29.394 [restartedMain] INFO  com.tlgc.TlgcApplication -The following profiles are active: prod
+2018-03-26 10:54:29.619 [restartedMain] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext -Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@3de30592: startup date [Mon Mar 26 10:54:29 CST 2018]; root of context hierarchy
+2018-03-26 10:54:32.370 [restartedMain] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor -JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-03-26 10:54:32.793 [restartedMain] WARN  o.h.v.m.ParameterMessageInterpolator -HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2018-03-26 10:54:33.508 [restartedMain] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer -Tomcat initialized with port(s): 8886 (http)
+2018-03-26 10:54:33.523 [restartedMain] INFO  o.a.catalina.core.StandardService -Starting service [Tomcat]
+2018-03-26 10:54:33.524 [restartedMain] INFO  o.a.catalina.core.StandardEngine -Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-03-26 10:54:33.632 [localhost-startStop-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] -Initializing Spring embedded WebApplicationContext
+2018-03-26 10:54:33.633 [localhost-startStop-1] INFO  o.s.web.context.ContextLoader -Root WebApplicationContext: initialization completed in 4015 ms
+2018-03-26 10:54:33.838 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean -Mapping servlet: 'dispatcherServlet' to [/]
+2018-03-26 10:54:33.844 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-03-26 10:54:33.845 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-03-26 10:54:33.845 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-03-26 10:54:33.845 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'requestContextFilter' to: [/*]
+2018-03-26 10:54:34.331 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean -Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-03-26 10:54:34.347 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper -HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-03-26 10:54:34.418 [restartedMain] INFO  org.hibernate.Version -HHH000412: Hibernate Core {5.0.12.Final}
+2018-03-26 10:54:34.419 [restartedMain] INFO  org.hibernate.cfg.Environment -HHH000206: hibernate.properties not found
+2018-03-26 10:54:34.421 [restartedMain] INFO  org.hibernate.cfg.Environment -HHH000021: Bytecode provider name : javassist
+2018-03-26 10:54:34.474 [restartedMain] INFO  o.h.annotations.common.Version -HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-03-26 10:54:35.634 [restartedMain] INFO  org.hibernate.dialect.Dialect -HHH000400: Using dialect: org.hibernate.dialect.SQLServer2008Dialect
+2018-03-26 10:54:36.392 [restartedMain] INFO  o.h.tool.hbm2ddl.SchemaUpdate -HHH000228: Running hbm2ddl schema update
+2018-03-26 10:54:36.434 [restartedMain] INFO  o.h.t.s.e.i.InformationExtractorJdbcDatabaseMetaDataImpl -HHH000262: Table not found: TLG_Admin
+2018-03-26 10:54:37.172 [restartedMain] INFO  o.h.t.s.e.i.InformationExtractorJdbcDatabaseMetaDataImpl -HHH000262: Table not found: TLG_City
+2018-03-26 10:54:37.247 [restartedMain] INFO  o.h.t.s.e.i.InformationExtractorJdbcDatabaseMetaDataImpl -HHH000262: Table not found: TLG_Province
+2018-03-26 10:54:37.325 [restartedMain] INFO  o.h.t.s.e.i.InformationExtractorJdbcDatabaseMetaDataImpl -HHH000262: Table not found: TLG_Role
+2018-03-26 10:54:37.804 [restartedMain] INFO  o.h.t.s.e.i.InformationExtractorJdbcDatabaseMetaDataImpl -HHH000262: Table not found: TLG_Admin
+2018-03-26 10:54:38.251 [restartedMain] INFO  o.h.t.s.e.i.InformationExtractorJdbcDatabaseMetaDataImpl -HHH000262: Table not found: TLG_City
+2018-03-26 10:54:38.275 [restartedMain] INFO  o.h.t.s.e.i.InformationExtractorJdbcDatabaseMetaDataImpl -HHH000262: Table not found: TLG_Province
+2018-03-26 10:54:38.510 [restartedMain] INFO  o.h.t.s.e.i.InformationExtractorJdbcDatabaseMetaDataImpl -HHH000262: Table not found: TLG_Role
+2018-03-26 10:54:38.742 [restartedMain] INFO  o.h.t.s.e.i.InformationExtractorJdbcDatabaseMetaDataImpl -HHH000262: Table not found: TLG_Admin
+2018-03-26 10:54:39.034 [restartedMain] INFO  o.h.t.s.e.i.InformationExtractorJdbcDatabaseMetaDataImpl -HHH000262: Table not found: TLG_City
+2018-03-26 10:54:39.088 [restartedMain] INFO  o.h.t.s.e.i.InformationExtractorJdbcDatabaseMetaDataImpl -HHH000262: Table not found: TLG_Province
+2018-03-26 10:54:39.114 [restartedMain] INFO  o.h.t.s.e.i.InformationExtractorJdbcDatabaseMetaDataImpl -HHH000262: Table not found: TLG_Role
+2018-03-26 10:54:39.157 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean -Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-03-26 10:54:39.683 [restartedMain] WARN  o.h.v.m.ParameterMessageInterpolator -HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2018-03-26 10:54:40.164 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter -Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@3de30592: startup date [Mon Mar 26 10:54:29 CST 2018]; root of context hierarchy
+2018-03-26 10:54:40.245 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/httpclient]}" onto public java.lang.String com.tlgc.controller.HttpClientController.test() throws java.lang.Exception
+2018-03-26 10:54:40.251 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/getCity/{provinceId}],methods=[GET]}" onto private com.alibaba.fastjson.JSONObject com.tlgc.controller.InterfaceCtrl.getGym(java.lang.Integer)
+2018-03-26 10:54:40.252 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/getGym/{cityId}],methods=[GET]}" onto private com.alibaba.fastjson.JSONObject com.tlgc.controller.InterfaceCtrl.getCity(java.lang.Integer)
+2018-03-26 10:54:40.252 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/createIntro],methods=[POST]}" onto public com.tlgc.entity.Result com.tlgc.controller.InterfaceCtrl.createAppoint(javax.servlet.http.HttpServletResponse,com.tlgc.entity.Intro)
+2018-03-26 10:54:40.253 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/getPro],methods=[GET]}" onto private com.alibaba.fastjson.JSONObject com.tlgc.controller.InterfaceCtrl.getProvince(javax.servlet.http.HttpServletResponse)
+2018-03-26 10:54:40.257 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/interface/getCity/{provinceId}],methods=[GET]}" onto private com.alibaba.fastjson.JSONObject com.tlgc.controller.testCtrl.getGym(java.lang.Integer)
+2018-03-26 10:54:40.258 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/interface/getGym/{cityId}],methods=[GET]}" onto private com.alibaba.fastjson.JSONObject com.tlgc.controller.testCtrl.getCity(java.lang.Integer)
+2018-03-26 10:54:40.258 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/interface/createIntro],methods=[POST]}" onto public com.tlgc.entity.Result com.tlgc.controller.testCtrl.createAppoint(javax.servlet.http.HttpServletResponse,com.tlgc.entity.Intro)
+2018-03-26 10:54:40.259 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/interface/getPro],methods=[GET]}" onto private com.alibaba.fastjson.JSONObject com.tlgc.controller.testCtrl.getProvince()
+2018-03-26 10:54:40.259 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/interface/admin],methods=[GET]}" onto private com.tlgc.entity.Admin com.tlgc.controller.testCtrl.who()
+2018-03-26 10:54:40.260 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/interface/conf],methods=[GET]}" onto private java.lang.String com.tlgc.controller.testCtrl.config()
+2018-03-26 10:54:40.264 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-03-26 10:54:40.265 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-03-26 10:54:40.308 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping -Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-03-26 10:54:40.308 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping -Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-03-26 10:54:40.333 [restartedMain] INFO  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver -Detected @ExceptionHandler methods in exceptionHandle
+2018-03-26 10:54:40.366 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping -Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-03-26 10:54:40.873 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer -LiveReload server is running on port 35729
+2018-03-26 10:54:40.968 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter -Registering beans for JMX exposure on startup
+2018-03-26 10:54:41.064 [restartedMain] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer -Tomcat started on port(s): 8886 (http)
+2018-03-26 10:54:41.074 [restartedMain] INFO  com.tlgc.TlgcApplication -Started TlgcApplication in 12.831 seconds (JVM running for 14.432)
+2018-03-26 10:55:04.753 [Thread-37] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext -Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@3de30592: startup date [Mon Mar 26 10:54:29 CST 2018]; root of context hierarchy
+2018-03-26 10:55:04.757 [Thread-37] INFO  o.s.j.e.a.AnnotationMBeanExporter -Unregistering JMX-exposed beans on shutdown
+2018-03-26 10:55:04.760 [Thread-37] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean -Closing JPA EntityManagerFactory for persistence unit 'default'
+2018-03-26 10:55:08.691 [restartedMain] INFO  com.tlgc.TlgcApplication -Starting TlgcApplication on tony-Satellite-L700 with PID 13287 (/home/tony/IdeaProjects/tlgc/target/classes started by tony in /home/tony/IdeaProjects/tlgc)
+2018-03-26 10:55:08.694 [restartedMain] INFO  com.tlgc.TlgcApplication -The following profiles are active: prod
+2018-03-26 10:55:08.878 [restartedMain] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext -Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@40d9d887: startup date [Mon Mar 26 10:55:08 CST 2018]; root of context hierarchy
+2018-03-26 10:55:12.004 [restartedMain] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor -JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-03-26 10:55:12.513 [restartedMain] WARN  o.h.v.m.ParameterMessageInterpolator -HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2018-03-26 10:55:13.414 [restartedMain] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer -Tomcat initialized with port(s): 8886 (http)
+2018-03-26 10:55:13.436 [restartedMain] INFO  o.a.catalina.core.StandardService -Starting service [Tomcat]
+2018-03-26 10:55:13.438 [restartedMain] INFO  o.a.catalina.core.StandardEngine -Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-03-26 10:55:13.612 [localhost-startStop-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] -Initializing Spring embedded WebApplicationContext
+2018-03-26 10:55:13.613 [localhost-startStop-1] INFO  o.s.web.context.ContextLoader -Root WebApplicationContext: initialization completed in 4735 ms
+2018-03-26 10:55:13.870 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean -Mapping servlet: 'dispatcherServlet' to [/]
+2018-03-26 10:55:13.877 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-03-26 10:55:13.878 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-03-26 10:55:13.878 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-03-26 10:55:13.878 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'requestContextFilter' to: [/*]
+2018-03-26 10:55:14.371 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean -Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-03-26 10:55:14.386 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper -HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-03-26 10:55:14.459 [restartedMain] INFO  org.hibernate.Version -HHH000412: Hibernate Core {5.0.12.Final}
+2018-03-26 10:55:14.461 [restartedMain] INFO  org.hibernate.cfg.Environment -HHH000206: hibernate.properties not found
+2018-03-26 10:55:14.462 [restartedMain] INFO  org.hibernate.cfg.Environment -HHH000021: Bytecode provider name : javassist
+2018-03-26 10:55:14.508 [restartedMain] INFO  o.h.annotations.common.Version -HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-03-26 10:55:15.842 [restartedMain] INFO  org.hibernate.dialect.Dialect -HHH000400: Using dialect: org.hibernate.dialect.SQLServer2008Dialect
+2018-03-26 10:55:16.562 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean -Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-03-26 10:55:17.333 [restartedMain] WARN  o.h.v.m.ParameterMessageInterpolator -HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2018-03-26 10:55:18.093 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter -Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@40d9d887: startup date [Mon Mar 26 10:55:08 CST 2018]; root of context hierarchy
+2018-03-26 10:55:18.222 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/httpclient]}" onto public java.lang.String com.tlgc.controller.HttpClientController.test() throws java.lang.Exception
+2018-03-26 10:55:18.232 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/getGym/{cityId}],methods=[GET]}" onto private com.alibaba.fastjson.JSONObject com.tlgc.controller.InterfaceCtrl.getCity(java.lang.Integer)
+2018-03-26 10:55:18.232 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/createIntro],methods=[POST]}" onto public com.tlgc.entity.Result com.tlgc.controller.InterfaceCtrl.createAppoint(javax.servlet.http.HttpServletResponse,com.tlgc.entity.Intro)
+2018-03-26 10:55:18.233 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/getPro],methods=[GET]}" onto private com.alibaba.fastjson.JSONObject com.tlgc.controller.InterfaceCtrl.getProvince(javax.servlet.http.HttpServletResponse)
+2018-03-26 10:55:18.234 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/getCity/{provinceId}],methods=[GET]}" onto private com.alibaba.fastjson.JSONObject com.tlgc.controller.InterfaceCtrl.getGym(java.lang.Integer)
+2018-03-26 10:55:18.238 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/interface/getGym/{cityId}],methods=[GET]}" onto private com.alibaba.fastjson.JSONObject com.tlgc.controller.testCtrl.getCity(java.lang.Integer)
+2018-03-26 10:55:18.239 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/interface/createIntro],methods=[POST]}" onto public com.tlgc.entity.Result com.tlgc.controller.testCtrl.createAppoint(javax.servlet.http.HttpServletResponse,com.tlgc.entity.Intro)
+2018-03-26 10:55:18.240 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/interface/admin],methods=[GET]}" onto private com.tlgc.entity.Admin com.tlgc.controller.testCtrl.who()
+2018-03-26 10:55:18.241 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/interface/getPro],methods=[GET]}" onto private com.alibaba.fastjson.JSONObject com.tlgc.controller.testCtrl.getProvince()
+2018-03-26 10:55:18.242 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/interface/getCity/{provinceId}],methods=[GET]}" onto private com.alibaba.fastjson.JSONObject com.tlgc.controller.testCtrl.getGym(java.lang.Integer)
+2018-03-26 10:55:18.243 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/interface/conf],methods=[GET]}" onto private java.lang.String com.tlgc.controller.testCtrl.config()
+2018-03-26 10:55:18.247 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-03-26 10:55:18.248 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-03-26 10:55:18.311 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping -Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-03-26 10:55:18.311 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping -Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-03-26 10:55:18.357 [restartedMain] INFO  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver -Detected @ExceptionHandler methods in exceptionHandle
+2018-03-26 10:55:18.418 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping -Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-03-26 10:55:18.997 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer -LiveReload server is running on port 35729
+2018-03-26 10:55:19.142 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter -Registering beans for JMX exposure on startup
+2018-03-26 10:55:19.247 [restartedMain] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer -Tomcat started on port(s): 8886 (http)
+2018-03-26 10:55:19.258 [restartedMain] INFO  com.tlgc.TlgcApplication -Started TlgcApplication in 11.46 seconds (JVM running for 12.991)
+2018-03-26 11:03:17.592 [Thread-34] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext -Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@40d9d887: startup date [Mon Mar 26 10:55:08 CST 2018]; root of context hierarchy
+2018-03-26 11:03:17.598 [Thread-34] INFO  o.s.j.e.a.AnnotationMBeanExporter -Unregistering JMX-exposed beans on shutdown
+2018-03-26 11:03:17.601 [Thread-34] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean -Closing JPA EntityManagerFactory for persistence unit 'default'
+2018-03-26 11:24:43.110 [restartedMain] INFO  com.tlgc.TlgcApplication -Starting TlgcApplication on tony-Satellite-L700 with PID 15479 (/home/tony/IdeaProjects/tlgc/target/classes started by tony in /home/tony/IdeaProjects/tlgc)
+2018-03-26 11:24:43.114 [restartedMain] INFO  com.tlgc.TlgcApplication -The following profiles are active: prod
+2018-03-26 11:24:43.289 [restartedMain] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext -Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@a26e628: startup date [Mon Mar 26 11:24:43 CST 2018]; root of context hierarchy
+2018-03-26 11:24:48.052 [restartedMain] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor -JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-03-26 11:24:49.143 [restartedMain] WARN  o.h.v.m.ParameterMessageInterpolator -HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2018-03-26 11:24:50.815 [restartedMain] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer -Tomcat initialized with port(s): 8886 (http)
+2018-03-26 11:24:50.908 [restartedMain] INFO  o.a.catalina.core.StandardService -Starting service [Tomcat]
+2018-03-26 11:24:50.922 [restartedMain] INFO  o.a.catalina.core.StandardEngine -Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-03-26 11:24:51.577 [localhost-startStop-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] -Initializing Spring embedded WebApplicationContext
+2018-03-26 11:24:51.580 [localhost-startStop-1] INFO  o.s.web.context.ContextLoader -Root WebApplicationContext: initialization completed in 8291 ms
+2018-03-26 11:24:52.367 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean -Mapping servlet: 'dispatcherServlet' to [/]
+2018-03-26 11:24:52.384 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-03-26 11:24:52.386 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-03-26 11:24:52.387 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-03-26 11:24:52.388 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'requestContextFilter' to: [/*]
+2018-03-26 11:24:53.792 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean -Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-03-26 11:24:53.822 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper -HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-03-26 11:24:53.965 [restartedMain] INFO  org.hibernate.Version -HHH000412: Hibernate Core {5.0.12.Final}
+2018-03-26 11:24:53.970 [restartedMain] INFO  org.hibernate.cfg.Environment -HHH000206: hibernate.properties not found
+2018-03-26 11:24:53.973 [restartedMain] INFO  org.hibernate.cfg.Environment -HHH000021: Bytecode provider name : javassist
+2018-03-26 11:24:54.079 [restartedMain] INFO  o.h.annotations.common.Version -HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-03-26 11:24:55.602 [restartedMain] INFO  org.hibernate.dialect.Dialect -HHH000400: Using dialect: org.hibernate.dialect.SQLServer2008Dialect
+2018-03-26 11:24:56.380 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean -Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-03-26 11:24:56.445 [restartedMain] WARN  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext -Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'httpClientController': Injection of resource dependencies failed; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'httpAPIService': Unsatisfied dependency expressed through field 'httpClient'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'org.apache.http.impl.client.CloseableHttpClient' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2018-03-26 11:24:56.446 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean -Closing JPA EntityManagerFactory for persistence unit 'default'
+2018-03-26 11:24:56.455 [restartedMain] INFO  o.a.catalina.core.StandardService -Stopping service [Tomcat]
+2018-03-26 11:24:56.487 [restartedMain] INFO  o.s.b.a.l.AutoConfigurationReportLoggingInitializer -
+
+Error starting ApplicationContext. To display the auto-configuration report re-run your application with 'debug' enabled.
+2018-03-26 11:28:46.651 [restartedMain] INFO  com.tlgc.TlgcApplication -Starting TlgcApplication on tony-Satellite-L700 with PID 16083 (/home/tony/IdeaProjects/tlgc/target/classes started by tony in /home/tony/IdeaProjects/tlgc)
+2018-03-26 11:28:46.660 [restartedMain] INFO  com.tlgc.TlgcApplication -The following profiles are active: prod
+2018-03-26 11:28:46.878 [restartedMain] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext -Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@6f3cc710: startup date [Mon Mar 26 11:28:46 CST 2018]; root of context hierarchy
+2018-03-26 11:28:52.265 [restartedMain] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor -JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-03-26 11:28:53.243 [restartedMain] WARN  o.h.v.m.ParameterMessageInterpolator -HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2018-03-26 11:28:55.250 [restartedMain] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer -Tomcat initialized with port(s): 8886 (http)
+2018-03-26 11:28:55.362 [restartedMain] INFO  o.a.catalina.core.StandardService -Starting service [Tomcat]
+2018-03-26 11:28:55.379 [restartedMain] INFO  o.a.catalina.core.StandardEngine -Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-03-26 11:28:55.776 [localhost-startStop-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] -Initializing Spring embedded WebApplicationContext
+2018-03-26 11:28:55.777 [localhost-startStop-1] INFO  o.s.web.context.ContextLoader -Root WebApplicationContext: initialization completed in 8900 ms
+2018-03-26 11:28:56.604 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean -Mapping servlet: 'dispatcherServlet' to [/]
+2018-03-26 11:28:56.618 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-03-26 11:28:56.620 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-03-26 11:28:56.621 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-03-26 11:28:56.622 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'requestContextFilter' to: [/*]
+2018-03-26 11:28:57.932 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean -Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-03-26 11:28:57.962 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper -HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-03-26 11:28:58.178 [restartedMain] INFO  org.hibernate.Version -HHH000412: Hibernate Core {5.0.12.Final}
+2018-03-26 11:28:58.182 [restartedMain] INFO  org.hibernate.cfg.Environment -HHH000206: hibernate.properties not found
+2018-03-26 11:28:58.186 [restartedMain] INFO  org.hibernate.cfg.Environment -HHH000021: Bytecode provider name : javassist
+2018-03-26 11:28:58.306 [restartedMain] INFO  o.h.annotations.common.Version -HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-03-26 11:29:00.428 [restartedMain] INFO  org.hibernate.dialect.Dialect -HHH000400: Using dialect: org.hibernate.dialect.SQLServer2008Dialect
+2018-03-26 11:29:01.824 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean -Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-03-26 11:29:02.528 [restartedMain] WARN  o.h.v.m.ParameterMessageInterpolator -HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2018-03-26 11:29:03.279 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter -Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@6f3cc710: startup date [Mon Mar 26 11:28:46 CST 2018]; root of context hierarchy
+2018-03-26 11:29:03.411 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/getPro],methods=[GET]}" onto private com.alibaba.fastjson.JSONObject com.tlgc.controller.InterfaceCtrl.getProvince(javax.servlet.http.HttpServletResponse)
+2018-03-26 11:29:03.412 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/getCity/{provinceId}],methods=[GET]}" onto private com.alibaba.fastjson.JSONObject com.tlgc.controller.InterfaceCtrl.getGym(java.lang.Integer)
+2018-03-26 11:29:03.413 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/getGym/{cityId}],methods=[GET]}" onto private com.alibaba.fastjson.JSONObject com.tlgc.controller.InterfaceCtrl.getCity(java.lang.Integer)
+2018-03-26 11:29:03.414 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api/createIntro],methods=[POST]}" onto public com.tlgc.entity.Result com.tlgc.controller.InterfaceCtrl.createAppoint(javax.servlet.http.HttpServletResponse,com.tlgc.entity.Intro)
+2018-03-26 11:29:03.418 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/interface/getPro],methods=[GET]}" onto private com.alibaba.fastjson.JSONObject com.tlgc.controller.testCtrl.getProvince()
+2018-03-26 11:29:03.419 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/interface/getCity/{provinceId}],methods=[GET]}" onto private com.alibaba.fastjson.JSONObject com.tlgc.controller.testCtrl.getGym(java.lang.Integer)
+2018-03-26 11:29:03.420 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/interface/getGym/{cityId}],methods=[GET]}" onto private com.alibaba.fastjson.JSONObject com.tlgc.controller.testCtrl.getCity(java.lang.Integer)
+2018-03-26 11:29:03.421 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/interface/createIntro],methods=[POST]}" onto public com.tlgc.entity.Result com.tlgc.controller.testCtrl.createAppoint(javax.servlet.http.HttpServletResponse,com.tlgc.entity.Intro)
+2018-03-26 11:29:03.421 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/interface/admin],methods=[GET]}" onto private com.tlgc.entity.Admin com.tlgc.controller.testCtrl.who()
+2018-03-26 11:29:03.422 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/interface/conf],methods=[GET]}" onto private java.lang.String com.tlgc.controller.testCtrl.config()
+2018-03-26 11:29:03.426 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-03-26 11:29:03.427 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-03-26 11:29:03.490 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping -Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-03-26 11:29:03.490 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping -Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-03-26 11:29:03.537 [restartedMain] INFO  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver -Detected @ExceptionHandler methods in exceptionHandle
+2018-03-26 11:29:03.607 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping -Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-03-26 11:29:04.226 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer -LiveReload server is running on port 35729
+2018-03-26 11:29:04.377 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter -Registering beans for JMX exposure on startup
+2018-03-26 11:29:04.485 [restartedMain] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer -Tomcat started on port(s): 8886 (http)
+2018-03-26 11:29:04.496 [restartedMain] INFO  com.tlgc.TlgcApplication -Started TlgcApplication in 19.742 seconds (JVM running for 23.725)
+2018-03-26 11:29:23.861 [http-nio-8886-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] -Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-03-26 11:29:23.862 [http-nio-8886-exec-1] INFO  o.s.web.servlet.DispatcherServlet -FrameworkServlet 'dispatcherServlet': initialization started
+2018-03-26 11:29:23.887 [http-nio-8886-exec-1] INFO  o.s.web.servlet.DispatcherServlet -FrameworkServlet 'dispatcherServlet': initialization completed in 25 ms
+2018-03-26 12:01:26.650 [Thread-47] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext -Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@6f3cc710: startup date [Mon Mar 26 11:28:46 CST 2018]; root of context hierarchy
+2018-03-26 12:01:26.655 [Thread-47] INFO  o.s.j.e.a.AnnotationMBeanExporter -Unregistering JMX-exposed beans on shutdown
+2018-03-26 12:01:26.659 [Thread-47] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean -Closing JPA EntityManagerFactory for persistence unit 'default'

@@ -25,7 +25,7 @@ logging:
   config: classpath:logback-spring-dev.xml
 
 server:
-  port: 88
+  port: 8888
 
 filePath: D:\files
 

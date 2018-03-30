@@ -15,8 +15,15 @@ import javax.persistence.Table;
 @Table(name="TLG_Gym")
 public class Gym {
     @Id
-    private Integer code;
-    private String name;
+    private Integer Id;
+    private String CH_Name;
     private Integer cityId;
-    private byte status;
+    private String prov;
+    private String city;
+    private String phone;
+    private String email;
+    private String coordinate;
+    private String tip;
+    private String addr;
+    private int status;
 }
