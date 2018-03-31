@@ -1264,3 +1264,6 @@ Error starting ApplicationContext. To display the auto-configuration report re-r
 2018-03-30 18:20:22.948 [http-nio-8888-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] -Initializing Spring FrameworkServlet 'dispatcherServlet'
 2018-03-30 18:20:22.949 [http-nio-8888-exec-1] INFO  o.s.web.servlet.DispatcherServlet -FrameworkServlet 'dispatcherServlet': initialization started
 2018-03-30 18:20:22.972 [http-nio-8888-exec-1] INFO  o.s.web.servlet.DispatcherServlet -FrameworkServlet 'dispatcherServlet': initialization completed in 23 ms
+2018-03-30 18:38:08.080 [Thread-51] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext -Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@5bd8808a: startup date [Fri Mar 30 18:19:29 CST 2018]; root of context hierarchy
+2018-03-30 18:38:08.089 [Thread-51] INFO  o.s.j.e.a.AnnotationMBeanExporter -Unregistering JMX-exposed beans on shutdown
+2018-03-30 18:38:08.092 [Thread-51] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean -Closing JPA EntityManagerFactory for persistence unit 'default'

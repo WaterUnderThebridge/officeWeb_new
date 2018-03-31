@@ -20,4 +20,7 @@ public interface IntroMapper {
     public Integer saveIntro(Intro intro);
 
     public List<HashMap> getIntro(@Param("gymCode")String gymCode,@Param("dtBegin")String dtBegin,@Param("dtEnd")String dtEnd,@Param("keyWord")String keyWord);
+
+    public Integer handleIntro(@Param("ids")String[] ids);
+
 }

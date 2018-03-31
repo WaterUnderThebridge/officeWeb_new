@@ -3,10 +3,10 @@ package com.tlgc.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.github.pagehelper.PageHelper;
-import com.tlgc.Convertor.DateConvert;
+import com.github.pagehelper.PageInfo;
+import com.tlgc.Convertor.DataConvert;
 import com.tlgc.config.MyConfig;
 import com.tlgc.entity.*;
-import com.tlgc.enums.ResultEnum;
 import com.tlgc.exception.MyException;
 import com.tlgc.mapper.*;
 import com.tlgc.utils.ResultUtil;
@@ -51,26 +51,32 @@ public class InterfaceCtrl {
 
         //  PageHelper.startPage(3,2);
         List<Province> p = provinceMapper.getAll();
-        return DateConvert.toJson(ResultUtil.success(p));
+        return DataConvert.toJson(ResultUtil.success(p));
     }
     @GetMapping(value = "/getCity/{provinceId}")
-    private JSONObject getCity(@PathVariable("provinceId") Integer provinceId){
-        //  PageHelper.startPage(3,2);
+    private JSONObject getCity(HttpServletResponse rsp,@PathVariable("provinceId") Integer provinceId){
+        rsp.addHeader("Access-Control-Allow-Origin", "*");
+        rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
+
         List<City> cities = cityMapper.getAllByProvinceId(provinceId);
-        return DateConvert.toJson(ResultUtil.success(cities));
+        return DataConvert.toJson(ResultUtil.success(cities));
     }
 
     @GetMapping(value = "/getGym/{cityId}")
-    private JSONObject getGym(@PathVariable("cityId") Integer cityId){
-        //  PageHelper.startPage(3,2);
+    private JSONObject getGym(HttpServletResponse rsp,@PathVariable("cityId") Integer cityId){
+        rsp.addHeader("Access-Control-Allow-Origin", "*");
+        rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
+
         List<Gym> gyms = gymMapper.getAllByCityId(cityId);
-        return DateConvert.toJson(ResultUtil.success(gyms));
+        return DataConvert.toJson(ResultUtil.success(gyms));
     }
     @GetMapping(value = "/getGymByCity/{city}")
-    private JSONObject getGymByCity(@PathVariable("city") String city){
-        //  PageHelper.startPage(3,2);
+    private JSONObject getGymByCity(HttpServletResponse rsp,@PathVariable("city") String city){
+        rsp.addHeader("Access-Control-Allow-Origin", "*");
+        rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
+
         List<Gym> gyms = gymMapper.getAllByCity(city);
-        return DateConvert.toJson(ResultUtil.success(gyms));
+        return DataConvert.toJson(ResultUtil.success(gyms));
     }
 
     @RequestMapping(value = "/createIntro", method = RequestMethod.POST)
@@ -89,17 +95,41 @@ public class InterfaceCtrl {
     }
 
     @RequestMapping(value = "/getIntro")
-    public JSONObject getAppoint(HttpServletResponse rsp,
-                                 @RequestParam(value = "pageNow",defaultValue = "1") Integer pageNow,
-                                 @RequestParam(value = "size",defaultValue = "30") Integer size,
+    public JSONObject getIntro(HttpServletResponse rsp,
+                                 @RequestParam(value = "roleId",defaultValue ="2") String roleId,
+                                 @RequestParam(value = "pageNum",defaultValue = "1") Integer pageNow,
+                                 @RequestParam(value = "pageSize",defaultValue = "30") Integer size,
                                  @RequestParam(value = "keyWord",defaultValue = "") String keyWord,
-                                 @RequestParam(value = "gymCode",defaultValue = "") String gymCode,
+                                 @RequestParam(value = "gymCode",required = false) String gymCode,
                                  @RequestParam(value = "dtBegin",defaultValue = "") String dtBegin,
                                  @RequestParam(value = "dtEnd",defaultValue = "") String dtEnd){
+        rsp.addHeader("Access-Control-Allow-Origin", "*");
+        rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
+
+        if(roleId.equals("2") && gymCode==null){
+            return DataConvert.toJson(ResultUtil.error(-1,"中心名称不能为空"));
+        }
         PageHelper.startPage(pageNow,size);
         List<HashMap> Intros = introMapper.getIntro(gymCode,dtBegin,dtEnd,keyWord);
-        return DateConvert.toJson(ResultUtil.success(Intros));
+        PageInfo<HashMap> info = new PageInfo<>(Intros);
+        return DataConvert.toJson(ResultUtil.success(info));
     }
 
+    @RequestMapping(value = "/handleIntro")
+    public Result handleIntro(HttpServletResponse rsp,@RequestParam(value = "ids[]",required = true) String[] ids){
+        rsp.addHeader("Access-Control-Allow-Origin", "*");
+        rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
+        log.info(ids.toString());
+        if(ids==null){
+            return ResultUtil.error(-1,"Intro not selected");
+        }
+
+        if(introMapper.handleIntro(ids)>0) {
+            return ResultUtil.success();
+        }else {
+            return ResultUtil.error();
+        }
+
+    }
 
 }

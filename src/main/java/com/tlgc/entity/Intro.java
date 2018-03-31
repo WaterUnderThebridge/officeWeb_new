@@ -15,28 +15,28 @@ public class Intro {
     private Integer City;
     private String Province;
     private String BabyName;
-    private String BabyBirthday;
+    private String BabyBrithday;
     private String Email;
     private String ParentPhone;
     private String Channel;
     private Integer MailStatus;
     private Date CreateTime;
+    private Integer status;
     private String search;
 
     @Override
     public String toString() {
-        return "Intro{" +
-                "Id=" + Id +
-                ", Center=" + Center +
-                ", City=" + City +
-                ", Province='" + Province + '\'' +
+
+        String tmp =
                 ", BabyName='" + BabyName + '\'' +
-                ", BabyBirthday='" + BabyBirthday + '\'' +
+                ", BabyBirthday='" + BabyBrithday + '\'' +
                 ", Email='" + Email + '\'' +
                 ", ParentPhone='" + ParentPhone + '\'' +
                 ", Channel='" + Channel + '\'' +
-                ", MailStatus=" + MailStatus +
-                ", CreateTime=" + CreateTime +
-                '}';
+                ", Email=" + Email +
+                ", CreateTime=" + CreateTime+
+                "}";
+
+        return (status==3)? tmp+"已处理":tmp+ "未处理";
     }
 }

@@ -2,9 +2,8 @@ package com.tlgc.controller;
 
 
 import com.alibaba.fastjson.JSONObject;
-import com.tlgc.Convertor.DateConvert;
+import com.tlgc.Convertor.DataConvert;
 import com.tlgc.config.MyConfig;
-import com.tlgc.dao.CityDao;
 import com.tlgc.entity.*;
 import com.tlgc.mapper.*;
 import com.tlgc.utils.ResultUtil;
@@ -46,20 +45,20 @@ public class testCtrl  {
     private JSONObject getProvince(){
         //  PageHelper.startPage(3,2);
         List<Province> p = provinceMapper.getAll();
-        return DateConvert.toJson(ResultUtil.success(p));
+        return DataConvert.toJson(ResultUtil.success(p));
     }
     @GetMapping(value = "/getCity/{provinceId}")
     private JSONObject getGym(@PathVariable("provinceId") Integer provinceId){
         //  PageHelper.startPage(3,2);
         List<City> cities = cityMapper.getAllByProvinceId(provinceId);
-        return DateConvert.toJson(ResultUtil.success(cities));
+        return DataConvert.toJson(ResultUtil.success(cities));
     }
 
     @GetMapping(value = "/getGym/{cityId}")
     private JSONObject getCity(@PathVariable("cityId") Integer cityId){
         //  PageHelper.startPage(3,2);
         List<Gym> gyms = gymMapper.getAllByCityId(cityId);
-        return DateConvert.toJson(ResultUtil.success(gyms));
+        return DataConvert.toJson(ResultUtil.success(gyms));
     }
 
     @RequestMapping(value = "/createIntro", method = RequestMethod.POST)

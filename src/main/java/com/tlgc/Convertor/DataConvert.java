@@ -15,8 +15,17 @@ import java.util.Date;
  *         泛型S:通过convert转换的类型
 
  */
-public class DateConvert  {
+public class DataConvert {
 
+    public static Date convert(String stringDate, String format) {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(format);
+        try {
+            return simpleDateFormat.parse(stringDate);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
     public static Date convert(String stringDate) {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
         try {
@@ -25,6 +34,15 @@ public class DateConvert  {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public static String convert(Date dt, String format) {
+        SimpleDateFormat sdf = new SimpleDateFormat(format);
+        return sdf.format(dt);
+    }
+    public static String convert(Date dt) {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        return sdf.format(dt);
     }
     //去除了null字段
     public static JSONObject toJson(Result result) {

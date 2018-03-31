@@ -3,10 +3,11 @@
 <mapper namespace="com.tlgc.mapper.IntroMapper" >
 
     <select id="getIntro" resultType="hashmap">
-        select g.CH_Name,a.BabyName,convert(varchar(10),cast(a.BabyBrithday as datetime),120)BabyBrithday,a.ParentPhone,a.Email,a.Remark,convert(varchar(10),a.CreateTime,120)dt,a.channel,a.Status
+        select a.id,g.CH_Name gymName,a.BabyName,convert(varchar(10),cast(a.BabyBrithday as datetime),120)BabyBrithday,a.ParentPhone,a.Email,a.Remark,convert(varchar(10),a.CreateTime,120)dt,a.channel,a.Status tag
         from [TLG_FreeAppointment] a join TLG_Gym g on a.gymCode=g.id
-        <if test="gymCode!=''">
-            and g.id=#{gymCode}
+
+        <if test="gymCode!=null">
+              and gymCode=#{gymCode}
         </if>
         <where>
             <if test="dtBegin!='' and dtEnd!=''">
@@ -19,5 +20,17 @@
         order by a.CreateTime desc
     </select>
 
+    <update id="handleIntro" >
+        <if test="ids!=null">
+            update [TLG_FreeAppointment] set status=3
+            <where>
+                <foreach item="item" index="index" collection="ids" open="and id in("
+                         separator="," close=")">
+                    #{item}
+                </foreach>
+            </where>
+        </if>
+
+    </update>
 
 </mapper>
