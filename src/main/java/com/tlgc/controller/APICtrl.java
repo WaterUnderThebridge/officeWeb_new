@@ -1,7 +1,9 @@
 package com.tlgc.controller;
 
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson.serializer.JSONSerializable;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.tlgc.Convertor.DataConvert;
@@ -27,7 +29,7 @@ import java.util.List;
 @Slf4j
 @RestController
 @RequestMapping("/api")
-public class InterfaceCtrl {
+public class APICtrl {
 
     @Autowired
     private UserMapper userMapper;
@@ -45,16 +47,16 @@ public class InterfaceCtrl {
     private MyConfig myConfig;
 
     @GetMapping(value = "/getPro")
-    private JSONObject getProvince(HttpServletResponse rsp){
+    private Object getProvince(HttpServletResponse rsp,@RequestParam(value = "callback",required = false) String callback){
         rsp.addHeader("Access-Control-Allow-Origin", "*");
         rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
 
         //  PageHelper.startPage(3,2);
         List<Province> p = provinceMapper.getAll();
-        return DataConvert.toJson(ResultUtil.success(p));
+        return DataConvert.toJson(ResultUtil.success(p),callback);
     }
     @GetMapping(value = "/getCity/{provinceId}")
-    private JSONObject getCity(HttpServletResponse rsp,@PathVariable("provinceId") Integer provinceId){
+    private Object getCity(HttpServletResponse rsp,@RequestParam(value = "callback",required = false) String callback,@PathVariable("provinceId") Integer provinceId){
         rsp.addHeader("Access-Control-Allow-Origin", "*");
         rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
 
@@ -63,7 +65,7 @@ public class InterfaceCtrl {
     }
 
     @GetMapping(value = "/getGym/{cityId}")
-    private JSONObject getGym(HttpServletResponse rsp,@PathVariable("cityId") Integer cityId){
+    private Object getGym(HttpServletResponse rsp,@RequestParam(value = "callback",required = false) String callback,@PathVariable("cityId") Integer cityId){
         rsp.addHeader("Access-Control-Allow-Origin", "*");
         rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
 
@@ -71,7 +73,7 @@ public class InterfaceCtrl {
         return DataConvert.toJson(ResultUtil.success(gyms));
     }
     @GetMapping(value = "/getGymByCity/{city}")
-    private JSONObject getGymByCity(HttpServletResponse rsp,@PathVariable("city") String city){
+    private Object getGymByCity(HttpServletResponse rsp,@RequestParam(value = "callback",required = false) String callback,@PathVariable("city") String city){
         rsp.addHeader("Access-Control-Allow-Origin", "*");
         rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
 
@@ -80,7 +82,7 @@ public class InterfaceCtrl {
     }
 
     @RequestMapping(value = "/createIntro", method = RequestMethod.POST)
-    public Result createAppoint(HttpServletResponse rsp, Intro intro){
+    public Object createAppoint(HttpServletResponse rsp,@RequestParam(value = "callback",required = false) String callback, Intro intro){
         rsp.addHeader("Access-Control-Allow-Origin", "*");
         rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
         intro.setMailStatus(0);
@@ -88,14 +90,15 @@ public class InterfaceCtrl {
         intro.setCreateTime(new Date());
         intro.setSearch(intro.toString());
         if(introMapper.saveIntro(intro)>0) {
-            return ResultUtil.success();
+            return DataConvert.toJson(ResultUtil.success());
         }else {
-            return ResultUtil.error();
+            return DataConvert.toJson(ResultUtil.error());
         }
     }
 
     @RequestMapping(value = "/getIntro")
-    public JSONObject getIntro(HttpServletResponse rsp,
+    public Object getIntro(HttpServletResponse rsp,
+                                 @RequestParam(value = "callback",required = false) String callback,
                                  @RequestParam(value = "roleId",defaultValue ="2") String roleId,
                                  @RequestParam(value = "pageNum",defaultValue = "1") Integer pageNow,
                                  @RequestParam(value = "pageSize",defaultValue = "30") Integer size,
@@ -107,16 +110,16 @@ public class InterfaceCtrl {
         rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
 
         if(roleId.equals("2") && gymCode==null){
-            return DataConvert.toJson(ResultUtil.error(-1,"中心名称不能为空"));
+            return DataConvert.toJson(ResultUtil.error(-1,"中心名称不能为空"),callback);
         }
         PageHelper.startPage(pageNow,size);
         List<HashMap> Intros = introMapper.getIntro(gymCode,dtBegin,dtEnd,keyWord);
         PageInfo<HashMap> info = new PageInfo<>(Intros);
-        return DataConvert.toJson(ResultUtil.success(info));
+        return DataConvert.toJson(ResultUtil.success(info),callback);
     }
 
     @RequestMapping(value = "/handleIntro")
-    public Result handleIntro(HttpServletResponse rsp,@RequestParam(value = "ids[]",required = true) String[] ids){
+    public Object handleIntro(HttpServletResponse rsp,@RequestParam(value = "callback",required = false) String callback,@RequestParam(value = "ids[]",required = true) String[] ids){
         rsp.addHeader("Access-Control-Allow-Origin", "*");
         rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
         log.info(ids.toString());
@@ -125,9 +128,9 @@ public class InterfaceCtrl {
         }
 
         if(introMapper.handleIntro(ids)>0) {
-            return ResultUtil.success();
+            return DataConvert.toJson(ResultUtil.success(),callback);
         }else {
-            return ResultUtil.error();
+            return DataConvert.toJson(ResultUtil.error(),callback);
         }
 
     }
