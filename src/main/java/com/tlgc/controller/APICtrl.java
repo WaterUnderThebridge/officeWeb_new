@@ -1,3 +1,4 @@
+<<<<<<< HEAD:src/main/java/com/tlgc/controller/InterfaceCtrl.java
 
         import com.alibaba.fastjson.JSON;
         import com.alibaba.fastjson.JSONObject;
@@ -18,6 +19,30 @@
         import java.util.Date;
         import java.util.HashMap;
         import java.util.List;
+=======
+package com.tlgc.controller;
+
+
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson.serializer.JSONSerializable;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+import com.tlgc.Convertor.DataConvert;
+import com.tlgc.config.MyConfig;
+import com.tlgc.entity.*;
+import com.tlgc.exception.MyException;
+import com.tlgc.mapper.*;
+import com.tlgc.utils.ResultUtil;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletResponse;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+>>>>>>> 0a45081c3088cb4a638d7074b6701f6405b592f2:src/main/java/com/tlgc/controller/APICtrl.java
 
 /**
  * Created by Tony on 2017/8/31.
@@ -96,6 +121,7 @@ public class APICtrl {
 
     @RequestMapping(value = "/getIntro")
     public Object getIntro(HttpServletResponse rsp,
+<<<<<<< HEAD:src/main/java/com/tlgc/controller/InterfaceCtrl.java
                            @RequestParam(value = "callback",required = false) String callback,
                            @RequestParam(value = "roleId",defaultValue ="2") String roleId,
                            @RequestParam(value = "pageNum",defaultValue = "1") Integer pageNow,
@@ -104,6 +130,16 @@ public class APICtrl {
                            @RequestParam(value = "gymCode",required = false) String gymCode,
                            @RequestParam(value = "dtBegin",defaultValue = "") String dtBegin,
                            @RequestParam(value = "dtEnd",defaultValue = "") String dtEnd){
+=======
+                                 @RequestParam(value = "callback",required = false) String callback,
+                                 @RequestParam(value = "roleId",defaultValue ="2") String roleId,
+                                 @RequestParam(value = "pageNum",defaultValue = "1") Integer pageNow,
+                                 @RequestParam(value = "pageSize",defaultValue = "30") Integer size,
+                                 @RequestParam(value = "keyWord",defaultValue = "") String keyWord,
+                                 @RequestParam(value = "gymCode",required = false) String gymCode,
+                                 @RequestParam(value = "dtBegin",defaultValue = "") String dtBegin,
+                                 @RequestParam(value = "dtEnd",defaultValue = "") String dtEnd){
+>>>>>>> 0a45081c3088cb4a638d7074b6701f6405b592f2:src/main/java/com/tlgc/controller/APICtrl.java
         rsp.addHeader("Access-Control-Allow-Origin", "*");
         rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
 

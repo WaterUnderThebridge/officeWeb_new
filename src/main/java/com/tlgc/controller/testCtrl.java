@@ -2,6 +2,8 @@ package com.tlgc.controller;
 
 
 import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson.JSONPObject;
+import com.alibaba.fastjson.serializer.JSONSerializer;
 import com.tlgc.Convertor.DataConvert;
 import com.tlgc.config.MyConfig;
 import com.tlgc.entity.*;
@@ -42,10 +44,27 @@ public class testCtrl  {
     private MyConfig myConfig;
 
     @GetMapping(value = "/getPro")
-    private JSONObject getProvince(){
+    private JSONObject getProvince(@RequestParam(value="callback",required = false)String callback){
         //  PageHelper.startPage(3,2);
         List<Province> p = provinceMapper.getAll();
         return DataConvert.toJson(ResultUtil.success(p));
+    }
+    @GetMapping(value = "/test")
+    private JSONPObject getProvince(HttpServletResponse rsp,@RequestParam(value="callback")String callback){
+        rsp.addHeader("Access-Control-Allow-Origin", "*");
+        rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
+        List<Province> p = provinceMapper.getAll();
+        JSONPObject jsonpObject= new JSONPObject(callback);
+        jsonpObject.addParameter(ResultUtil.success(p));
+        return jsonpObject;
+    }
+    @GetMapping(value = "/test2")
+    private String getProvince2(HttpServletResponse rsp,@RequestParam(value="callback",required = false)String callback){
+        rsp.addHeader("Access-Control-Allow-Origin", "*");
+        rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
+
+        List<Province> p = provinceMapper.getAll();
+        return DataConvert.toJsonStr(ResultUtil.success(p),callback);
     }
     @GetMapping(value = "/getCity/{provinceId}")
     private JSONObject getGym(@PathVariable("provinceId") Integer provinceId){
