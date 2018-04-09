@@ -2,12 +2,14 @@ package com.tlgc.entity;
 
 import lombok.Data;
 
+import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.util.Date;
 /**
  * Created by TONY on 2017/11/19.
  */
 @Data
+@Entity
 public class Intro {
     @Id
     private Integer Id;
