@@ -14,7 +14,8 @@ public class Intro {
     @Id
     private Integer Id;
     private Integer Center;
-    private Integer City;
+    private String City;
+    private String gymCode;
     private String Province;
     private String BabyName;
     private String BabyBrithday;

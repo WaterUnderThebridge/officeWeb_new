@@ -1,37 +1,10 @@
-<<<<<<< HEAD:src/main/java/com/tlgc/controller/InterfaceCtrl.java
-
-        import com.alibaba.fastjson.JSON;
-        import com.alibaba.fastjson.JSONObject;
-        import com.alibaba.fastjson.serializer.JSONSerializable;
-        import com.github.pagehelper.PageHelper;
-        import com.github.pagehelper.PageInfo;
-        import com.tlgc.Convertor.DataConvert;
-        import com.tlgc.config.MyConfig;
-        import com.tlgc.entity.*;
-        import com.tlgc.exception.MyException;
-        import com.tlgc.mapper.*;
-        import com.tlgc.utils.ResultUtil;
-        import lombok.extern.slf4j.Slf4j;
-        import org.springframework.beans.factory.annotation.Autowired;
-        import org.springframework.web.bind.annotation.*;
-
-        import javax.servlet.http.HttpServletResponse;
-        import java.util.Date;
-        import java.util.HashMap;
-        import java.util.List;
-=======
 package com.tlgc.controller;
 
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
-import com.alibaba.fastjson.serializer.JSONSerializable;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.tlgc.Convertor.DataConvert;
-import com.tlgc.config.MyConfig;
 import com.tlgc.entity.*;
-import com.tlgc.exception.MyException;
 import com.tlgc.mapper.*;
 import com.tlgc.utils.ResultUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -42,7 +15,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
->>>>>>> 0a45081c3088cb4a638d7074b6701f6405b592f2:src/main/java/com/tlgc/controller/APICtrl.java
 
 /**
  * Created by Tony on 2017/8/31.
@@ -67,7 +39,7 @@ public class APICtrl {
     @Autowired
     private IntroMapper introMapper;
     @Autowired
-    private MyConfig myConfig;
+    private NewsMapper newsMapper;
 
     @GetMapping(value = "/getPro")
     private Object getProvince(HttpServletResponse rsp,@RequestParam(value = "callback",required = false) String callback){
@@ -84,7 +56,7 @@ public class APICtrl {
         rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
 
         List<City> cities = cityMapper.getAllByProvinceId(provinceId);
-        return DataConvert.toJson(ResultUtil.success(cities));
+        return DataConvert.toJson(ResultUtil.success(cities),callback);
     }
 
     @GetMapping(value = "/getGym/{cityId}")
@@ -93,19 +65,19 @@ public class APICtrl {
         rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
 
         List<Gym> gyms = gymMapper.getAllByCityId(cityId);
-        return DataConvert.toJson(ResultUtil.success(gyms));
+        return DataConvert.toJson(ResultUtil.success(gyms),callback);
     }
     @GetMapping(value = "/getGymByCity/{city}")
     private Object getGymByCity(HttpServletResponse rsp,@RequestParam(value = "callback",required = false) String callback,@PathVariable("city") String city){
         rsp.addHeader("Access-Control-Allow-Origin", "*");
         rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
 
-        List<Gym> gyms = gymMapper.getAllByCity(city);
-        return DataConvert.toJson(ResultUtil.success(gyms));
+        List<HashMap> gyms = gymMapper.getAllByCity(city);
+        return DataConvert.toJson(ResultUtil.success(gyms),callback);
     }
 
     @RequestMapping(value = "/createIntro", method = RequestMethod.POST)
-    public Object createAppoint(HttpServletResponse rsp,@RequestParam(value = "callback",required = false) String callback, Intro intro){
+    public Object createAppoint(HttpServletResponse rsp,Intro intro){
         rsp.addHeader("Access-Control-Allow-Origin", "*");
         rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
         intro.setMailStatus(0);
@@ -119,9 +91,41 @@ public class APICtrl {
         }
     }
 
+    @RequestMapping(value = "/saveIntro")
+    public Object createIntro(HttpServletResponse rsp,@RequestParam(value = "callback",required = false) String callback,
+                              @RequestParam(value = "gymCode",defaultValue = "") String gymCode,
+                              @RequestParam(value = "BabyName",defaultValue = "") String BabyName,
+                              @RequestParam(value = "BabyBrithday",defaultValue = "") String BabyBrithday,
+                              @RequestParam(value = "ParentPhone",defaultValue = "") String ParentPhone,
+                              @RequestParam(value = "Province",defaultValue = "") String Province,
+                              @RequestParam(value = "City",defaultValue = "") String City){
+        rsp.addHeader("Access-Control-Allow-Origin", "*");
+        rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
+
+        if(introMapper.findIntro(ParentPhone,gymCode)>0){
+            return DataConvert.toJson(ResultUtil.error("该手机号在中心有预约体验"),callback);
+        }
+        Intro intro =new Intro();
+        intro.setGymCode(gymCode);
+        intro.setBabyBrithday(BabyBrithday);
+        intro.setBabyName(BabyName);
+        intro.setParentPhone(ParentPhone);
+        intro.setProvince(Province);
+        intro.setCity(City);
+        intro.setMailStatus(0);
+        intro.setStatus(1);
+        intro.setChannel("test");
+        intro.setCreateTime(new Date());
+        intro.setSearch(intro.toString());
+        if(introMapper.saveIntro(intro)>0) {
+            return DataConvert.toJson(ResultUtil.success(),callback);
+        }else {
+            return DataConvert.toJson(ResultUtil.error(),callback);
+        }
+    }
+
     @RequestMapping(value = "/getIntro")
     public Object getIntro(HttpServletResponse rsp,
-<<<<<<< HEAD:src/main/java/com/tlgc/controller/InterfaceCtrl.java
                            @RequestParam(value = "callback",required = false) String callback,
                            @RequestParam(value = "roleId",defaultValue ="2") String roleId,
                            @RequestParam(value = "pageNum",defaultValue = "1") Integer pageNow,
@@ -130,16 +134,6 @@ public class APICtrl {
                            @RequestParam(value = "gymCode",required = false) String gymCode,
                            @RequestParam(value = "dtBegin",defaultValue = "") String dtBegin,
                            @RequestParam(value = "dtEnd",defaultValue = "") String dtEnd){
-=======
-                                 @RequestParam(value = "callback",required = false) String callback,
-                                 @RequestParam(value = "roleId",defaultValue ="2") String roleId,
-                                 @RequestParam(value = "pageNum",defaultValue = "1") Integer pageNow,
-                                 @RequestParam(value = "pageSize",defaultValue = "30") Integer size,
-                                 @RequestParam(value = "keyWord",defaultValue = "") String keyWord,
-                                 @RequestParam(value = "gymCode",required = false) String gymCode,
-                                 @RequestParam(value = "dtBegin",defaultValue = "") String dtBegin,
-                                 @RequestParam(value = "dtEnd",defaultValue = "") String dtEnd){
->>>>>>> 0a45081c3088cb4a638d7074b6701f6405b592f2:src/main/java/com/tlgc/controller/APICtrl.java
         rsp.addHeader("Access-Control-Allow-Origin", "*");
         rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
 
@@ -170,20 +164,21 @@ public class APICtrl {
     }
 
 
+
     @RequestMapping(value = "/getNews")
-    public JSONPObject getNews(HttpServletResponse rsp,
+    public Object getNews(HttpServletResponse rsp,
                                @RequestParam(value = "callback",required = false) String callback,
-                               @RequestParam(value = "pageNum",defaultValue = "1") Integer pageNow,
-                               @RequestParam(value = "pageSize",defaultValue = "30") Integer size,
+                               @RequestParam(value = "pageNum",defaultValue = "1") Integer pageNum,
+                               @RequestParam(value = "pageSize",defaultValue = "12") Integer size,
                                @RequestParam(value = "LanguageType",defaultValue = "1") Integer LanguageType,
                                @RequestParam(value = "type",required = false) Integer type){
         rsp.addHeader("Access-Control-Allow-Origin", "*");
         rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
-
-        PageHelper.startPage(pageNow,size);
+        log.info("{}",pageNum);
+        PageHelper.startPage(pageNum,size);
         List<News> newsList = newsMapper.getNews(type,LanguageType);
         PageInfo<News> info = new PageInfo<>(newsList);
-        return new JSONPObject(callback);
+        return DataConvert.toJson(ResultUtil.success(info),callback);
     }
 
 }
