@@ -40,6 +40,8 @@ public class APICtrl {
     private IntroMapper introMapper;
     @Autowired
     private NewsMapper newsMapper;
+    @Autowired
+    private FranAppMapper franAppMapper;
 
     @GetMapping(value = "/getPro")
     private Object getProvince(HttpServletResponse rsp,@RequestParam(value = "callback",required = false) String callback){
@@ -122,6 +124,49 @@ public class APICtrl {
         }else {
             return DataConvert.toJson(ResultUtil.error(),callback);
         }
+    }
+
+    @RequestMapping(value = "/saveAppli")
+    public Object saveAppli(HttpServletResponse rsp,@RequestParam(value = "callback",required = false) String callback,
+                              @RequestParam(value = "Name",defaultValue = "") String Name,
+                              @RequestParam(value = "Phone",defaultValue = "") String Phone,
+                              @RequestParam(value = "Email",defaultValue = "") String Email,
+                              @RequestParam(value = "Address",defaultValue = "") String Address){
+        rsp.addHeader("Access-Control-Allow-Origin", "*");
+        rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
+
+        if(Phone.equals("")){
+            return DataConvert.toJson(ResultUtil.error("手机号必须填写"),callback);
+        }
+        if(franAppMapper.findApp(Phone)>0){
+            return DataConvert.toJson(ResultUtil.error("该手机号已提交申请，我们会尽快处理"),callback);
+        }
+        FranApp franApp= new FranApp();
+        franApp.setName(Name);
+        franApp.setAddress(Address);
+        franApp.setEmail(Email);
+        franApp.setMailStatus(0);
+        franApp.setSearch(franApp.toString());
+        if(franAppMapper.saveFranApp(franApp)>0) {
+            return DataConvert.toJson(ResultUtil.success(),callback);
+        }else {
+            return DataConvert.toJson(ResultUtil.error(),callback);
+        }
+    }
+
+    @GetMapping(value = "/listFranApp")
+    private Object listFranApp(HttpServletResponse rsp,@RequestParam(value = "callback",required = false) String callback,
+                               @RequestParam(value = "pageNum",defaultValue = "1") Integer pageNow,
+                               @RequestParam(value = "pageSize",defaultValue = "30") Integer size,
+                               @RequestParam(value = "keyWord",defaultValue = "") String keyWord,
+                               @RequestParam(value = "status",required = false) String status,
+                               @RequestParam(value = "dtBegin",defaultValue = "") String dtBegin,
+                               @RequestParam(value = "dtEnd",defaultValue = "") String dtEnd){
+        rsp.addHeader("Access-Control-Allow-Origin", "*");
+        rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
+        PageHelper.startPage(pageNow,size);
+        List<HashMap> apps = franAppMapper.listFranApp(dtBegin,dtEnd,keyWord,status);
+        return DataConvert.toJson(ResultUtil.success(apps),callback);
     }
 
     @RequestMapping(value = "/getIntro")
