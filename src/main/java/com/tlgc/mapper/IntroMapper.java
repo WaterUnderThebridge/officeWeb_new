@@ -24,7 +24,7 @@ public interface IntroMapper {
 
     public Integer handleIntro(@Param("ids")String[] ids);
 
-    @Select("select count(1) from TLG_FreeAppointment where ParentPhone=#{ParentPhone} and gymCode=#{gymCode}")
+    @Select("select count(1) from TLG_FreeAppointment where mailstatus=0 and ParentPhone=#{ParentPhone} and gymCode=#{gymCode}")
     public Integer findIntro(@Param("ParentPhone") String ParentPhone,@Param("gymCode") String gymCode);
 
 
