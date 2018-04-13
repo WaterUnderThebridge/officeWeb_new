@@ -1,0 +1,55 @@
+2018-04-13 22:32:07.558  INFO 23742 --- [restartedMain] com.tlgc.TlgcApplication                 : Starting TlgcApplication on tony-Satellite-L700 with PID 23742 (/home/tony/IdeaProjects/tlgc/target/classes started by tony in /home/tony/IdeaProjects/tlgc)
+2018-04-13 22:32:07.583  INFO 23742 --- [restartedMain] com.tlgc.TlgcApplication                 : The following profiles are active: dev
+2018-04-13 22:32:08.152  INFO 23742 --- [restartedMain] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@5e8ee32e: startup date [Fri Apr 13 22:32:08 CST 2018]; root of context hierarchy
+2018-04-13 22:32:26.487  INFO 23742 --- [restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8888 (http)
+2018-04-13 22:32:26.515  INFO 23742 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-04-13 22:32:26.519  INFO 23742 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-04-13 22:32:26.749  INFO 23742 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-04-13 22:32:26.759  INFO 23742 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 18614 ms
+2018-04-13 22:32:27.248  INFO 23742 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2018-04-13 22:32:27.263  INFO 23742 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-04-13 22:32:27.265  INFO 23742 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-04-13 22:32:27.266  INFO 23742 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-04-13 22:32:27.267  INFO 23742 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-04-13 22:32:29.300  INFO 23742 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-04-13 22:32:29.349  INFO 23742 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-04-13 22:32:29.573  INFO 23742 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate Core {5.0.12.Final}
+2018-04-13 22:32:29.579  INFO 23742 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2018-04-13 22:32:29.583  INFO 23742 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000021: Bytecode provider name : javassist
+2018-04-13 22:32:29.702  INFO 23742 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-04-13 22:32:31.541  INFO 23742 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.SQLServer2008Dialect
+2018-04-13 22:32:33.377  INFO 23742 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-04-13 22:32:36.449  INFO 23742 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@5e8ee32e: startup date [Fri Apr 13 22:32:08 CST 2018]; root of context hierarchy
+2018-04-13 22:32:36.614  INFO 23742 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/getCity/{provinceId}],methods=[GET]}" onto private java.lang.Object com.tlgc.controller.APICtrl.getCity(javax.servlet.http.HttpServletResponse,java.lang.String,java.lang.Integer)
+2018-04-13 22:32:36.618  INFO 23742 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/getGym/{cityId}],methods=[GET]}" onto private java.lang.Object com.tlgc.controller.APICtrl.getGym(javax.servlet.http.HttpServletResponse,java.lang.String,java.lang.Integer)
+2018-04-13 22:32:36.619  INFO 23742 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/getGymByCity/{city}],methods=[GET]}" onto private java.lang.Object com.tlgc.controller.APICtrl.getGymByCity(javax.servlet.http.HttpServletResponse,java.lang.String,java.lang.String)
+2018-04-13 22:32:36.621  INFO 23742 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/createIntro],methods=[POST]}" onto public java.lang.Object com.tlgc.controller.APICtrl.createAppoint(javax.servlet.http.HttpServletResponse,java.lang.String,com.tlgc.entity.Intro)
+2018-04-13 22:32:36.622  INFO 23742 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/getIntro]}" onto public java.lang.Object com.tlgc.controller.APICtrl.getIntro(javax.servlet.http.HttpServletResponse,java.lang.String,java.lang.String,java.lang.Integer,java.lang.Integer,java.lang.String,java.lang.String,java.lang.String,java.lang.String)
+2018-04-13 22:32:36.624  INFO 23742 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/handleIntro]}" onto public java.lang.Object com.tlgc.controller.APICtrl.handleIntro(javax.servlet.http.HttpServletResponse,java.lang.String,java.lang.String[])
+2018-04-13 22:32:36.625  INFO 23742 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/getPro],methods=[GET]}" onto private java.lang.Object com.tlgc.controller.APICtrl.getProvince(javax.servlet.http.HttpServletResponse,java.lang.String)
+2018-04-13 22:32:36.636  INFO 23742 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/interface/getGym/{cityId}],methods=[GET]}" onto private com.alibaba.fastjson.JSONObject com.tlgc.controller.testCtrl.getCity(java.lang.Integer)
+2018-04-13 22:32:36.638  INFO 23742 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/interface/getCity/{provinceId}],methods=[GET]}" onto private com.alibaba.fastjson.JSONObject com.tlgc.controller.testCtrl.getGym(java.lang.Integer)
+2018-04-13 22:32:36.639  INFO 23742 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/interface/createIntro],methods=[POST]}" onto public com.tlgc.entity.Result com.tlgc.controller.testCtrl.createAppoint(javax.servlet.http.HttpServletResponse,com.tlgc.entity.Intro)
+2018-04-13 22:32:36.640  INFO 23742 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/interface/test],methods=[GET]}" onto private com.alibaba.fastjson.JSONPObject com.tlgc.controller.testCtrl.getProvince(javax.servlet.http.HttpServletResponse,java.lang.String)
+2018-04-13 22:32:36.642  INFO 23742 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/interface/getPro],methods=[GET]}" onto private com.alibaba.fastjson.JSONObject com.tlgc.controller.testCtrl.getProvince(java.lang.String)
+2018-04-13 22:32:36.643  INFO 23742 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/interface/test2],methods=[GET]}" onto private java.lang.String com.tlgc.controller.testCtrl.getProvince2(javax.servlet.http.HttpServletResponse,java.lang.String)
+2018-04-13 22:32:36.645  INFO 23742 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/interface/admin],methods=[GET]}" onto private com.tlgc.entity.Admin com.tlgc.controller.testCtrl.who()
+2018-04-13 22:32:36.646  INFO 23742 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/interface/conf],methods=[GET]}" onto private java.lang.String com.tlgc.controller.testCtrl.config()
+2018-04-13 22:32:36.654  INFO 23742 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-04-13 22:32:36.655  INFO 23742 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-04-13 22:32:36.770  INFO 23742 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-04-13 22:32:36.772  INFO 23742 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-04-13 22:32:36.839  INFO 23742 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : Detected @ExceptionHandler methods in exceptionHandle
+2018-04-13 22:32:37.010  INFO 23742 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-04-13 22:32:38.177  INFO 23742 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2018-04-13 22:32:38.366  INFO 23742 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-04-13 22:32:38.509  INFO 23742 --- [restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8888 (http)
+2018-04-13 22:32:38.525  INFO 23742 --- [restartedMain] com.tlgc.TlgcApplication                 : Started TlgcApplication in 37.212 seconds (JVM running for 45.608)
+2018-04-13 22:57:06.133  INFO 23742 --- [http-nio-8888-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-04-13 22:57:06.133  INFO 23742 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2018-04-13 22:57:06.166  INFO 23742 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 32 ms
+2018-04-13 22:58:07.423  INFO 23742 --- [Thread-70] ationConfigEmbeddedWebApplicationContext : Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@5e8ee32e: startup date [Fri Apr 13 22:32:08 CST 2018]; root of context hierarchy
+2018-04-13 22:58:07.443  INFO 23742 --- [Thread-70] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
+2018-04-13 22:58:07.448  INFO 23742 --- [Thread-70] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
