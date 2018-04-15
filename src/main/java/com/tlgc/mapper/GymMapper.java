@@ -17,7 +17,7 @@ public interface GymMapper {
     @Select("select Id,CH_Name from TLG_Gym where status=1 and CityId=${CityId} or ${CityId}=-1 order by 2")
     public List<Gym> getAllByCityId(@Param("CityId") Integer CityId);
 
-    @Select("select prov,city,Id,CH_Name name,phone,email,coordinate,tip,addr from TLG_Gym where status=1 and (City=#{City} or #{City}=-1) order by 2")
+    @Select("select prov,city,Id,CH_Name name,phone,email,YYEmail,coordinate,tip,addr,dtPreSale,dtOpen from TLG_Gym where status=1 and (City=#{City} or #{City}=-1) order by 2")
     public List<HashMap> getAllByCity(@Param("City") String City);
 
 }
