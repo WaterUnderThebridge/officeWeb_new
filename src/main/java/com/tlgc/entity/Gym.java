@@ -6,6 +6,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.util.Date;
 
 /**
  * Created by hibernate on 2017/4/13.
@@ -25,5 +26,7 @@ public class Gym {
     private String coordinate;
     private String tip;
     private String addr;
+    private Date  dtOpen;
+    private Date  dtPreSale;
     private int status;
 }
