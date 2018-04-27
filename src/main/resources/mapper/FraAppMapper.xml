@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tlgc.mapper.FranAppMapper" >
+    <select id="listFranApp" resultType="hashmap">
+        SELECT  Id,Name,Address,Phone,Email,Status,convert(varchar(10),CreateTime,120)dt FROM dbo.TLG_AffiliateInfo
+        <where>
+            <if test="dtBegin!='' and dtEnd!=''">
+                CreateTime BETWEEN #{dtBegin} and #{dtEnd}
+            </if>
+            <if test="keyWord!=''">
+                and charindex(#{keyWord},search)>0
+            </if>
+        </where>
+        order by dt desc
+    </select>
+
+    <update id="handleApp" >
+        <if test="ids!=null">
+            update [TLG_AffiliateInfo] set status=3
+            <where>
+                <foreach item="item" index="index" collection="ids" open="and id in("
+                         separator="," close=")">
+                    #{item}
+                </foreach>
+            </where>
+        </if>
+    </update>
+
+</mapper>

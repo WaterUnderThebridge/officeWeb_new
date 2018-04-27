@@ -132,25 +132,31 @@ public class APICtrl {
     }
 
     @RequestMapping(value = "/saveAppli")
-    public Object saveAppli(HttpServletResponse rsp, @RequestParam(value = "callback", required = false) String callback,
-                            @RequestParam(value = "Name", defaultValue = "") String Name,
-                            @RequestParam(value = "Phone", defaultValue = "") String Phone,
-                            @RequestParam(value = "Email", defaultValue = "") String Email,
-                            @RequestParam(value = "Address", defaultValue = "") String Address) {
+    public Object saveAppli(HttpServletResponse rsp,@RequestParam(value = "callback",required = false) String callback,
+                              @RequestParam(value = "UserName",defaultValue = "") String Name,
+                              @RequestParam(value = "UserPhone",defaultValue = "") String Phone,
+                              @RequestParam(value = "UserEmail",defaultValue = "") String Email,
+                              @RequestParam(value = "City",defaultValue = "") String Address){
         rsp.addHeader("Access-Control-Allow-Origin", "*");
         rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
 
         if (Phone.equals("")) {
             return DataConvert.toJson(ResultUtil.error("手机号必须填写"), callback);
         }
-        if (franAppMapper.findApp(Phone) > 0) {
-            return DataConvert.toJson(ResultUtil.error("该手机号已提交申请，我们会尽快处理"), callback);
+
+        String dtApp =DataConvert.convert(new Date());
+        log.info("res={}",franAppMapper.findApp(Phone,dtApp));
+        if(franAppMapper.findApp(Phone,dtApp)>0){
+            return DataConvert.toJson(ResultUtil.error("该手机号已提交申请，请耐心等待，我们会尽快处理"),callback);
+
         }
         FranApp franApp = new FranApp();
         franApp.setName(Name);
         franApp.setAddress(Address);
         franApp.setEmail(Email);
+        franApp.setPhone(Phone);
         franApp.setMailStatus(0);
+        franApp.setRemark("");
         franApp.setSearch(franApp.toString());
         if (franAppMapper.saveFranApp(franApp) > 0) {
             return DataConvert.toJson(ResultUtil.success(), callback);
@@ -160,18 +166,16 @@ public class APICtrl {
     }
 
     @GetMapping(value = "/listFranApp")
-    private Object listFranApp(HttpServletResponse rsp, @RequestParam(value = "callback", required = false) String callback,
-                               @RequestParam(value = "pageNum", defaultValue = "1") Integer pageNow,
-                               @RequestParam(value = "pageSize", defaultValue = "30") Integer size,
-                               @RequestParam(value = "keyWord", defaultValue = "") String keyWord,
-                               @RequestParam(value = "status", required = false) String status,
-                               @RequestParam(value = "dtBegin", defaultValue = "") String dtBegin,
-                               @RequestParam(value = "dtEnd", defaultValue = "") String dtEnd) {
+    private Object listFranApp(HttpServletResponse rsp,@RequestParam(value = "callback",required = false) String callback,
+                               @RequestParam(value = "keyWord",defaultValue = "") String keyWord,
+                               @RequestParam(value = "dtBegin",defaultValue = "") String dtBegin,
+                               @RequestParam(value = "dtEnd",defaultValue = "") String dtEnd){
+
         rsp.addHeader("Access-Control-Allow-Origin", "*");
         rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
-        PageHelper.startPage(pageNow, size);
-        List<HashMap> apps = franAppMapper.listFranApp(dtBegin, dtEnd, keyWord, status);
-        return DataConvert.toJson(ResultUtil.success(apps), callback);
+        List<HashMap> apps = franAppMapper.listFranApp(dtBegin,dtEnd,keyWord);
+        return DataConvert.toJson(ResultUtil.success(apps),callback);
+
     }
 
     @RequestMapping(value = "/getIntro")
@@ -205,13 +209,31 @@ public class APICtrl {
             return ResultUtil.error(-1, "Intro not selected");
         }
 
-        if (introMapper.handleIntro(ids) > 0) {
-            return DataConvert.toJson(ResultUtil.success(), callback);
-        } else {
-            return DataConvert.toJson(ResultUtil.error(), callback);
+        if(introMapper.handleIntro(ids)>0) {
+            return DataConvert.toJson(ResultUtil.success(),callback);
+        }else {
+            return DataConvert.toJson(ResultUtil.error(),callback);
+
         }
 
     }
+
+    @RequestMapping(value = "/handleApp")
+    public Object handleApp(HttpServletResponse rsp,@RequestParam(value = "callback",required = false) String callback,@RequestParam(value = "ids[]",required = true) String[] ids){
+        rsp.addHeader("Access-Control-Allow-Origin", "*");
+        rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
+        log.info(ids.toString());
+        if(ids==null){
+            return ResultUtil.error(-1,"applicants not selected");
+        }
+        if(franAppMapper.handleApp(ids)>0) {
+            return DataConvert.toJson(ResultUtil.success(),callback);
+        }else {
+            return DataConvert.toJson(ResultUtil.error(),callback);
+        }
+
+    }
+
 
 
     @RequestMapping(value = "/getNews")
@@ -239,7 +261,7 @@ public class APICtrl {
         try {
             Map map = new XmlUtil().parse(param);
             res.put("id", map.get("ID").toString());
-            //System.out.println(map);
+            System.out.println(map);
 
         } catch (Exception e) {
             res.put("isSuccess", "false");
