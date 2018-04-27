@@ -8,6 +8,7 @@ import com.tlgc.Convertor.DataConvert;
 import com.tlgc.config.MyConfig;
 import com.tlgc.entity.*;
 import com.tlgc.mapper.*;
+import com.tlgc.service.WebSocket;
 import com.tlgc.utils.ResultUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,6 +43,8 @@ public class testCtrl  {
     private IntroMapper introMapper;
     @Autowired
     private MyConfig myConfig;
+    @Autowired
+    private WebSocket webSocket;
 
     @GetMapping(value = "/getPro")
     private JSONObject getProvince(@RequestParam(value="callback",required = false)String callback){
@@ -50,13 +53,13 @@ public class testCtrl  {
         return DataConvert.toJson(ResultUtil.success(p));
     }
     @GetMapping(value = "/test")
-    private JSONPObject getProvince(HttpServletResponse rsp,@RequestParam(value="callback")String callback){
-        rsp.addHeader("Access-Control-Allow-Origin", "*");
-        rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
-        List<Province> p = provinceMapper.getAll();
-        JSONPObject jsonpObject= new JSONPObject(callback);
-        jsonpObject.addParameter(ResultUtil.success(p));
-        return jsonpObject;
+    private void socket(HttpServletResponse rsp,@RequestParam(value="text")String text,@RequestParam(value="callback",required = false)String callback){
+        webSocket.sendMessage(text);
+        try {
+            rsp.getWriter().println(text);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
     @GetMapping(value = "/test2")
     private String getProvince2(HttpServletResponse rsp,@RequestParam(value="callback",required = false)String callback){
