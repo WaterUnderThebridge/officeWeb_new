@@ -46,6 +46,7 @@ public class APICtrl {
     @Autowired
     private FranAppMapper franAppMapper;
 
+
     @GetMapping(value = "/getPro")
     private Object getProvince(HttpServletResponse rsp, @RequestParam(value = "callback", required = false) String callback) {
         rsp.addHeader("Access-Control-Allow-Origin", "*");
@@ -254,14 +255,34 @@ public class APICtrl {
 
     @RequestMapping(value = "/syncGym")
     public ModelAndView syncGym(@RequestBody String param, Map<String, Object> res, HttpServletResponse rsp) {
-        rsp.addHeader("Access-Control-Allow-Origin", "*");
         rsp.setHeader("Content-Type", "text/xml;charset=UTF-8");
+        rsp.addHeader("Access-Control-Allow-Origin", "*");
         //String soap="<?xml version=\"1.0\" encoding=\"utf-8\"?><soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><soap:Body><mGetOutMessage xmlns=\"http://tempuri.org/crm_server/Crm_OutMessage\"><outobject><UserID>279833</UserID><ID>4861</ID><SessionID /><ObjectName>crm_zdytable_238592_26277</ObjectName><fields><sobjectField><fieldsign>手机号</fieldsign><fieldname>crmzdy_81762775</fieldname><fieldvalue>test</fieldvalue><fieldtype>文本</fieldtype></sobjectField><sobjectField><fieldsign>短信内容</fieldsign><fieldname>crmzdy_81762774</fieldname><fieldvalue>stes</fieldvalue><fieldtype>文本</fieldtype></sobjectField><sobjectField><fieldsign>中心编号</fieldsign><fieldname>crmzdy_81762776</fieldname><fieldvalue>500012</fieldvalue><fieldtype>文本</fieldtype></sobjectField><sobjectField><fieldsign>记录ID</fieldsign><fieldname>id</fieldname><fieldvalue>4861</fieldvalue><fieldtype>整数</fieldtype></sobjectField></fields></outobject></mGetOutMessage></soap:Body></soap:Envelope>";
         //初始化报文，调用parse方法，获得结果map
         try {
-            Map map = new XmlUtil().parse(param);
-            res.put("id", map.get("ID").toString());
-            System.out.println(map);
+            XmlUtil xml = new XmlUtil(param);
+            res.put("id", xml.getVal("ID"));
+            System.out.println(xml.getRes());
+            Gym gym = new Gym();
+            gym.setId(xml.getVal("crmzdy_80620116"));
+            gym.setCH_Name(xml.getVal("crm_name"));
+            gym.setCity(xml.getVal("crmzdy_81744959"));
+            City city = cityMapper.getCity(xml.getVal("crmzdy_81744959"));
+            gym.setCityId(city.getId());
+            gym.setProv(xml.getVal("crmzdy_81744958"));
+            gym.setPhone(xml.getVal("crmzdy_80616967"));
+            gym.setFax(xml.getVal("crmzdy_80620117"));
+            gym.setEmail(xml.getVal("crmzdy_80620118"));
+            gym.setYYEmail(xml.getVal("crmzdy_82048062"));
+            gym.setAddr(xml.getVal("crmzdy_80616968"));
+            gym.setCoordinate(xml.getVal("crmzdy_82040405"));
+            gym.setTip(xml.getVal("crmzdy_81765917"));
+            Date dtPreSale = DataConvert.convert(xml.getVal("crmzdy_82011756"), "yyyy/MM/dd hh:mm:ss");
+            gym.setDtPreSale(dtPreSale);
+            Date dtOpen = DataConvert.convert(xml.getVal("crmzdy_82011760"), "yyyy/MM/dd hh:mm:ss");
+            gym.setDtOpen(dtOpen);
+            gym.setStatus(xml.getVal("crmzdy_82037329"));
+            gymMapper.saveGym(gym);
 
         } catch (Exception e) {
             res.put("isSuccess", "false");
@@ -271,6 +292,9 @@ public class APICtrl {
         res.put("isSuccess","true");
 
         return new ModelAndView("message/success", res);
+
+
+
 
     }
 }

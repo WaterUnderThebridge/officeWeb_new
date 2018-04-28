@@ -13,14 +13,24 @@ import java.util.Map;
  * Created by TONY on 2018/3/27.
  */
 public class XmlUtil {
-    public Map<String, Object> map = new HashMap<String, Object>();
-
-    public Map parse(String soap) throws DocumentException {
+    private Map<String, Object> res  = new HashMap<String, Object>();
+    public void parse(String soap) throws DocumentException {
         Document doc = DocumentHelper.parseText(soap);//报文转成doc对象
         Element root = doc.getRootElement();//获取根元素，准备递归解析这个XML树
-
         getCode(root);
-        return map;
+    }
+
+    public XmlUtil(String soap) {
+        try {
+            this.parse(soap);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+    }
+
+    public Map<String, Object> getRes() {
+        return res;
     }
 
     public void getCode(Element root) {
@@ -35,7 +45,7 @@ public class XmlUtil {
                     }
                 }
                 if (e.elements().size() == 0) {
-                    map.put(e.getName(), e.getTextTrim());
+                    res.put(e.getName(), e.getTextTrim());
                 }//如果为叶子节点，那么直接把名字和值放入map
             }
         }
@@ -48,8 +58,16 @@ public class XmlUtil {
             String key  =  obj.get(1).getTextTrim();
             String value  =  obj.get(2).getTextTrim();
             if(!key.equals("") && !value.equals("")){
-                map.put(key,value);
+                res.put(key,value);
             }
         }
     }
+    public String getVal(String key){
+        Object val = res.get(key);
+        if(val==null){
+            val = "";
+        }
+        return val.toString();
+    }
 }
+

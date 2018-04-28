@@ -16,17 +16,19 @@ import java.util.Date;
 @Table(name="TLG_Gym")
 public class Gym {
     @Id
-    private Integer Id;
+    private String Id;
     private String CH_Name;
     private Integer cityId;
     private String prov;
     private String city;
     private String phone;
     private String email;
+    private String YYEmail;
     private String coordinate;
     private String tip;
+    private String fax;
     private String addr;
     private Date  dtOpen;
     private Date  dtPreSale;
-    private int status;
+    private String status;
 }
