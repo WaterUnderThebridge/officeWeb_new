@@ -16,8 +16,8 @@ import java.util.List;
  */
 public interface IntroMapper {
     @Transactional
-    @Insert("INSERT INTO TLG_FreeAppointment(gymCode,Center,City,Provnce,BabyName,BabyBrithday,Email,ParentPhone,channel,mailStatus,createTime,Status,Type,search)" +
-            "VALUES(#{gymCode},#{Center},#{City},#{Province},#{BabyName},#{BabyBrithday},#{Email},#{ParentPhone},#{Channel},#{MailStatus},#{CreateTime},1,1,#{search})")
+    @Insert("INSERT INTO TLG_FreeAppointment(gymCode,Center,City,Provnce,BabyName,BabyBrithday,Email,ParentPhone,channel,mailStatus,createTime,Status,Type,search,isSync)" +
+            "VALUES(#{gymCode},#{Center},#{City},#{Province},#{BabyName},#{BabyBrithday},#{Email},#{ParentPhone},#{Channel},#{MailStatus},#{CreateTime},1,1,#{search},#{isSync})")
     public Integer saveIntro(Intro intro);
 
     public List<HashMap> getIntro(@Param("gymCode")String gymCode,@Param("dtBegin")String dtBegin,@Param("dtEnd")String dtEnd,@Param("keyWord")String keyWord);

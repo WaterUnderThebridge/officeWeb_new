@@ -26,7 +26,7 @@ public class Intro {
     private Date CreateTime;
     private Integer status;
     private String search;
-
+    private int isSync;
     @Override
     public String toString() {
 

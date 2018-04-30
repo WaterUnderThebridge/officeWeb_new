@@ -6,6 +6,7 @@ import com.github.pagehelper.PageInfo;
 import com.tlgc.Convertor.DataConvert;
 import com.tlgc.entity.*;
 import com.tlgc.mapper.*;
+import com.tlgc.service.IntroService;
 import com.tlgc.utils.ResultUtil;
 import com.tlgc.utils.XmlUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -45,13 +46,13 @@ public class APICtrl {
     private NewsMapper newsMapper;
     @Autowired
     private FranAppMapper franAppMapper;
-
+    @Autowired
+    private IntroService introService;
 
     @GetMapping(value = "/getPro")
     private Object getProvince(HttpServletResponse rsp, @RequestParam(value = "callback", required = false) String callback) {
         rsp.addHeader("Access-Control-Allow-Origin", "*");
         rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
-
         //  PageHelper.startPage(3,2);
         List<Province> p = provinceMapper.getAll();
         return DataConvert.toJson(ResultUtil.success(p), callback);
@@ -106,6 +107,7 @@ public class APICtrl {
                               @RequestParam(value = "BabyBrithday", defaultValue = "") String BabyBrithday,
                               @RequestParam(value = "ParentPhone", defaultValue = "") String ParentPhone,
                               @RequestParam(value = "Province", defaultValue = "") String Province,
+                              @RequestParam(value = "channel", defaultValue = "") String channel,
                               @RequestParam(value = "City", defaultValue = "") String City) {
         rsp.addHeader("Access-Control-Allow-Origin", "*");
         rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
@@ -122,9 +124,10 @@ public class APICtrl {
         intro.setCity(City);
         intro.setMailStatus(0);
         intro.setStatus(1);
-        intro.setChannel("test");
+        intro.setChannel(channel);
         intro.setCreateTime(new Date());
         intro.setSearch(intro.toString());
+        intro.setIsSync(introService.synchIntro(intro));
         if (introMapper.saveIntro(intro) > 0) {
             return DataConvert.toJson(ResultUtil.success(), callback);
         } else {
@@ -292,9 +295,6 @@ public class APICtrl {
         res.put("isSuccess","true");
 
         return new ModelAndView("message/success", res);
-
-
-
 
     }
 }

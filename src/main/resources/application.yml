@@ -31,7 +31,8 @@ server:
   port: 8886
 
 
-
+Intro:
+   synchUrl: https://bbk.800app.com/uploadfile/staticresource/238592/279833/dataInterface_intro.aspx
 
 
 
