@@ -90,7 +90,10 @@ public class APICtrl {
         rsp.addHeader("Access-Control-Allow-Origin", "*");
         rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
         intro.setMailStatus(0);
-        intro.setChannel("php");
+        intro.setGymCode(intro.getCenter());
+        intro.setChannel("手机页面登记（中心市场活动）");
+        intro.setStatus(1);
+        intro.setIsSync(0);
         intro.setCreateTime(new Date());
         intro.setSearch(intro.toString());
         if (introMapper.saveIntro(intro) > 0) {
@@ -117,6 +120,7 @@ public class APICtrl {
         }
         Intro intro = new Intro();
         intro.setGymCode(gymCode);
+        intro.setCenter(gymCode);
         intro.setBabyBrithday(BabyBrithday);
         intro.setBabyName(BabyName);
         intro.setParentPhone(ParentPhone);

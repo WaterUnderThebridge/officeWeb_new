@@ -13,7 +13,7 @@ import java.util.Date;
 public class Intro {
     @Id
     private Integer Id;
-    private Integer Center;
+    private String Center;
     private String City;
     private String gymCode;
     private String Province;
