@@ -288,6 +288,9 @@ public class APICtrl {
             gym.setAddr(xml.getVal("crmzdy_80616968"));
             gym.setCoordinate(xml.getVal("crmzdy_82040405"));
             gym.setTip(xml.getVal("crmzdy_81765917"));
+            gym.setServer(xml.getVal("crmzdy_82058140"));
+            gym.setAppId(xml.getVal("crmzdy_81762517"));
+            gym.setAppKey(xml.getVal("crmzdy_81762518"));
             Date dtPreSale = DataConvert.convert(xml.getVal("crmzdy_82011756"), "yyyy/MM/dd hh:mm:ss");
             gym.setDtPreSale(dtPreSale);
             Date dtOpen = DataConvert.convert(xml.getVal("crmzdy_82011760"), "yyyy/MM/dd hh:mm:ss");
@@ -299,9 +302,9 @@ public class APICtrl {
             res.put("isSuccess", "false");
             res.put("error", "未知错误");
             e.printStackTrace();
+            return new ModelAndView("message/error", res);
         }
         res.put("isSuccess","true");
-
         return new ModelAndView("message/success", res);
 
     }
@@ -314,18 +317,22 @@ public class APICtrl {
             XmlUtil xml = new XmlUtil(param);
             res.put("id", xml.getVal("ID"));
             System.out.println(xml.getRes());
-            PhoneMsg phoneMsg=new PhoneMsg();
-            phoneMsg.setPhone(xml.getVal("crmzdy_81762775"));
-            phoneMsg.setContent(xml.getVal("crmzdy_81762774"));
-            int i= iSmsService.synchPhoneMsg(phoneMsg);
-            if(i==1)
-            {
-                log.info("返回了1外，");
-                res.put("isSuccess","true");
-            }
-            else
-            {
-                res.put("isSuccess","false");
+//            private String appid = "22870";
+//            private String appkey = "185364fe9e7f25f8ab2bb979505cad27";
+            Gym gym=gymMapper.findGym(xml.getVal("crmzdy_81762776"));
+            if(gym!=null && gym.getServer().equals("赛邮")) {
+                PhoneMsg phoneMsg = new PhoneMsg();
+                phoneMsg.setAppid(gym.getAppId());
+                phoneMsg.setAppkey(gym.getAppKey());
+                phoneMsg.setPhone(xml.getVal("crmzdy_81762775"));
+                phoneMsg.setContent(xml.getVal("crmzdy_81762774"));
+                int i = iSmsService.synchPhoneMsg(phoneMsg);
+                if (i == 1) {
+                    log.info("返回了1外，");
+                    res.put("isSuccess", "true");
+                } else {
+                    res.put("isSuccess", "false");
+                }
             }
             //return SmsServiceImpl.synchPhoneMsg(phoneMsg);
 //            log.info(phoneMsg.phone);

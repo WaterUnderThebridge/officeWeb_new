@@ -28,6 +28,9 @@ public class Gym {
     private String tip;
     private String fax;
     private String addr;
+    private String appId;
+    private String appKey;
+    private String server;
     private Date  dtOpen;
     private Date  dtPreSale;
     private String status;
