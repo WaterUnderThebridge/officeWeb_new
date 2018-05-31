@@ -6,7 +6,9 @@ import com.github.pagehelper.PageInfo;
 import com.tlgc.Convertor.DataConvert;
 import com.tlgc.entity.*;
 import com.tlgc.mapper.*;
+import com.tlgc.service.ISmsService;
 import com.tlgc.service.IntroService;
+import com.tlgc.service.impl.SmsServiceImpl;
 import com.tlgc.utils.ResultUtil;
 import com.tlgc.utils.XmlUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -48,6 +50,8 @@ public class APICtrl {
     private FranAppMapper franAppMapper;
     @Autowired
     private IntroService introService;
+    @Autowired
+    private ISmsService iSmsService;
 
     @GetMapping(value = "/getPro")
     private Object getProvince(HttpServletResponse rsp, @RequestParam(value = "callback", required = false) String callback) {
@@ -300,6 +304,37 @@ public class APICtrl {
 
         return new ModelAndView("message/success", res);
 
+    }
+
+    @RequestMapping(value = "/sendSMS")
+    public Object getPhone(@RequestBody String param, Map<String, Object> res, HttpServletResponse rsp) {
+        rsp.addHeader("Access-Control-Allow-Origin", "*");
+        rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
+        try {
+            XmlUtil xml = new XmlUtil(param);
+            res.put("id", xml.getVal("ID"));
+            System.out.println(xml.getRes());
+            PhoneMsg phoneMsg=new PhoneMsg();
+            phoneMsg.setPhone(xml.getVal("crmzdy_81762775"));
+            phoneMsg.setContent(xml.getVal("crmzdy_81762774"));
+            int i= iSmsService.synchPhoneMsg(phoneMsg);
+            if(i==1)
+            {
+                log.info("返回了1外，");
+                res.put("isSuccess","true");
+            }
+            else
+            {
+                res.put("isSuccess","false");
+            }
+            //return SmsServiceImpl.synchPhoneMsg(phoneMsg);
+//            log.info(phoneMsg.phone);
+        } catch (Exception e) {
+            res.put("isSuccess", "false");
+            res.put("error", "未知错误");
+            e.printStackTrace();
+        }
+        return new ModelAndView("message/success", res);
     }
 }
 
