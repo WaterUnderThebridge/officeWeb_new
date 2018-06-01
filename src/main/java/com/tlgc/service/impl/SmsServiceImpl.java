@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 //////////////////////////////////////////////////////////////
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.TreeMap;
 import java.util.Map;
 import com.tlgc.lib.RequestEncoder;
@@ -44,7 +45,7 @@ public class SmsServiceImpl implements ISmsService {
     private static final String URL="https://api.mysubmail.com/message/send.json";
 
     @Override
-    public int synchPhoneMsg(PhoneMsg phoneMsg){
+    public Map<String, Object>  synchPhoneMsg(PhoneMsg phoneMsg){
         log.info("Json语句："+phoneMsg.toString());
         TreeMap<String, Object> requestData = new TreeMap<String, Object>();
         /**
@@ -114,33 +115,37 @@ public class SmsServiceImpl implements ISmsService {
         HttpPost httpPost = new HttpPost(URL);
         httpPost.addHeader("charset", "UTF-8");
         httpPost.setEntity(builder.build());
+        Map<String, Object> res=new HashMap<>();
         try{
             CloseableHttpClient closeableHttpClient = HttpClientBuilder.create().build();
             HttpResponse response = closeableHttpClient.execute(httpPost);
             HttpEntity httpEntity = response.getEntity();
             if(httpEntity != null){
                 String jsonStr = EntityUtils.toString(httpEntity, "UTF-8");
-                JSONObject Jsong=JSONObject.parseObject(jsonStr);
+                JSONObject json=JSONObject.parseObject(jsonStr);
                 System.out.println(jsonStr);
-                log.info("转换的值："+Jsong);
-                String s=Jsong.get("status").toString();
-                log.info(s);
-                if(s.equals("success")){
-                    log.info("返回 1里，");
-                    return 1;
-                }
-                else {
-                    return 0;
+                log.info("转换的值："+json);
+                String s=json.get("status").toString();
+                if(s.equals("error")){
+                    res.put("isSuccess", "false");
+                    res.put("msg",json.get("msg").toString());
+                    res.put("code",json.get("code").toString());
+                }else{
+                    res.put("isSuccess", "true");
                 }
             }
         }catch(ClientProtocolException e){
             e.printStackTrace();
-            return 0;
+            res.put("isSuccess", "false");
+            res.put("msg",e.getMessage());
+            res.put("code",-1);
         }catch(IOException e){
             e.printStackTrace();
-            return 0;
+            res.put("isSuccess", "false");
+            res.put("msg",e.getMessage());
+            res.put("code",-1);
         }
-        return 1;
+        return  res;
     }
 
     /**

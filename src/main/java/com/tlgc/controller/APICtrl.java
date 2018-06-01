@@ -300,7 +300,7 @@ public class APICtrl {
 
         } catch (Exception e) {
             res.put("isSuccess", "false");
-            res.put("error", "未知错误");
+            res.put("msg", "未知错误");
             e.printStackTrace();
             return new ModelAndView("message/error", res);
         }
@@ -310,38 +310,54 @@ public class APICtrl {
     }
 
     @RequestMapping(value = "/sendSMS")
-    public Object getPhone(@RequestBody String param, Map<String, Object> res, HttpServletResponse rsp) {
+    public ModelAndView sendSMS(@RequestBody String param, Map<String, Object> res, HttpServletResponse rsp) {
+        rsp.setHeader("Content-Type", "text/xml;charset=UTF-8");
         rsp.addHeader("Access-Control-Allow-Origin", "*");
-        rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
         try {
             XmlUtil xml = new XmlUtil(param);
-            res.put("id", xml.getVal("ID"));
+            String tb=xml.getVal("ObjectName");
             System.out.println(xml.getRes());
-//            private String appid = "22870";
-//            private String appkey = "185364fe9e7f25f8ab2bb979505cad27";
-            Gym gym=gymMapper.findGym(xml.getVal("crmzdy_81762776"));
-            if(gym!=null && gym.getServer().equals("赛邮")) {
-                PhoneMsg phoneMsg = new PhoneMsg();
-                phoneMsg.setAppid(gym.getAppId());
-                phoneMsg.setAppkey(gym.getAppKey());
-                phoneMsg.setPhone(xml.getVal("crmzdy_81762775"));
-                phoneMsg.setContent(xml.getVal("crmzdy_81762774"));
-                int i = iSmsService.synchPhoneMsg(phoneMsg);
-                if (i == 1) {
-                    log.info("返回了1外，");
-                    res.put("isSuccess", "true");
-                } else {
-                    res.put("isSuccess", "false");
-                }
+            //String appid = "22870";
+            //String appkey = "185364fe9e7f25f8ab2bb979505cad27";
+            String gymCode="";
+            String phone="";
+            String content="";
+            if(tb.equals("crm_zdytable_238592_26277")) {
+                //原短信表接口
+                gymCode = xml.getVal("crmzdy_81762776");
+                phone = xml.getVal("crmzdy_81762775");
+                content = xml.getVal("crmzdy_81762774");
+            }else {
+                gymCode = xml.getVal("crmzdy_81762900");
+                phone = xml.getVal("crmzdy_81762850");
+                content = xml.getVal("crmzdy_81748934");
             }
-            //return SmsServiceImpl.synchPhoneMsg(phoneMsg);
-//            log.info(phoneMsg.phone);
+
+            Gym gym=gymMapper.findGym(gymCode);
+            PhoneMsg phoneMsg =new PhoneMsg(gym.getAppId(),gym.getAppKey());
+            phoneMsg.setPhone(phone);
+            phoneMsg.setContent("【小小运动馆】"+content);
+            if(gym!=null && gym.getServer().equals("赛邮")) {
+                //System.out.println(phoneMsg);
+                res = iSmsService.synchPhoneMsg(phoneMsg);
+            }else{
+                res.put("isSuccess", "false");
+                res.put("code", -2);
+                res.put("msg", "赛邮短信设置不正确");
+            }
+            res.put("id", xml.getVal("ID"));
         } catch (Exception e) {
             res.put("isSuccess", "false");
-            res.put("error", "未知错误");
+            res.put("code", -1);
+            res.put("msg", e.getMessage());
             e.printStackTrace();
         }
-        return new ModelAndView("message/success", res);
+        log.info("res:{}",res);
+        if(res.get("isSuccess").equals("true")) {
+            return new ModelAndView("message/success", res);
+        }else{
+            return new ModelAndView("message/error", res);
+        }
     }
 }
 

@@ -20,10 +20,16 @@ public class PhoneMsg {
     @Id
     private int id;
     public String phone;
-    private String appid = "22870";
-    private String appkey = "185364fe9e7f25f8ab2bb979505cad27";
+    private String appid;
+    private String appkey;
     public String content;
 
+    public PhoneMsg(String appid, String appkey) {
+        this.appid = appid;
+        this.appkey = appkey;
+    }
+    public PhoneMsg() {
+    }
     @Override
     public String toString() {
         StringBuilder strb = new StringBuilder();
