@@ -73,7 +73,7 @@ public class SmsServiceImpl implements ISmsService {
         String to =phoneMsg.getPhone();
         log.info(to);
         String content =phoneMsg.getContent();
-        log.info("短信内容:"+content);
+        //log.info("短信内容:"+content);
         String signtype = "md5";
         /**
          *  ---------------------------------------------------------------------------
@@ -123,8 +123,8 @@ public class SmsServiceImpl implements ISmsService {
             if(httpEntity != null){
                 String jsonStr = EntityUtils.toString(httpEntity, "UTF-8");
                 JSONObject json=JSONObject.parseObject(jsonStr);
-                System.out.println(jsonStr);
-                log.info("转换的值："+json);
+                //System.out.println(jsonStr);
+                //log.info("转换的值："+json);
                 String s=json.get("status").toString();
                 if(s.equals("error")){
                     res.put("isSuccess", "false");

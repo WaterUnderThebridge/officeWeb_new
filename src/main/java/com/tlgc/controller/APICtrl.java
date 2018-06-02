@@ -291,6 +291,7 @@ public class APICtrl {
             gym.setServer(xml.getVal("crmzdy_82058140"));
             gym.setAppId(xml.getVal("crmzdy_81762517"));
             gym.setAppKey(xml.getVal("crmzdy_81762518"));
+            gym.setApp_signature(xml.getVal("crmzdy_81762709"));
             Date dtPreSale = DataConvert.convert(xml.getVal("crmzdy_82011756"), "yyyy/MM/dd hh:mm:ss");
             gym.setDtPreSale(dtPreSale);
             Date dtOpen = DataConvert.convert(xml.getVal("crmzdy_82011760"), "yyyy/MM/dd hh:mm:ss");
@@ -336,8 +337,9 @@ public class APICtrl {
             Gym gym=gymMapper.findGym(gymCode);
             PhoneMsg phoneMsg =new PhoneMsg(gym.getAppId(),gym.getAppKey());
             phoneMsg.setPhone(phone);
-            phoneMsg.setContent("【小小运动馆】"+content);
-            if(gym!=null && gym.getServer().equals("赛邮")) {
+            phoneMsg.setContent("【"+gym.getApp_signature()+"】"+content);
+            if(gym!=null && gym.getServer().equals("赛邮")
+                    &&!gym.getAppId().equals("")&&!gym.getAppKey().equals("")) {
                 //System.out.println(phoneMsg);
                 res = iSmsService.synchPhoneMsg(phoneMsg);
             }else{

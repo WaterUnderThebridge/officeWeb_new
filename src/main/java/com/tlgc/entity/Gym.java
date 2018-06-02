@@ -31,6 +31,7 @@ public class Gym {
     private String appId;
     private String appKey;
     private String server;
+    private String app_signature;
     private Date  dtOpen;
     private Date  dtPreSale;
     private String status;
