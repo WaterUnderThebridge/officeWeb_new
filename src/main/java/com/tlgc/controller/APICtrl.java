@@ -7,7 +7,7 @@ import com.tlgc.Convertor.DataConvert;
 import com.tlgc.entity.*;
 import com.tlgc.mapper.*;
 import com.tlgc.service.ISmsService;
-import com.tlgc.service.IntroService;
+import com.tlgc.service.ISynchBackService;
 import com.tlgc.service.impl.SmsServiceImpl;
 import com.tlgc.utils.ResultUtil;
 import com.tlgc.utils.XmlUtil;
@@ -49,7 +49,7 @@ public class APICtrl {
     @Autowired
     private FranAppMapper franAppMapper;
     @Autowired
-    private IntroService introService;
+    private ISynchBackService iSynchBackService;
     @Autowired
     private ISmsService iSmsService;
 
@@ -135,7 +135,7 @@ public class APICtrl {
         intro.setChannel(channel);
         intro.setCreateTime(new Date());
         intro.setSearch(intro.toString());
-        intro.setIsSync(introService.synchIntro(intro));
+        intro.setIsSync(iSynchBackService.synchIntro(intro));
         if (introMapper.saveIntro(intro) > 0) {
             return DataConvert.toJson(ResultUtil.success(), callback);
         } else {
@@ -314,9 +314,11 @@ public class APICtrl {
     public ModelAndView sendSMS(@RequestBody String param, Map<String, Object> res, HttpServletResponse rsp) {
         rsp.setHeader("Content-Type", "text/xml;charset=UTF-8");
         rsp.addHeader("Access-Control-Allow-Origin", "*");
+        String id="",tb;
         try {
             XmlUtil xml = new XmlUtil(param);
-            String tb=xml.getVal("ObjectName");
+            tb=xml.getVal("ObjectName");
+            id= xml.getVal("ID");
             System.out.println(xml.getRes());
             //String appid = "22870";
             //String appkey = "185364fe9e7f25f8ab2bb979505cad27";
@@ -347,7 +349,7 @@ public class APICtrl {
                 res.put("code", -2);
                 res.put("msg", "赛邮短信设置不正确");
             }
-            res.put("id", xml.getVal("ID"));
+            res.put("id",id);
         } catch (Exception e) {
             res.put("isSuccess", "false");
             res.put("code", -1);
@@ -356,6 +358,7 @@ public class APICtrl {
         }
         log.info("res:{}",res);
         if(res.get("isSuccess").equals("true")) {
+            iSynchBackService.synchGt(id);
             return new ModelAndView("message/success", res);
         }else{
             return new ModelAndView("message/error", res);

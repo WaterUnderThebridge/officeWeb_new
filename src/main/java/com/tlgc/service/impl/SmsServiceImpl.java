@@ -46,7 +46,7 @@ public class SmsServiceImpl implements ISmsService {
 
     @Override
     public Map<String, Object>  synchPhoneMsg(PhoneMsg phoneMsg){
-        log.info("Json语句："+phoneMsg.toString());
+        //log.info("Json："+phoneMsg.toString());
         TreeMap<String, Object> requestData = new TreeMap<String, Object>();
         /**
          * --------------------------------参数配置------------------------------------
@@ -74,7 +74,7 @@ public class SmsServiceImpl implements ISmsService {
         log.info(to);
         String content =phoneMsg.getContent();
         //log.info("短信内容:"+content);
-        String signtype = "md5";
+        String signtype = "normal";
         /**
          *  ---------------------------------------------------------------------------
          */

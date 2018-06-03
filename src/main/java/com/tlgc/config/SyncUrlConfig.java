@@ -6,8 +6,8 @@ import org.springframework.stereotype.Component;
 
 @Data
 @Component
-@ConfigurationProperties(prefix = "Intro")
-public class IntroConfig {
-    private String synchUrl;
-
+@ConfigurationProperties(prefix = "Sync")
+public class SyncUrlConfig {
+    private String introUrl;
+    private String gtUrl;
 }

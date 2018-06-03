@@ -10,14 +10,12 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.Date;
 
-import static org.junit.Assert.*;
-
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @Slf4j
-public class IntroServiceImplTest {
+public class SynchBackServiceImplImplTest {
     @Autowired
-    public IntroServiceImpl introService;
+    public SynchBackServiceImpl introService;
     @Test
     public void synchIntro() {
         Intro intro = new Intro();

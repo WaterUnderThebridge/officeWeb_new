@@ -10,6 +10,11 @@ spring:
 
   jackson:
     default-property-inclusion: non_null
+  http:
+    encoding:
+      charset: utf-8
+      force: true
+      enabled: true
 # redis:
 #   host: 192.168.30.113
 #   port: 6379
@@ -24,15 +29,17 @@ mybatis:
 
 
 
-
 server:
   session:
     timeout: -1
   port: 8886
+  tomcat:
+    uri-encoding: UTF-8
 
 
-Intro:
-   synchUrl: https://bbk.800app.com/uploadfile/staticresource/238592/279833/dataInterface_intro.aspx
+Sync:
+   introUrl: https://bbk.800app.com/uploadfile/staticresource/238592/279833/dataInterface_intro.aspx
+   gtUrl: https://bbk.800app.com/uploadfile/staticresource/238592/279833/gt_sms_status_synch.aspx
 
 
 
