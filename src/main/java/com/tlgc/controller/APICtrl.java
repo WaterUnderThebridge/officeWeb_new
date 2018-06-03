@@ -314,7 +314,7 @@ public class APICtrl {
     public ModelAndView sendSMS(@RequestBody String param, Map<String, Object> res, HttpServletResponse rsp) {
         rsp.setHeader("Content-Type", "text/xml;charset=UTF-8");
         rsp.addHeader("Access-Control-Allow-Origin", "*");
-        String id="",tb;
+        String id="",tb="";
         try {
             XmlUtil xml = new XmlUtil(param);
             tb=xml.getVal("ObjectName");
@@ -356,9 +356,11 @@ public class APICtrl {
             res.put("msg", e.getMessage());
             e.printStackTrace();
         }
-        log.info("res:{}",res);
+        //log.info("res:{}",res);
         if(res.get("isSuccess").equals("true")) {
-            iSynchBackService.synchGt(id);
+            if(!tb.equals("crm_zdytable_238592_26277")) {
+                iSynchBackService.synchGt(id);
+            }
             return new ModelAndView("message/success", res);
         }else{
             return new ModelAndView("message/error", res);
