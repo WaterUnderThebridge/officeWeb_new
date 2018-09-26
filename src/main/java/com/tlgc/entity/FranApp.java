@@ -21,6 +21,7 @@ public class FranApp {
     private String Email;
     private String Address;
     private String Remark ="";
+    private Integer LinkTime;
     private Date CreateTime =new Date();
     private Integer Status=1;
     private Integer MailStatus;
