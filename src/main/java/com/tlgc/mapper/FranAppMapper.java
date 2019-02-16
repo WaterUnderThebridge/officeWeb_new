@@ -17,8 +17,8 @@ public interface FranAppMapper {
 
     public List<HashMap> listFranApp(@Param("dtBegin") String dtBegin,@Param("dtEnd") String dtEnd,@Param("keyWord") String keyWord);
 
-    @Insert("INSERT INTO TLG_AffiliateInfo (Name,Phone,Email,Address,MailStatus,Remark,LinkTime,CreateTime,status)" +
-            "VALUES(#{Name},#{Phone},#{Email},#{Address},#{MailStatus},#{Remark},#{LinkTime},#{CreateTime},1)")
+    @Insert("INSERT INTO TLG_AffiliateInfo (Name,Phone,Email,Address,Channel,MailStatus,Remark,LinkTime,CreateTime,status)" +
+            "VALUES(#{Name},#{Phone},#{Email},#{Address},#{Channel},#{MailStatus},#{Remark},#{LinkTime},#{CreateTime},1)")
     public Integer saveFranApp(FranApp franApp);
 
     public Integer handleApp(@Param("ids")String[] ids);

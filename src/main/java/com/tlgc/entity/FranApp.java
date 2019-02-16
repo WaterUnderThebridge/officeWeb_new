@@ -20,6 +20,7 @@ public class FranApp {
     private String Phone;
     private String Email;
     private String Address;
+    private String Channel;
     private String Remark ="";
     private Integer LinkTime;
     private Date CreateTime =new Date();
@@ -33,6 +34,7 @@ public class FranApp {
                 "Name='" + Name + '\'' +
                 ", Phone='" + Phone + '\'' +
                 ", Email='" + Email + '\'' +
+                ", Channel='" + Channel + '\'' +
                 ", Address='" + Address + '\'' +
                 ", Remark='" + Remark + '\'' +
                 ", CreateTime=" + CreateTime +
