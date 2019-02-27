@@ -6,6 +6,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.criteria.CriteriaBuilder;
 import java.util.Date;
 
 /**
@@ -19,6 +20,7 @@ public class Gym {
     private String Id;
     private String CH_Name;
     private Integer cityId;
+    private String isPreparing;
     private String prov;
     private String city;
     private String phone;
