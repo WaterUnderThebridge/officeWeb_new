@@ -282,8 +282,8 @@ public class APICtrl {
             gym.setId(xml.getVal("crmzdy_80620116"));
             gym.setCH_Name(xml.getVal("crm_name"));
             gym.setCity(xml.getVal("crmzdy_81744959"));
-            City city = cityMapper.getCity(xml.getVal("crmzdy_81744959"));
-            gym.setCityId(city.getId());
+//            City city = cityMapper.getCity(xml.getVal("crmzdy_81744959"));
+//            gym.setCityId(city.getId());
             gym.setProv(xml.getVal("crmzdy_81744958"));
             gym.setPhone(xml.getVal("crmzdy_80616967"));
             gym.setFax(xml.getVal("crmzdy_80620117"));
