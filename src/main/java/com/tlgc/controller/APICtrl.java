@@ -301,7 +301,7 @@ public class APICtrl {
             gym.setDtPreSale(dtPreSale);
             Date dtOpen = DataConvert.convert(xml.getVal("crmzdy_82011760"), "yyyy/MM/dd hh:mm:ss");
             gym.setDtOpen(dtOpen);
-            gym.setStatus(xml.getVal("crmzdy_82037329"));
+            gym.setStatus(xml.getVal("crmzdy_87676789"));
             gymMapper.saveGym(gym);
 
         } catch (Exception e) {
