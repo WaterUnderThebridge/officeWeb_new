@@ -150,7 +150,10 @@ public class APICtrl {
                               @RequestParam(value = "UserEmail",defaultValue = "") String Email,
                               @RequestParam(value = "Time",defaultValue = "") Integer LinkTime,
                               @RequestParam(value = "Channel",defaultValue = "") String Channel,
-                              @RequestParam(value = "City",defaultValue = "") String Address){
+                              @RequestParam(value = "rec_phone",defaultValue = "") String rec_phone,
+                              @RequestParam(value = "rec_name",defaultValue = "") String rec_name,
+                              @RequestParam(value = "City",defaultValue = "") String Address
+    ){
         rsp.addHeader("Access-Control-Allow-Origin", "*");
         rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
 
@@ -173,6 +176,8 @@ public class APICtrl {
         franApp.setPhone(Phone);
         franApp.setMailStatus(0);
         franApp.setRemark("");
+        franApp.setRec_name(rec_name);
+        franApp.setRec_phone(rec_phone);
         franApp.setSearch(franApp.toString());
         if (franAppMapper.saveFranApp(franApp) > 0) {
             return DataConvert.toJson(ResultUtil.success(), callback);

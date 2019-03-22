@@ -21,6 +21,8 @@ public class FranApp {
     private String Email;
     private String Address;
     private String Channel;
+    private String rec_phone;
+    private String rec_name;
     private String Remark ="";
     private Integer LinkTime;
     private Date CreateTime =new Date();
