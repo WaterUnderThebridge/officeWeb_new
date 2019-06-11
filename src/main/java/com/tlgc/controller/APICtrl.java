@@ -302,6 +302,8 @@ public class APICtrl {
             gym.setAppKey(xml.getVal("crmzdy_81762518"));
             gym.setApp_signature(xml.getVal("crmzdy_81762709"));
             gym.setIsPreparing(xml.getVal("crmzdy_87673553"));
+            Date create_time = DataConvert.convert(xml.getVal("create_time"), "yyyy/MM/dd hh:mm:ss");
+            gym.setCreateTime(create_time);
             Date dtPreSale = DataConvert.convert(xml.getVal("crmzdy_82011756"), "yyyy/MM/dd hh:mm:ss");
             gym.setDtPreSale(dtPreSale);
             Date dtOpen = DataConvert.convert(xml.getVal("crmzdy_82011760"), "yyyy/MM/dd hh:mm:ss");

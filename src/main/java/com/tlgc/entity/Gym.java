@@ -37,4 +37,5 @@ public class Gym {
     private Date  dtOpen;
     private Date  dtPreSale;
     private String status;
+    private Date createTime;
 }
