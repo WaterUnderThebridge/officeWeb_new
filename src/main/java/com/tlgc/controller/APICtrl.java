@@ -190,11 +190,13 @@ public class APICtrl {
     private Object listFranApp(HttpServletResponse rsp,@RequestParam(value = "callback",required = false) String callback,
                                @RequestParam(value = "keyWord",defaultValue = "") String keyWord,
                                @RequestParam(value = "dtBegin",defaultValue = "") String dtBegin,
+                               @RequestParam(value = "pageNum", defaultValue = "1") Integer pageNow,
+                               @RequestParam(value = "pageSize", defaultValue = "30") Integer size,
                                @RequestParam(value = "dtEnd",defaultValue = "") String dtEnd){
 
         rsp.addHeader("Access-Control-Allow-Origin", "*");
         rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
-        List<HashMap> apps = franAppMapper.listFranApp(dtBegin,dtEnd,keyWord);
+        List<HashMap> apps = franAppMapper.listFranApp(dtBegin,dtEnd,keyWord,size,pageNow);
         return DataConvert.toJson(ResultUtil.success(apps),callback);
 
     }

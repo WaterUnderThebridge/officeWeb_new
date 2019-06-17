@@ -11,7 +11,7 @@
                 and charindex(#{keyWord},search)>0
             </if>
         </where>
-        order by dt desc
+        order by dt desc offset #{pageSize}*(#{pageNum}-1) row fetch next #{pageSize} row only
     </select>
 
     <update id="handleApp" >

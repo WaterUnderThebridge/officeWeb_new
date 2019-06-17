@@ -15,7 +15,7 @@ public interface FranAppMapper {
     @Select("select count(1) from TLG_AffiliateInfo where mailstatus=0 and Phone=#{Phone} and datediff(d,#{dtApp},createTime)=0")
     public Integer findApp(@Param("Phone") String Phone,@Param("dtApp") String dtApp);
 
-    public List<HashMap> listFranApp(@Param("dtBegin") String dtBegin,@Param("dtEnd") String dtEnd,@Param("keyWord") String keyWord);
+    public List<HashMap> listFranApp(@Param("dtBegin") String dtBegin,@Param("dtEnd") String dtEnd,@Param("keyWord") String keyWord ,@Param("pageSize") Integer pageSize,@Param("pageNum") Integer pageNum);
 
     @Insert("INSERT INTO TLG_AffiliateInfo (Name,Phone,Email,Address,Channel,MailStatus,Remark,LinkTime,CreateTime,status,rec_name,rec_phone)" +
             "VALUES(#{Name},#{Phone},#{Email},#{Address},#{Channel},#{MailStatus},#{Remark},#{LinkTime},#{CreateTime},1,#{rec_name},#{rec_phone})")
