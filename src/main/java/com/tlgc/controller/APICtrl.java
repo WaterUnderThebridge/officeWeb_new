@@ -186,7 +186,7 @@ public class APICtrl {
         }
     }
 
-    @GetMapping(value = "/listFranApp")
+    @RequestMapping(value = "/listFranApp")
     private Object listFranApp(HttpServletResponse rsp,@RequestParam(value = "callback",required = false) String callback,
                                @RequestParam(value = "keyWord",defaultValue = "") String keyWord,
                                @RequestParam(value = "dtBegin",defaultValue = "") String dtBegin,
