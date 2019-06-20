@@ -32,7 +32,7 @@ public class FranApp {
 
     @Override
     public String toString() {
-        String tmp= "FranApp{" +
+        return "FranApp{" +
                 "Name='" + Name + '\'' +
                 ", Phone='" + Phone + '\'' +
                 ", Email='" + Email + '\'' +
@@ -41,7 +41,5 @@ public class FranApp {
                 ", Remark='" + Remark + '\'' +
                 ", CreateTime=" + CreateTime +
                 '}';
-
-        return (Status==3)? tmp+"已处理":tmp+ "未处理";
     }
 }

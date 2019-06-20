@@ -1,8 +1,8 @@
 package com.tlgc.mapper;
 
 import com.tlgc.entity.Admin;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Update;
+import com.tlgc.entity.User;
+import org.apache.ibatis.annotations.*;
 
 import javax.transaction.Transactional;
 import java.util.List;
@@ -17,4 +17,13 @@ public interface UserMapper {
     @Transactional
     @Update("update tlg_user set city='${city}' where id=${userId}")
     public Integer updateCity(@Param("userId") Integer userId, @Param("city") String city);
+
+    @Select("select id,username,password,roleId from tlg_user where username=#{username} and isDelete=0 ")
+    @Results({
+            @Result(id=true,property="id",column="id"),
+            @Result(property="username",column="username"),
+            @Result(property="password",column="password"),
+            @Result(property="Role",column="roleId",one=@One(select="com.tlgc.mapper.RoleMapper.getRoleById"))
+    })
+    public User getUserByUsername(String username);
 }

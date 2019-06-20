@@ -2,19 +2,21 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.tlgc.mapper.FranAppMapper" >
     <select id="listFranApp" resultType="hashmap">
-        SELECT Id,Name,Address,Phone,Email,isnull(FollowerID,'')FollowerID,
-        isnull((select top 1 username from TLG_User u where u.id=a.FollowerID),'')Follower,
-        isnull((select top 1 content from TLG_Gt g where g.applicantID=a.id),'')memo,
-        Status,convert(varchar(10),CreateTime,120)dt FROM dbo.TLG_AffiliateInfo a
+        with TempResult as(SELECT id,name,address,phone,email,isnull(FollowerID,'')followerID,
+        isnull((select top 1 username from TLG_User u where u.id=a.FollowerID),'')follower,
+        isnull((select top 1 content from TLG_Gt g where g.applicantID=a.id),'')memo,nextTime,
+        isnull(status,0)status,convert(varchar(10),CreateTime,120)dt FROM dbo.TLG_AffiliateInfo a
         <where>
+            isdelete=0
             <if test="dtBegin!='' and dtEnd!=''">
-                CreateTime BETWEEN #{dtBegin} and #{dtEnd}
+                and CreateTime BETWEEN #{dtBegin} and #{dtEnd}
             </if>
             <if test="keyWord!=''">
                 and charindex(#{keyWord},search)>0
             </if>
         </where>
-        order by dt desc offset #{pageSize}*(#{pageNum}-1) row fetch next #{pageSize} row only
+        ),TempCount as(select count(*) total from TempResult)
+        SELECT * FROM TempResult, TempCount order by ${sort} offset #{pageSize}*(#{pageNum}-1) row fetch next #{pageSize} row only
     </select>
 
     <update id="handleApp" >

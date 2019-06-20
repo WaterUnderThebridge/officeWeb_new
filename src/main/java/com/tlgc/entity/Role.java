@@ -12,7 +12,7 @@ import javax.persistence.Table;
  */
 @Data
 @Entity
-@Table(name="TLG_Role")
+@Table(name="TLG_Roles")
 public class Role {
     @Id
     @GeneratedValue
