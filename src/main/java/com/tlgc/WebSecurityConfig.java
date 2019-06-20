@@ -49,14 +49,12 @@ public class WebSecurityConfig extends WebMvcConfigurerAdapter {
         addInterceptor.excludePathPatterns("/user/logout");
         addInterceptor.excludePathPatterns("/user/timeout");
 
-
         //拦截配置
         addInterceptor.addPathPatterns("/**");
 
     }
 
     private class SecurityInterceptor extends HandlerInterceptorAdapter {
-
         @Override
         public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
             log.info("..............intercepted.................");
