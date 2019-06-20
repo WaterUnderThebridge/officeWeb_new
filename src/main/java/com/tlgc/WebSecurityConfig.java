@@ -61,9 +61,9 @@ public class WebSecurityConfig extends WebMvcConfigurerAdapter {
         public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
             log.info("..............intercepted.................");
             HttpSession session = request.getSession();
- 
+            String username = request.getParameter("username");
             String token = (String) session.getAttribute("token");
-            if(!TokenTools.judgeTokenIsEqual(request,"token","token")){
+            if(!TokenTools.judgeTokenIsEqual(request,"token",username)){
                 ResultUtil.writeJson(response,DataConvert.toJson(ResultUtil.error(ResultEnum.LOGIN_WRONG_PWD)));
                 return false;
             }

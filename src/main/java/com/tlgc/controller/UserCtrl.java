@@ -37,7 +37,7 @@ public class UserCtrl {
         rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
         User user=userMapper.getUserByUsername(username);
         password=DigestUtils.md5Hex(password);
-        String token=TokenTools.createToken(rqs,"token");
+        String token=TokenTools.createToken(rqs,username);
 
         if (user==null) {
             return DataConvert.toJson(ResultUtil.error(ResultEnum.LOGIN_USER_NO_EXIST));
@@ -58,6 +58,12 @@ public class UserCtrl {
     public Object delUser(){
         return DataConvert.toJson(ResultUtil.error(ResultEnum.LOGIN_WRONG_PWD));
     }
+    @RequestMapping(value = "/logut")
+    public Object logut(HttpServletRequest rqs,@RequestParam(value = "username",defaultValue = "") String username){
+        TokenTools.removeToken(rqs,username);
+        return DataConvert.toJson(ResultUtil.error(ResultEnum.LOGIN_WRONG_PWD));
+    }
+
     @RequestMapping(value = "/timeout")
     public Object timeout(){
         return DataConvert.toJson(ResultUtil.error(ResultEnum.LOGIN_WRONG_PWD));
