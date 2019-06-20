@@ -1,4 +1,4 @@
-package com.tlgc.tools;
+package com.tlgc.utils;
 
 import org.springframework.util.StringUtils;
 
@@ -13,9 +13,10 @@ public class TokenTools {
      * @param request
      * @param tokenServerkey
      */
-    public static void createToken(HttpServletRequest request, String tokenServerkey){
+    public static String createToken(HttpServletRequest request, String tokenServerkey){
         String token = TokenProccessor.getInstance().makeToken();
         request.getSession().setAttribute(tokenServerkey, token);
+        return token;
     }
 
     /**

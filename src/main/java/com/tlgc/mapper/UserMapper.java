@@ -23,7 +23,7 @@ public interface UserMapper {
             @Result(id=true,property="id",column="id"),
             @Result(property="username",column="username"),
             @Result(property="password",column="password"),
-            @Result(property="Role",column="roleId",one=@One(select="com.tlgc.mapper.RoleMapper.getRoleById"))
+            @Result(property="role",column="roleId",one=@One(select="com.tlgc.mapper.RoleMapper.getRoleById"))
     })
     public User getUserByUsername(String username);
 }

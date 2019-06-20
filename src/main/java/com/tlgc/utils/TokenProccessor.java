@@ -1,4 +1,4 @@
-package com.tlgc.tools;
+package com.tlgc.utils;
 
 
 import java.security.MessageDigest;

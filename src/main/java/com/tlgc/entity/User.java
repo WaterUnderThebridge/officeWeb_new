@@ -20,8 +20,9 @@ public class User {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "roleId", nullable = true)
     private Role role;
-    private Integer isdelete;
+    private String token;
     private Date updateTime = new Date();
     private Date createTime = new Date();
+    private Integer isdelete;
 
 }

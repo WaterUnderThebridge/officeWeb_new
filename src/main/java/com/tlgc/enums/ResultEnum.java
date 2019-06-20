@@ -14,7 +14,7 @@ public enum ResultEnum {
     LOGIN_SUCCESS(0, "登陆成功"),
     LOGIN_WRONG_PWD(-301, "用户或密码错误"),
     LOGIN_EXCEPTION(-302, "登陆异常"),
-    LOGIN_USER_NO_EXIST(-303,"帐号不存在"),
+    LOGIN_USER_NO_EXIST(-303,"用户不存在"),
     REGISTER_SUCCESS(0,"注册成功"),
     REGISTER_USER_EXIST(-401,"该用户名已存在，请返回直接登录"),
     REGISTER_EXCEPTION(-402,"异常：注册失败"),
