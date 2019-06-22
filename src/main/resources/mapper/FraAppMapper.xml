@@ -4,31 +4,52 @@
     <select id="listFranApp" resultType="hashmap">
         with TempResult as(SELECT id,name,address,phone,email,isnull(FollowerID,'')followerID,
         isnull((select top 1 username from TLG_User u where u.id=a.FollowerID),'')follower,
-        isnull((select top 1 content from TLG_Gt g where g.applicantID=a.id),'')memo,nextTime,
-        isnull(status,0)status,convert(varchar(10),CreateTime,120)dt FROM dbo.TLG_AffiliateInfo a
+        isnull((select top 1 content from TLG_Gt g where g.applicantID=a.id),'')memo,
+        isnull(Channel,'')channel,linktime,convert(varchar(10),nextTime,120)nextTime,
+        isnull(status,1)status,convert(varchar(10),CreateTime,120)dt FROM dbo.TLG_AffiliateInfo a
         <where>
             isdelete=0
+            <if test="FollowerID!=null">
+                and FollowerID=#{FollowerID}
+            </if>
             <if test="dtBegin!='' and dtEnd!=''">
                 and CreateTime BETWEEN #{dtBegin} and #{dtEnd}
             </if>
             <if test="keyWord!=''">
                 and charindex(#{keyWord},search)>0
             </if>
+            <if test="todayFollow==1">
+                and nextTime BETWEEN convert(varchar(10),getdate(),120)+' 00:00:00' and convert(varchar(10),getdate(),120)+' 23:59:59'
+            </if>
         </where>
         ),TempCount as(select count(*) total from TempResult)
         SELECT * FROM TempResult, TempCount order by ${sort} offset #{pageSize}*(#{pageNum}-1) row fetch next #{pageSize} row only
     </select>
 
-    <update id="handleApp" >
-        <if test="ids!=null">
-            update [TLG_AffiliateInfo] set status=3
+    <update id="updateFranApp" >
+        <if test="id!=null">
+            update [TLG_AffiliateInfo] set updateTime=getdate()
+                <if test="status !=null">
+                    ,status = #{status}
+                </if>
+                <if test="nextTime !=null">
+                    ,nextTime = #{nextTime}
+                </if>
             <where>
-                <foreach item="item" index="index" collection="ids" open="and id in("
+               id=#{id}
+            </where>
+        </if>
+    </update>
+
+    <update id="deleteFranApp" >
+        <if test="ids!=null">
+            update [TLG_AffiliateInfo] set isdelete=1
+            <where>
+                <foreach item="item" index="index" collection="ids" open="and id in ("
                          separator="," close=")">
                     #{item}
                 </foreach>
             </where>
         </if>
     </update>
-
 </mapper>

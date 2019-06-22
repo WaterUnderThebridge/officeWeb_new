@@ -17,10 +17,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletResponse;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by Tony on 2017/8/31.
@@ -189,16 +186,47 @@ public class APICtrl {
     @RequestMapping(value = "/listFranApp")
     private Object listFranApp(HttpServletResponse rsp,@RequestParam(value = "callback",required = false) String callback,
                                @RequestParam(value = "keyWord",defaultValue = "") String keyWord,
+                               @RequestParam(value = "userid",required = false) Integer userid,
                                @RequestParam(value = "dtBegin",defaultValue = "") String dtBegin,
+                               @RequestParam(value = "dtEnd",defaultValue = "") String dtEnd,
                                @RequestParam(value = "sort",defaultValue = "dt desc") String sort,
                                @RequestParam(value = "pageNum", defaultValue = "1") Integer pageNow,
                                @RequestParam(value = "pageSize", defaultValue = "30") Integer size,
-                               @RequestParam(value = "dtEnd",defaultValue = "") String dtEnd){
-       System.out.print(DataConvert.decode(keyWord));
+                               @RequestParam(value = "todayFollow",defaultValue = "0") String todayFollow){
+
         rsp.addHeader("Access-Control-Allow-Origin", "*");
         rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
-        List<HashMap> apps = franAppMapper.listFranApp(dtBegin,dtEnd,DataConvert.decode(keyWord),size,pageNow,sort);
+
+        List<HashMap> apps = franAppMapper.listFranApp(userid,dtBegin,dtEnd,DataConvert.decode(keyWord),size,pageNow,sort,todayFollow);
         return DataConvert.toJson(ResultUtil.success(apps),callback);
+
+    }
+    @RequestMapping(value = "/updateFranApp")
+    public Object saveAppli(HttpServletResponse rsp,@RequestParam(value = "callback",required = false) String callback,
+                            @RequestParam(value = "id",required = true) Integer id,
+                            @RequestParam(value = "nextTime",defaultValue = "") String nextTime,
+                            @RequestParam(value = "status",defaultValue = "") Integer status){
+        rsp.addHeader("Access-Control-Allow-Origin", "*");
+        rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
+
+        if (id.equals("")||id==null) {
+            return DataConvert.toJson(ResultUtil.error("没有记录ID"), callback);
+        }
+        if (franAppMapper.updateFranApp(id,nextTime,status) > 0) {
+            return DataConvert.toJson(ResultUtil.success(), callback);
+        } else {
+            return DataConvert.toJson(ResultUtil.error(), callback);
+        }
+    }
+    @RequestMapping(value = "/deleteFranApp")
+    private Object deleteFranApp(HttpServletResponse rsp,@RequestParam(value = "callback",required = false) String callback,
+                                 @RequestParam(value = "ids[]", required = true) String[] ids){
+
+        rsp.addHeader("Access-Control-Allow-Origin", "*");
+        rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
+        Integer res =franAppMapper.deleteFranApp(ids);
+        if(res==null) return DataConvert.toJson(ResultUtil.error(),callback);
+        return DataConvert.toJson(ResultUtil.success(),callback);
 
     }
 
@@ -242,21 +270,6 @@ public class APICtrl {
 
     }
 
-    @RequestMapping(value = "/handleApp")
-    public Object handleApp(HttpServletResponse rsp,@RequestParam(value = "callback",required = false) String callback,@RequestParam(value = "ids[]",required = true) String[] ids){
-        rsp.addHeader("Access-Control-Allow-Origin", "*");
-        rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
-        log.info(ids.toString());
-        if(ids==null){
-            return ResultUtil.error(-1,"applicants not selected");
-        }
-        if(franAppMapper.handleApp(ids)>0) {
-            return DataConvert.toJson(ResultUtil.success(),callback);
-        }else {
-            return DataConvert.toJson(ResultUtil.error(),callback);
-        }
-
-    }
 
 
 

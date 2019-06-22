@@ -26,7 +26,7 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 @Configuration
 @Slf4j
 public class WebSecurityConfig extends WebMvcConfigurerAdapter {
-
+    public final static String SESSION_KEY = "token";
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/web/**").addResourceLocations("classpath:/web/");
@@ -45,24 +45,24 @@ public class WebSecurityConfig extends WebMvcConfigurerAdapter {
         InterceptorRegistration addInterceptor = registry.addInterceptor(getSecurityInterceptor());
 
         // 排除配置
-        addInterceptor.excludePathPatterns("/user/login");
-        addInterceptor.excludePathPatterns("/user/logout");
-        addInterceptor.excludePathPatterns("/user/timeout");
+        addInterceptor.excludePathPatterns("/user/login**");
+        addInterceptor.excludePathPatterns("/user/logout**");
+        addInterceptor.excludePathPatterns("/user/timeout**");
 
         //拦截配置
-        addInterceptor.addPathPatterns("/**");
+        addInterceptor.addPathPatterns("/user/**");
 
     }
 
     private class SecurityInterceptor extends HandlerInterceptorAdapter {
         @Override
         public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-            log.info("..............intercepted.................");
-            HttpSession session = request.getSession();
-            String username = request.getParameter("username");
-            String token = (String) session.getAttribute("token");
-            if(!TokenTools.judgeTokenIsEqual(request,"token",username)){
-                ResultUtil.writeJson(response,DataConvert.toJson(ResultUtil.error(ResultEnum.LOGIN_WRONG_PWD)));
+            log.info("..............intercepted................."+request.getRequestURI());
+
+            String token = request.getParameter("token");
+
+            if(token==null||token.equals("")){
+                ResultUtil.writeJson(response,DataConvert.toJson(ResultUtil.error(ResultEnum.LOGIN_NO_ACCESS_RIGHT)));
                 return false;
             }
             return true;

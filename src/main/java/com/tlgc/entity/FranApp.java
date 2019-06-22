@@ -2,6 +2,7 @@ package com.tlgc.entity;
 
 import lombok.Data;
 import lombok.Generated;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -25,6 +26,8 @@ public class FranApp {
     private String rec_name;
     private String Remark ="";
     private Integer LinkTime;
+    private String nextTime;
+    private Date UpdateTime =new Date();
     private Date CreateTime =new Date();
     private Integer Status=1;
     private Integer MailStatus;

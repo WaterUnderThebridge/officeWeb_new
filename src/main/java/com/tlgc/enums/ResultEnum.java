@@ -14,7 +14,9 @@ public enum ResultEnum {
     LOGIN_SUCCESS(0, "登陆成功"),
     LOGIN_WRONG_PWD(-301, "用户或密码错误"),
     LOGIN_EXCEPTION(-302, "登陆异常"),
+    LOGIN_NO_ACCESS_RIGHT(-50012, "没有访问权限,请返回登录"),
     LOGIN_USER_NO_EXIST(-303,"用户不存在"),
+    LOGIN_LOGOUT(-50008,"您已退出"),
     REGISTER_SUCCESS(0,"注册成功"),
     REGISTER_USER_EXIST(-401,"该用户名已存在，请返回直接登录"),
     REGISTER_EXCEPTION(-402,"异常：注册失败"),
@@ -48,6 +50,7 @@ public enum ResultEnum {
     COUPON_SYNC_EMPTY(-72,"返回结果为空"),
     COUPON_USED(-73,"返回结果为空"),
     COUPON_WRONG_NUMBER(-74,"核销码错误"),
+
 
 
 
