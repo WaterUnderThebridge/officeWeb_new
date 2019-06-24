@@ -5,6 +5,7 @@ import com.tlgc.WebSecurityConfig;
 import com.tlgc.entity.FranApp;
 import com.tlgc.entity.User;
 import com.tlgc.enums.ResultEnum;
+import com.tlgc.mapper.RoleMapper;
 import com.tlgc.mapper.UserMapper;
 import com.tlgc.utils.ResultUtil;
 import com.tlgc.utils.TokenTools;
@@ -20,6 +21,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
 
 /**
  * Created by TONY on 2019/6/20.
@@ -30,6 +33,7 @@ import java.util.Date;
 public class UserCtrl {
     @Autowired
     private UserMapper userMapper;
+    private RoleMapper roleMapper;
 
     @RequestMapping(value = "/login")
     public Object login(HttpServletRequest request, HttpServletResponse rsp,
@@ -58,16 +62,6 @@ public class UserCtrl {
         return DataConvert.toJson(ResultUtil.error(ResultEnum.LOGIN_WRONG_PWD));
 
     }
-    @RequestMapping(value = "/addUser")
-    public Object addUser(){
-        return DataConvert.toJson(ResultUtil.error(ResultEnum.LOGIN_WRONG_PWD));
-    }
-    @RequestMapping(value = "/delUser")
-    public Object delUser(@RequestParam(value = "username",defaultValue = "") String username,@RequestParam(value = "password",defaultValue = "") String password,
-                           @RequestParam(value = "roleId",defaultValue = "") Integer roleId){
-        password=DigestUtils.md5Hex(password);
-        return DataConvert.toJson(ResultUtil.error(ResultEnum.LOGIN_WRONG_PWD));
-    }
 
     @RequestMapping(value = "/info")
     public Object info(HttpServletRequest rqs,HttpServletResponse rsp,@RequestParam(value = "username",defaultValue = "") String username,
@@ -77,6 +71,45 @@ public class UserCtrl {
 
         User user=userMapper.getUserByUsername(username);
         return DataConvert.toJson(ResultUtil.success(user));
+    }
+
+    @RequestMapping(value = "/userList")
+    public Object geUsers(HttpServletRequest rqs,HttpServletResponse rsp){
+        rsp.addHeader("Access-Control-Allow-Origin", "*");
+        rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
+
+        List<HashMap> users=userMapper.getUserList();
+        return DataConvert.toJson(ResultUtil.success(users));
+    }
+    @RequestMapping(value = "/roleList")
+    public Object getRoles(HttpServletRequest rqs,HttpServletResponse rsp){
+        rsp.addHeader("Access-Control-Allow-Origin", "*");
+        rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
+
+        List<HashMap> roles=roleMapper.getRoles();
+        return DataConvert.toJson(ResultUtil.success(roles));
+    }
+
+    @RequestMapping(value = "/userDel")
+    public Object delUser(@RequestParam(value = "id",required = true) Integer id){
+        Integer res=userMapper.userDel(id);
+        if(res==null) return DataConvert.toJson(ResultUtil.error());
+        return DataConvert.toJson(ResultUtil.error(ResultEnum.SUCCESS));
+    }
+    @RequestMapping(value = "/userAdd")
+    public Object addUser(@RequestParam(value = "username",defaultValue = "") String username,@RequestParam(value = "fullname",defaultValue = "") String fullname,
+                          @RequestParam(value = "password",defaultValue = "") String password,@RequestParam(value = "roleId",defaultValue = "") Integer roleId){
+        password=DigestUtils.md5Hex(password);
+        Integer res=userMapper.userAdd(username,fullname,password,roleId);
+        if(res==null) return DataConvert.toJson(ResultUtil.error());
+        return DataConvert.toJson(ResultUtil.error(ResultEnum.LOGIN_WRONG_PWD));
+    }
+    @RequestMapping(value = "/userUpdate")
+    public Object updateUser(@RequestParam(value = "id",required = true) Integer id,@RequestParam(value = "username",defaultValue = "") String username,@RequestParam(value = "password",defaultValue = "") String password,
+                             @RequestParam(value = "fullname",defaultValue = "") String fullname,@RequestParam(value = "roleId",defaultValue = "") Integer roleId) {
+        password = DigestUtils.md5Hex(password);
+        Integer res=userMapper.userUpdate(id,username,fullname,password,roleId);
+        return DataConvert.toJson(ResultUtil.error(ResultEnum.LOGIN_WRONG_PWD));
     }
     @RequestMapping(value = "/logout")
     public Object logut(HttpServletRequest rqs,HttpServletResponse rsp,@RequestParam(value = "username",defaultValue = "") String username){

@@ -41,6 +41,20 @@
         </if>
     </update>
 
+    <update id="updateFranApps" >
+        <if test="ids!=null">
+            update [TLG_AffiliateInfo] set updateTime=getdate()
+            <if test="FollowerID !=null">
+                ,FollowerID = #{FollowerID}
+            </if>
+            <where>
+                <foreach item="item" index="index" collection="ids" open="and id in ("
+                         separator="," close=")">
+                    #{item}
+                </foreach>
+            </where>
+        </if>
+    </update>
     <update id="deleteFranApp" >
         <if test="ids!=null">
             update [TLG_AffiliateInfo] set isdelete=1

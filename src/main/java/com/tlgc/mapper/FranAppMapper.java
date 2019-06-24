@@ -20,6 +20,8 @@ public interface FranAppMapper {
 
     public Integer updateFranApp(@Param("id") Integer id,@Param("nextTime") String nextTime,@Param("status") Integer status);
 
+    public Integer updateFranApps(@Param("ids") String[] ids,@Param("FollowerID") Integer FollowerID);
+
     public List<HashMap> listFranApp(@Param("FollowerID") Integer FollowerID,@Param("dtBegin") String dtBegin,@Param("dtEnd") String dtEnd,@Param("keyWord") String keyWord ,@Param("pageSize") Integer pageSize,@Param("pageNum") Integer pageNum,@Param("sort") String sort,@Param("todayFollow") String todayFollow);
 
     @Insert("INSERT INTO TLG_AffiliateInfo (Name,Phone,Email,Address,Channel,MailStatus,Remark,LinkTime,CreateTime,status,rec_name,rec_phone,search)" +

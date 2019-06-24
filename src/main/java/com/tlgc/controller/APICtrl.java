@@ -202,7 +202,7 @@ public class APICtrl {
 
     }
     @RequestMapping(value = "/updateFranApp")
-    public Object saveAppli(HttpServletResponse rsp,@RequestParam(value = "callback",required = false) String callback,
+    public Object updateAppli(HttpServletResponse rsp,@RequestParam(value = "callback",required = false) String callback,
                             @RequestParam(value = "id",required = true) Integer id,
                             @RequestParam(value = "nextTime",defaultValue = "") String nextTime,
                             @RequestParam(value = "status",defaultValue = "") Integer status){
@@ -213,6 +213,22 @@ public class APICtrl {
             return DataConvert.toJson(ResultUtil.error("没有记录ID"), callback);
         }
         if (franAppMapper.updateFranApp(id,nextTime,status) > 0) {
+            return DataConvert.toJson(ResultUtil.success(), callback);
+        } else {
+            return DataConvert.toJson(ResultUtil.error(), callback);
+        }
+    }
+    @RequestMapping(value = "/updateFranApps")
+    public Object updateApplis(HttpServletResponse rsp,@RequestParam(value = "callback",required = false) String callback,
+                            @RequestParam(value = "ids[]",required = true) String[] ids,
+                            @RequestParam(value = "FollowerID",required = true) Integer FollowerID){
+        rsp.addHeader("Access-Control-Allow-Origin", "*");
+        rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
+
+        if (ids.equals("")||ids==null) {
+            return DataConvert.toJson(ResultUtil.error("没有记录ID"), callback);
+        }
+        if (franAppMapper.updateFranApps(ids,FollowerID) > 0) {
             return DataConvert.toJson(ResultUtil.success(), callback);
         } else {
             return DataConvert.toJson(ResultUtil.error(), callback);
