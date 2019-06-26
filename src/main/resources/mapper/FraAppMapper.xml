@@ -5,7 +5,7 @@
         with TempResult as(SELECT id,name,address,phone,email,isnull(FollowerID,'')followerID,
         isnull((select top 1 fullname from TLG_User u where u.id=a.FollowerID),'')follower,
         isnull((select top 1 content from TLG_Gt g where g.applicantID=a.id),'')memo,
-        isnull(Channel,'')channel,linktime,convert(varchar(10),nextTime,120)nextTime,
+        isnull(Channel,'')channel,linktime,isnull(convert(varchar(10),nextTime,120),'')nextTime,
         isnull(status,1)status,convert(varchar(10),CreateTime,120)dt FROM dbo.TLG_AffiliateInfo a
         <where>
             isdelete=0
