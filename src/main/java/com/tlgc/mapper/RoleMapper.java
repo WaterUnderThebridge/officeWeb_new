@@ -13,6 +13,6 @@ import java.util.List;
 public interface RoleMapper {
     @Select("select * from tlg_roles where id=#{id}")
     public Role getRoleById(@Param("id") Integer id);
-    @Select("select * from tlg_roles")
-    public List<HashMap> getRoles();
+    @Select("select * from tlg_roles where id>1" )
+    public List<HashMap>  getRoleList();
 }
