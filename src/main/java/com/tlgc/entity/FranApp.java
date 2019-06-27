@@ -1,10 +1,10 @@
 package com.tlgc.entity;
 
 import lombok.Data;
-import lombok.Generated;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.util.Date;
 
@@ -15,7 +15,7 @@ import java.util.Date;
 @Entity
 public class FranApp {
     @Id
-    @Generated
+    @GeneratedValue
     private Integer Id;
     private String Name;
     private String Phone;

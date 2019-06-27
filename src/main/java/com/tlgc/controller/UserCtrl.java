@@ -2,6 +2,7 @@ package com.tlgc.controller;
 
 import com.tlgc.Convertor.DataConvert;
 import com.tlgc.WebSecurityConfig;
+import com.tlgc.dao.GongTongDao;
 import com.tlgc.entity.FranApp;
 import com.tlgc.entity.User;
 import com.tlgc.enums.ResultEnum;

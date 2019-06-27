@@ -41,8 +41,7 @@ public class APICtrl {
     private GymMapper gymMapper;
     @Autowired
     private IntroMapper introMapper;
-    @Autowired
-    private NewsMapper newsMapper;
+
     @Autowired
     private FranAppMapper franAppMapper;
     @Autowired
@@ -286,24 +285,6 @@ public class APICtrl {
 
     }
 
-
-
-
-    @RequestMapping(value = "/getNews")
-    public Object getNews(HttpServletResponse rsp,
-                          @RequestParam(value = "callback", required = false) String callback,
-                          @RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum,
-                          @RequestParam(value = "pageSize", defaultValue = "12") Integer size,
-                          @RequestParam(value = "LanguageType", defaultValue = "1") Integer LanguageType,
-                          @RequestParam(value = "type", required = false) Integer type) {
-        rsp.addHeader("Access-Control-Allow-Origin", "*");
-        rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
-        log.info("{}", pageNum);
-        PageHelper.startPage(pageNum, size);
-        List<News> newsList = newsMapper.getNews(type, LanguageType);
-        PageInfo<News> info = new PageInfo<>(newsList);
-        return DataConvert.toJson(ResultUtil.success(info), callback);
-    }
 
     @RequestMapping(value = "/syncGym")
     public ModelAndView syncGym(@RequestBody String param, Map<String, Object> res, HttpServletResponse rsp) {
