@@ -182,6 +182,14 @@ public class APICtrl {
         }
     }
 
+    @RequestMapping(value = "/listFranAppChannel")
+    private Object listFranAppChannel(HttpServletResponse rsp,@RequestParam(value = "callback",required = false) String callback){
+        rsp.addHeader("Access-Control-Allow-Origin", "*");
+        rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
+        List<HashMap> channes=franAppMapper.listFranAppChannel();
+        return  DataConvert.toJson(ResultUtil.success(channes));
+    }
+
     @RequestMapping(value = "/listFranApp")
     private Object listFranApp(HttpServletResponse rsp,@RequestParam(value = "callback",required = false) String callback,
                                @RequestParam(value = "keyWord",defaultValue = "") String keyWord,
@@ -191,23 +199,26 @@ public class APICtrl {
                                @RequestParam(value = "sort",defaultValue = "dt desc") String sort,
                                @RequestParam(value = "pageNum", defaultValue = "1") Integer pageNow,
                                @RequestParam(value = "pageSize", defaultValue = "30") Integer size,
-                               @RequestParam(value = "todayFollow",defaultValue = "0") String todayFollow){
+                               @RequestParam(value = "todayFollow",defaultValue = "0") String todayFollow,
+                               @RequestParam(value = "advSearch",required = false) String advSearch,
+                               @RequestParam(value = "advSearch2",required = false) String advSearch2){
 
         rsp.addHeader("Access-Control-Allow-Origin", "*");
         rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
 
-        List<HashMap> apps = franAppMapper.listFranApp(userid,dtBegin,dtEnd,DataConvert.decode(keyWord),size,pageNow,sort,todayFollow);
+        List<HashMap> apps = franAppMapper.listFranApp(userid,dtBegin,dtEnd,DataConvert.decode(keyWord),size,pageNow,sort,todayFollow,advSearch,advSearch2);
         return DataConvert.toJson(ResultUtil.success(apps),callback);
-
     }
+
+
     @RequestMapping(value = "/updateFranApp")
     public Object updateAppli(HttpServletResponse rsp,@RequestParam(value = "callback",required = false) String callback,
                             @RequestParam(value = "id",required = true) Integer id,
                             @RequestParam(value = "nextTime",defaultValue = "") String nextTime,
                             @RequestParam(value = "status",defaultValue = "") Integer status){
+
         rsp.addHeader("Access-Control-Allow-Origin", "*");
         rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
-
         if (id.equals("")||id==null) {
             return DataConvert.toJson(ResultUtil.error("没有记录ID"), callback);
         }

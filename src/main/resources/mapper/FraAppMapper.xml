@@ -2,9 +2,10 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.tlgc.mapper.FranAppMapper" >
     <select id="listFranApp" resultType="hashmap">
-        with TempResult as(SELECT id,name,address,phone,email,isnull(FollowerID,'')followerID,
+        with TempResult0 as(SELECT id,name,address,phone,email,isnull(FollowerID,'')followerID,
         isnull((select top 1 fullname from TLG_User u where u.id=a.FollowerID),'')follower,
         isnull((select top 1 convert(varchar(10),dtGotong,120)+','+u.fullname+'：'+content from TLG_GoTong g join TLG_User u on g.FranAppId=a.id and u.id=g.userid),'')memo,
+        isnull((select top 1 convert(varchar(10),dtGotong,120) from TLG_GoTong g join TLG_User u on g.FranAppId=a.id and u.id=g.userid),'')latestTime,
         isnull(Channel,'')channel,linktime,isnull(convert(varchar(10),nextTime,120),'')nextTime,
         isnull(status,1)status,convert(varchar(10),CreateTime,120)dt FROM dbo.TLG_AffiliateInfo a
         <where>
@@ -12,6 +13,10 @@
             <if test="FollowerID!=null">
                 and FollowerID=#{FollowerID}
             </if>
+            <if test="advSearch!=null and advSearch!=''">
+                and ${advSearch}
+            </if>
+
             <if test="dtBegin!='' and dtEnd!=''">
                 and CreateTime BETWEEN #{dtBegin} and #{dtEnd}
             </if>
@@ -20,6 +25,12 @@
             </if>
             <if test="todayFollow==1">
                 and nextTime BETWEEN convert(varchar(10),getdate(),120)+' 00:00:00' and convert(varchar(10),getdate(),120)+' 23:59:59'
+            </if>
+        </where>
+        ),TempResult as(select * from TempResult0
+        <where>
+            <if test="advSearch2!=null and advSearch2!=''">
+                 ${advSearch2}
             </if>
         </where>
         ),TempCount as(select count(*) total from TempResult)

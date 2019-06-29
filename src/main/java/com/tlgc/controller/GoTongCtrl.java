@@ -6,6 +6,7 @@ import com.tlgc.dao.GongTongDao;
 import com.tlgc.entity.FranApp;
 import com.tlgc.entity.GoTong;
 import com.tlgc.enums.ResultEnum;
+import com.tlgc.mapper.GotongMapper;
 import com.tlgc.utils.ResultUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -27,6 +29,8 @@ import java.util.List;
 public class GoTongCtrl {
     @Autowired
     private GongTongDao gongTongDao;
+    @Autowired
+    private GotongMapper gotongMapper;
     @Autowired
     private FranAppDao franAppDao;
     @RequestMapping(value = "/save")
@@ -55,7 +59,7 @@ public class GoTongCtrl {
         rsp.addHeader("Access-Control-Allow-Origin", "*");
         rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
 
-        List<GoTong> goTongs=gongTongDao.findAllByFranAppId(FraAppId);
+         List<HashMap> goTongs=gotongMapper.getGotongs(FraAppId);
         if(goTongs!=null)  return DataConvert.toJson(ResultUtil.success(goTongs));
         return DataConvert.toJson(ResultUtil.error());
     }
