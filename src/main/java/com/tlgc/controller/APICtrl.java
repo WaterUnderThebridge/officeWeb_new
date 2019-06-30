@@ -1,6 +1,8 @@
 package com.tlgc.controller;
 
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.tlgc.Convertor.DataConvert;
@@ -16,6 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.*;
 
@@ -148,7 +151,9 @@ public class APICtrl {
                               @RequestParam(value = "Channel",defaultValue = "") String Channel,
                               @RequestParam(value = "rec_phone",defaultValue = "") String rec_phone,
                               @RequestParam(value = "rec_name",defaultValue = "") String rec_name,
-                              @RequestParam(value = "City",defaultValue = "") String Address
+                              @RequestParam(value = "City",defaultValue = "") String Address,
+                              @RequestParam(value = "dt",defaultValue = "") String dt,
+                              @RequestParam(value = "followerId",defaultValue = "0") Integer followerId
     ){
         rsp.addHeader("Access-Control-Allow-Origin", "*");
         rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
@@ -156,9 +161,12 @@ public class APICtrl {
         if (Phone.equals("")) {
             return DataConvert.toJson(ResultUtil.error("手机号必须填写"), callback);
         }
-
-        String dtApp =DataConvert.convert(new Date());
-        log.info("res={}",franAppMapper.findApp(Phone,dtApp));
+        String dtApp;
+        if(!dt.equals("")){
+            dtApp=dt;
+        }else{
+            dtApp =DataConvert.convert(new Date());
+        }
         if(franAppMapper.findApp(Phone,dtApp)>0){
             return DataConvert.toJson(ResultUtil.error("该手机号已提交申请，请耐心等待，我们会尽快处理"),callback);
 
@@ -175,6 +183,9 @@ public class APICtrl {
         franApp.setRec_name(rec_name);
         franApp.setRec_phone(rec_phone);
         franApp.setSearch(franApp.toString());
+        franApp.setFollowerId(followerId);
+        franApp.setCreateTime(DataConvert.convert(dtApp));
+
         if (franAppMapper.saveFranApp(franApp) > 0) {
             return DataConvert.toJson(ResultUtil.success(), callback);
         } else {
@@ -213,16 +224,23 @@ public class APICtrl {
 
     @RequestMapping(value = "/updateFranApp")
     public Object updateAppli(HttpServletResponse rsp,@RequestParam(value = "callback",required = false) String callback,
-                            @RequestParam(value = "id",required = true) Integer id,
-                            @RequestParam(value = "nextTime",defaultValue = "") String nextTime,
-                            @RequestParam(value = "status",defaultValue = "") Integer status){
+                              @RequestParam(value = "id",required = true) Integer id,
+                              @RequestParam(value = "name",defaultValue = "") String name,
+                              @RequestParam(value = "phone",defaultValue = "") String phone,
+                              @RequestParam(value = "email",defaultValue = "") String email,
+                              @RequestParam(value = "channel",defaultValue = "") String channel,
+                              @RequestParam(value = "address",defaultValue = "") String address,
+                              @RequestParam(value = "dt",defaultValue = "") String dt,
+                              @RequestParam(value = "nextTime",defaultValue = "") String nextTime,
+                              @RequestParam(value = "linkTime",required = false) Integer linkTime,
+                              @RequestParam(value = "status",required = false) Integer status){
 
         rsp.addHeader("Access-Control-Allow-Origin", "*");
         rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
         if (id.equals("")||id==null) {
             return DataConvert.toJson(ResultUtil.error("没有记录ID"), callback);
         }
-        if (franAppMapper.updateFranApp(id,nextTime,status) > 0) {
+        if (franAppMapper.updateFranApp(id,name,phone,email,channel,address,dt,nextTime,linkTime,status) > 0) {
             return DataConvert.toJson(ResultUtil.success(), callback);
         } else {
             return DataConvert.toJson(ResultUtil.error(), callback);
@@ -402,5 +420,19 @@ public class APICtrl {
             return new ModelAndView("message/error", res);
         }
     }
+
+    @RequestMapping(value = "/saveFranApps", method = RequestMethod.POST)
+    public Object createAppoint(HttpServletResponse rsp, @RequestBody JSONObject data) {
+        rsp.setHeader("Content-Type", "text/xml;charset=UTF-8");
+        rsp.addHeader("Access-Control-Allow-Origin", "*");
+        rsp.setHeader("Access-Control-Allow-Methods", "POST, PUT, GET, OPTIONS, DELETE");
+        Integer res=franAppMapper.saveFranApps(data.getString("sql"));
+        if(res>0) {
+            return DataConvert.toJson(ResultUtil.success("导入"+res.toString()+"条"));
+        }else{
+            return DataConvert.toJson(ResultUtil.error("导入失败"));
+        }
+    }
+
 }
 

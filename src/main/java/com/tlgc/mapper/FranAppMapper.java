@@ -16,17 +16,20 @@ public interface FranAppMapper {
     @Select("select count(1) from TLG_AffiliateInfo where mailstatus=0 and Phone=#{Phone} and datediff(d,#{dtApp},createTime)=0")
     public Integer findApp(@Param("Phone") String Phone,@Param("dtApp") String dtApp);
 
-    public Integer deleteFranApp(@Param("ids") String[] ids);
 
-    public Integer updateFranApp(@Param("id") Integer id,@Param("nextTime") String nextTime,@Param("status") Integer status);
+    public Integer updateFranApp(@Param("id") Integer id,@Param("name") String name,@Param("phone") String phone,@Param("email") String email,@Param("channel") String channel,@Param("address") String address,@Param("dt") String dt,@Param("nextTime") String nextTime,@Param("linkTime") Integer linkTime,@Param("status") Integer status);
 
     public Integer updateFranApps(@Param("ids") String[] ids,@Param("FollowerID") Integer FollowerID);
 
     public List<HashMap> listFranApp(@Param("FollowerID") Integer FollowerID,@Param("dtBegin") String dtBegin,@Param("dtEnd") String dtEnd,@Param("keyWord") String keyWord ,@Param("pageSize") Integer pageSize,@Param("pageNum") Integer pageNum,@Param("sort") String sort,@Param("todayFollow") String todayFollow,@Param("advSearch") String advSearch,@Param("advSearch2") String advSearch2);
 
-    @Insert("INSERT INTO TLG_AffiliateInfo (Name,Phone,Email,Address,Channel,MailStatus,Remark,LinkTime,CreateTime,status,rec_name,rec_phone,search)" +
-            "VALUES(#{Name},#{Phone},#{Email},#{Address},#{Channel},#{MailStatus},#{Remark},#{LinkTime},#{CreateTime},1,#{rec_name},#{rec_phone},#{Search})")
+    @Insert("INSERT INTO TLG_AffiliateInfo (Name,Phone,Email,Address,Channel,MailStatus,Remark,LinkTime,CreateTime,status,rec_name,rec_phone,search,followerId)" +
+            "VALUES(#{Name},#{Phone},#{Email},#{Address},#{Channel},#{MailStatus},#{Remark},#{LinkTime},#{CreateTime},1,#{rec_name},#{rec_phone},#{Search},#{followerId})")
     public Integer saveFranApp(FranApp franApp);
+
+    public Integer deleteFranApp(@Param("ids") String[] ids);
+    @Insert("${sql}")
+    public Integer saveFranApps(@Param("sql") String sql);
 
     @Select("select channel from [dbo].[TLG_AffiliateInfo] where channel<>'' group by channel")
     public List<HashMap> listFranAppChannel();

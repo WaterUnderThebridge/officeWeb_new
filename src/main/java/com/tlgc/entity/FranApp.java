@@ -1,5 +1,6 @@
 package com.tlgc.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -25,9 +26,12 @@ public class FranApp {
     private String rec_phone;
     private String rec_name;
     private String Remark ="";
+    private Integer followerId;
     private Integer LinkTime;
     private String nextTime;
     private Date UpdateTime =new Date();
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date CreateTime =new Date();
     private Integer Status=1;
     private Integer MailStatus;

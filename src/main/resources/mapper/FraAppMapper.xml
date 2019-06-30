@@ -40,15 +40,36 @@
     <update id="updateFranApp" >
         <if test="id!=null">
             update [TLG_AffiliateInfo] set updateTime=getdate()
-                <if test="status !=null">
+                <if test="status !=null and status!=''">
                     ,status = #{status}
                 </if>
-                <if test="nextTime !=null">
+                <if test="nextTime !=null and nextTime!=''">
                     ,nextTime = #{nextTime}
                 </if>
-            <where>
-               id=#{id}
-            </where>
+                <if test="linkTime !=null and linkTime!=''">
+                    ,linkTime = #{linkTime}
+                </if>
+                <if test="name !=''">
+                    ,name = #{name}
+                </if>
+                <if test="phone !=''">
+                    ,phone = #{phone}
+                </if>
+                <if test="dt !=''">
+                   ,CreateTime = #{dt}
+                </if>
+                <if test="address !=''">
+                   ,address = #{address}
+                </if>
+                <if test="channel !=''">
+                   ,channel = #{channel}
+                </if>
+                <if test="email !=''">
+                   ,email = #{email}
+                </if>
+                <where>
+                    id=#{id}
+                </where>
         </if>
     </update>
 
