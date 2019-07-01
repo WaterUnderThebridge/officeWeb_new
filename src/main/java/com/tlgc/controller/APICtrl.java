@@ -211,13 +211,14 @@ public class APICtrl {
                                @RequestParam(value = "pageNum", defaultValue = "1") Integer pageNow,
                                @RequestParam(value = "pageSize", defaultValue = "30") Integer size,
                                @RequestParam(value = "todayFollow",defaultValue = "0") String todayFollow,
+                               @RequestParam(value = "unAllocate",defaultValue = "0") String unAllocate,
                                @RequestParam(value = "advSearch",required = false) String advSearch,
                                @RequestParam(value = "advSearch2",required = false) String advSearch2){
 
         rsp.addHeader("Access-Control-Allow-Origin", "*");
         rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
 
-        List<HashMap> apps = franAppMapper.listFranApp(userid,dtBegin,dtEnd,DataConvert.decode(keyWord),size,pageNow,sort,todayFollow,advSearch,advSearch2);
+        List<HashMap> apps = franAppMapper.listFranApp(userid,dtBegin,dtEnd,DataConvert.decode(keyWord),size,pageNow,sort,todayFollow,advSearch,advSearch2,unAllocate);
         return DataConvert.toJson(ResultUtil.success(apps),callback);
     }
 
