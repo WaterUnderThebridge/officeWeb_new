@@ -27,7 +27,7 @@
                 and nextTime BETWEEN convert(varchar(10),getdate(),120)+' 00:00:00' and convert(varchar(10),getdate(),120)+' 23:59:59'
             </if>
             <if test="unAllocate==1">
-                and FollowerID=0
+                and FollowerID not in( select id from TLG_User where isdelete=0 and id>3)
             </if>
 
         </where>
