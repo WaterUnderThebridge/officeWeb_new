@@ -40,8 +40,7 @@ public class GoTongCtrl {
                         @RequestParam(value = "FranAppId",required = true) Integer FranAppId,
                         @RequestParam(value = "userId",required = true) Integer userId
     ){
-        rsp.addHeader("Access-Control-Allow-Origin", "*");
-        rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
+
         GoTong goTong=new GoTong();
         goTong.setContent(content);
         goTong.setDtGotong(dtGotong);
@@ -56,8 +55,7 @@ public class GoTongCtrl {
     public Object list(HttpServletRequest request, HttpServletResponse rsp,
                        @RequestParam(value = "FranAppId",required = true) Integer FraAppId
     ){
-        rsp.addHeader("Access-Control-Allow-Origin", "*");
-        rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
+
 
          List<HashMap> goTongs=gotongMapper.getGotongs(FraAppId);
         if(goTongs!=null)  return DataConvert.toJson(ResultUtil.success(goTongs));
@@ -68,8 +66,7 @@ public class GoTongCtrl {
     public Object delete(HttpServletRequest request, HttpServletResponse rsp,
                        @RequestParam(value = "id",defaultValue = "") Integer id
     ){
-        rsp.addHeader("Access-Control-Allow-Origin", "*");
-        rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
+
         gongTongDao.delete(id);
         return DataConvert.toJson(ResultUtil.success());
     }

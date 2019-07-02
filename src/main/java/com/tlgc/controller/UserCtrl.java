@@ -42,10 +42,8 @@ public class UserCtrl {
                         @RequestParam(value = "username",defaultValue = "") String username,
                         @RequestParam(value = "password",defaultValue = "") String password
     ){
-        rsp.addHeader("Access-Control-Allow-Origin", "*");
-        rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
-        User user=userMapper.getUserByUsername(username);
 
+        User user=userMapper.getUserByUsername(username);
         HttpSession sessoin=request.getSession();//这就是session的创建
         String token=TokenTools.createToken(request,"token");
 
@@ -68,8 +66,7 @@ public class UserCtrl {
     @RequestMapping(value = "/info")
     public Object info(HttpServletRequest rqs,HttpServletResponse rsp,@RequestParam(value = "username",required = true) String username,
                        @RequestParam(value = "token",defaultValue = "") String token){
-        rsp.addHeader("Access-Control-Allow-Origin", "*");
-        rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
+
 
         User user=userMapper.getUserByUsername(username);
         return DataConvert.toJson(ResultUtil.success(user));
@@ -77,16 +74,13 @@ public class UserCtrl {
 
     @RequestMapping(value = "/userList")
     public Object geUsers(HttpServletRequest rqs,HttpServletResponse rsp){
-        rsp.addHeader("Access-Control-Allow-Origin", "*");
-        rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
 
         List<HashMap> users=userMapper.getUserList();
         return DataConvert.toJson(ResultUtil.success(users));
     }
     @RequestMapping(value = "/roleList")
     public Object getRoles(HttpServletRequest rqs,HttpServletResponse rsp){
-        rsp.addHeader("Access-Control-Allow-Origin", "*");
-        rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
+
 
         List<HashMap> roles=roleMapper.getRoleList();
         return DataConvert.toJson(ResultUtil.success(roles));
@@ -94,8 +88,7 @@ public class UserCtrl {
 
     @RequestMapping(value = "/userDel")
     public Object delUser(HttpServletResponse rsp,@RequestParam(value = "id",required = true) Integer id){
-        rsp.addHeader("Access-Control-Allow-Origin", "*");
-        rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
+
         Integer res=userMapper.userDel(id);
         if(res==null) return DataConvert.toJson(ResultUtil.error());
         return DataConvert.toJson(ResultUtil.success());
@@ -113,8 +106,7 @@ public class UserCtrl {
     @RequestMapping(value = "/userUpdate")
     public Object updateUser(HttpServletResponse rsp,@RequestParam(value = "id",required = true) Integer id,@RequestParam(value = "username",defaultValue = "") String username,@RequestParam(value = "password",defaultValue = "") String password,
                              @RequestParam(value = "fullname",defaultValue = "") String fullname,@RequestParam(value = "roleId",defaultValue = "") Integer roleId) {
-        rsp.addHeader("Access-Control-Allow-Origin", "*");
-        rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
+
         password = DigestUtils.md5Hex(password);
         Integer res=userMapper.userUpdate(id,username,fullname,password,roleId);
         if(res==null) return DataConvert.toJson(ResultUtil.error());
@@ -122,23 +114,19 @@ public class UserCtrl {
     }
     @RequestMapping(value = "/logout")
     public Object logut(HttpServletRequest rqs,HttpServletResponse rsp,@RequestParam(value = "username",defaultValue = "") String username){
-        rsp.addHeader("Access-Control-Allow-Origin", "*");
-        rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
+
         TokenTools.removeToken(rqs,"token");
         return DataConvert.toJson(ResultUtil.error(ResultEnum.LOGIN_LOGOUT));
     }
     @RequestMapping(value = "/resetToken")
     public Object resetToken(HttpServletRequest rqs,HttpServletResponse rsp,@RequestParam(value = "username",defaultValue = "") String username){
-        rsp.addHeader("Access-Control-Allow-Origin", "*");
-        rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
+
         TokenTools.removeToken(rqs,"token");
         return DataConvert.toJson(ResultUtil.error(ResultEnum.SUCCESS));
     }
 
     @RequestMapping(value = "/timeout")
     public Object timeout(HttpServletResponse rsp){
-        rsp.addHeader("Access-Control-Allow-Origin", "*");
-        rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
         return DataConvert.toJson(ResultUtil.error(ResultEnum.TIMEOUT));
     }
 

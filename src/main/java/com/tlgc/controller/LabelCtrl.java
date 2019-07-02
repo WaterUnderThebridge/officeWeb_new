@@ -25,8 +25,6 @@ public class LabelCtrl {
     LabelMapper labelMapper;
     @RequestMapping(value = "/list")
     public Object login(HttpServletRequest request, HttpServletResponse rsp){
-        rsp.addHeader("Access-Control-Allow-Origin", "*");
-        rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
         List<HashMap> labels=labelMapper.getLabels();
         return DataConvert.toJson(ResultUtil.success(labels));
     }
@@ -34,8 +32,7 @@ public class LabelCtrl {
     public Object FranAppList(HttpServletRequest request, HttpServletResponse rsp,
                         @RequestParam(value = "FranAppId",required = true) Integer FranAppId
     ){
-        rsp.addHeader("Access-Control-Allow-Origin", "*");
-        rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
+
         List<HashMap> labels=labelMapper.getLabelsForFran(FranAppId);
         return DataConvert.toJson(ResultUtil.success(labels));
     }
@@ -44,8 +41,7 @@ public class LabelCtrl {
                         @RequestParam(value = "name",required = true) String name,
                         @RequestParam(value = "FranAppId",required = true) Integer FranAppId
     ){
-        rsp.addHeader("Access-Control-Allow-Origin", "*");
-        rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
+
         Integer res=labelMapper.labelAdd(name,FranAppId);
         if(res==null) DataConvert.toJson(ResultUtil.error());
         return DataConvert.toJson(ResultUtil.success());
@@ -55,8 +51,7 @@ public class LabelCtrl {
                         @RequestParam(value = "name",required = true) String name,
                         @RequestParam(value = "FranAppId",required = true) Integer FranAppId
     ){
-        rsp.addHeader("Access-Control-Allow-Origin", "*");
-        rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
+
         Integer res=labelMapper.deleteLabelFroFran(name,FranAppId);
         return DataConvert.toJson(ResultUtil.success());
     }

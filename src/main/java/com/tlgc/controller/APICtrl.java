@@ -54,8 +54,7 @@ public class APICtrl {
 
     @GetMapping(value = "/getPro")
     private Object getProvince(HttpServletResponse rsp, @RequestParam(value = "callback", required = false) String callback) {
-        rsp.addHeader("Access-Control-Allow-Origin", "*");
-        rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
+
         //  PageHelper.startPage(3,2);
         List<Province> p = provinceMapper.getAll();
         return DataConvert.toJson(ResultUtil.success(p), callback);
@@ -63,8 +62,8 @@ public class APICtrl {
 
     @GetMapping(value = "/getCity/{provinceId}")
     private Object getCity(HttpServletResponse rsp, @RequestParam(value = "callback", required = false) String callback, @PathVariable("provinceId") Integer provinceId) {
-        rsp.addHeader("Access-Control-Allow-Origin", "*");
-        rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
+//        rsp.addHeader("Access-Control-Allow-Origin", "*");
+//        rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
 
         List<City> cities = cityMapper.getAllByProvinceId(provinceId);
         return DataConvert.toJson(ResultUtil.success(cities), callback);
@@ -72,8 +71,8 @@ public class APICtrl {
 
     @GetMapping(value = "/getGym/{cityId}")
     private Object getGym(HttpServletResponse rsp, @RequestParam(value = "callback", required = false) String callback, @PathVariable("cityId") Integer cityId) {
-        rsp.addHeader("Access-Control-Allow-Origin", "*");
-        rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
+//        rsp.addHeader("Access-Control-Allow-Origin", "*");
+//        rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
 
         List<Gym> gyms = gymMapper.getAllByCityId(cityId);
         return DataConvert.toJson(ResultUtil.success(gyms), callback);
@@ -81,8 +80,8 @@ public class APICtrl {
 
     @GetMapping(value = "/getGymByCity/{city}")
     private Object getGymByCity(HttpServletResponse rsp, @RequestParam(value = "callback", required = false) String callback, @PathVariable("city") String city) {
-        rsp.addHeader("Access-Control-Allow-Origin", "*");
-        rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
+//        rsp.addHeader("Access-Control-Allow-Origin", "*");
+//        rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
 
         List<HashMap> gyms = gymMapper.getAllByCity(city);
         return DataConvert.toJson(ResultUtil.success(gyms), callback);
@@ -90,8 +89,8 @@ public class APICtrl {
 
     @RequestMapping(value = "/createIntro", method = RequestMethod.POST)
     public Object createAppoint(HttpServletResponse rsp, Intro intro) {
-        rsp.addHeader("Access-Control-Allow-Origin", "*");
-        rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
+//        rsp.addHeader("Access-Control-Allow-Origin", "*");
+//        rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
         intro.setMailStatus(0);
         intro.setGymCode(intro.getCenter());
         intro.setChannel("手机页面登记（中心市场活动）");
@@ -115,8 +114,8 @@ public class APICtrl {
                               @RequestParam(value = "Province", defaultValue = "") String Province,
                               @RequestParam(value = "channel", defaultValue = "") String channel,
                               @RequestParam(value = "City", defaultValue = "") String City) {
-        rsp.addHeader("Access-Control-Allow-Origin", "*");
-        rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
+//        rsp.addHeader("Access-Control-Allow-Origin", "*");
+//        rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
 
         if (introMapper.findIntro(ParentPhone, gymCode) > 0) {
             return DataConvert.toJson(ResultUtil.error("该手机号在中心有预约体验"), callback);
@@ -155,8 +154,8 @@ public class APICtrl {
                               @RequestParam(value = "dt",defaultValue = "") String dt,
                               @RequestParam(value = "followerId",defaultValue = "0") Integer followerId
     ){
-        rsp.addHeader("Access-Control-Allow-Origin", "*");
-        rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
+//        rsp.addHeader("Access-Control-Allow-Origin", "*");
+//        rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
 
         if (Phone.equals("")) {
             return DataConvert.toJson(ResultUtil.error("手机号必须填写"), callback);
@@ -195,8 +194,8 @@ public class APICtrl {
 
     @RequestMapping(value = "/listFranAppChannel")
     private Object listFranAppChannel(HttpServletResponse rsp,@RequestParam(value = "callback",required = false) String callback){
-        rsp.addHeader("Access-Control-Allow-Origin", "*");
-        rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
+//        rsp.addHeader("Access-Control-Allow-Origin", "*");
+//        rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
         List<HashMap> channes=franAppMapper.listFranAppChannel();
         return  DataConvert.toJson(ResultUtil.success(channes));
     }
@@ -215,8 +214,8 @@ public class APICtrl {
                                @RequestParam(value = "advSearch",required = false) String advSearch,
                                @RequestParam(value = "advSearch2",required = false) String advSearch2){
 
-        rsp.addHeader("Access-Control-Allow-Origin", "*");
-        rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
+//        rsp.addHeader("Access-Control-Allow-Origin", "*");
+//        rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
 
         List<HashMap> apps = franAppMapper.listFranApp(userid,dtBegin,dtEnd,DataConvert.decode(keyWord),size,pageNow,sort,todayFollow,advSearch,advSearch2,unAllocate);
         return DataConvert.toJson(ResultUtil.success(apps),callback);
@@ -236,8 +235,8 @@ public class APICtrl {
                               @RequestParam(value = "linkTime",required = false) Integer linkTime,
                               @RequestParam(value = "status",required = false) Integer status){
 
-        rsp.addHeader("Access-Control-Allow-Origin", "*");
-        rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
+//        rsp.addHeader("Access-Control-Allow-Origin", "*");
+//        rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
         if (id.equals("")||id==null) {
             return DataConvert.toJson(ResultUtil.error("没有记录ID"), callback);
         }
@@ -251,8 +250,8 @@ public class APICtrl {
     public Object updateApplis(HttpServletResponse rsp,@RequestParam(value = "callback",required = false) String callback,
                             @RequestParam(value = "ids[]",required = true) String[] ids,
                             @RequestParam(value = "FollowerID",required = true) Integer FollowerID){
-        rsp.addHeader("Access-Control-Allow-Origin", "*");
-        rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
+//        rsp.addHeader("Access-Control-Allow-Origin", "*");
+//        rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
 
         if (ids.equals("")||ids==null) {
             return DataConvert.toJson(ResultUtil.error("没有记录ID"), callback);
@@ -267,8 +266,8 @@ public class APICtrl {
     private Object deleteFranApp(HttpServletResponse rsp,@RequestParam(value = "callback",required = false) String callback,
                                  @RequestParam(value = "ids[]", required = true) String[] ids){
 
-        rsp.addHeader("Access-Control-Allow-Origin", "*");
-        rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
+//        rsp.addHeader("Access-Control-Allow-Origin", "*");
+//        rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
         Integer res =franAppMapper.deleteFranApp(ids);
         if(res==null) return DataConvert.toJson(ResultUtil.error(),callback);
         return DataConvert.toJson(ResultUtil.success(),callback);
@@ -299,8 +298,8 @@ public class APICtrl {
 
     @RequestMapping(value = "/handleIntro")
     public Object handleIntro(HttpServletResponse rsp, @RequestParam(value = "callback", required = false) String callback, @RequestParam(value = "ids[]", required = true) String[] ids) {
-        rsp.addHeader("Access-Control-Allow-Origin", "*");
-        rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
+//        rsp.addHeader("Access-Control-Allow-Origin", "*");
+//        rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
         log.info(ids.toString());
         if (ids == null) {
             return ResultUtil.error(-1, "Intro not selected");
@@ -318,8 +317,8 @@ public class APICtrl {
 
     @RequestMapping(value = "/syncGym")
     public ModelAndView syncGym(@RequestBody String param, Map<String, Object> res, HttpServletResponse rsp) {
-        rsp.setHeader("Content-Type", "text/xml;charset=UTF-8");
-        rsp.addHeader("Access-Control-Allow-Origin", "*");
+//        rsp.setHeader("Content-Type", "text/xml;charset=UTF-8");
+//        rsp.addHeader("Access-Control-Allow-Origin", "*");
         //String soap="<?xml version=\"1.0\" encoding=\"utf-8\"?><soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><soap:Body><mGetOutMessage xmlns=\"http://tempuri.org/crm_server/Crm_OutMessage\"><outobject><UserID>279833</UserID><ID>4861</ID><SessionID /><ObjectName>crm_zdytable_238592_26277</ObjectName><fields><sobjectField><fieldsign>手机号</fieldsign><fieldname>crmzdy_81762775</fieldname><fieldvalue>test</fieldvalue><fieldtype>文本</fieldtype></sobjectField><sobjectField><fieldsign>短信内容</fieldsign><fieldname>crmzdy_81762774</fieldname><fieldvalue>stes</fieldvalue><fieldtype>文本</fieldtype></sobjectField><sobjectField><fieldsign>中心编号</fieldsign><fieldname>crmzdy_81762776</fieldname><fieldvalue>500012</fieldvalue><fieldtype>文本</fieldtype></sobjectField><sobjectField><fieldsign>记录ID</fieldsign><fieldname>id</fieldname><fieldvalue>4861</fieldvalue><fieldtype>整数</fieldtype></sobjectField></fields></outobject></mGetOutMessage></soap:Body></soap:Envelope>";
         //初始化报文，调用parse方法，获得结果map
         try {
@@ -367,8 +366,8 @@ public class APICtrl {
 
     @RequestMapping(value = "/sendSMS")
     public ModelAndView sendSMS(@RequestBody String param, Map<String, Object> res, HttpServletResponse rsp) {
-        rsp.setHeader("Content-Type", "text/xml;charset=UTF-8");
-        rsp.addHeader("Access-Control-Allow-Origin", "*");
+//        rsp.setHeader("Content-Type", "text/xml;charset=UTF-8");
+//        rsp.addHeader("Access-Control-Allow-Origin", "*");
         String id="",tb="";
         try {
             XmlUtil xml = new XmlUtil(param);
@@ -424,9 +423,9 @@ public class APICtrl {
 
     @RequestMapping(value = "/saveFranApps", method = RequestMethod.POST)
     public Object createAppoint(HttpServletResponse rsp, @RequestBody JSONObject data) {
-        rsp.setHeader("Content-Type", "text/xml;charset=UTF-8");
-        rsp.addHeader("Access-Control-Allow-Origin", "*");
-        rsp.setHeader("Access-Control-Allow-Methods", "POST, PUT, GET, OPTIONS, DELETE");
+//        rsp.setHeader("Content-Type", "text/xml;charset=UTF-8");
+//        rsp.addHeader("Access-Control-Allow-Origin", "*");
+//        rsp.setHeader("Access-Control-Allow-Methods", "POST, PUT, GET, OPTIONS, DELETE");
         Integer res=franAppMapper.saveFranApps(data.getString("sql"));
         if(res>0) {
             return DataConvert.toJson(ResultUtil.success("导入"+res.toString()+"条"));
