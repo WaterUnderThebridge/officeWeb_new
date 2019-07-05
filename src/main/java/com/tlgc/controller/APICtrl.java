@@ -430,7 +430,7 @@ public class APICtrl {
         if(res>0) {
             return DataConvert.toJson(ResultUtil.success("导入"+res.toString()+"条"));
         }else{
-            return DataConvert.toJson(ResultUtil.error("导入失败"));
+            return DataConvert.toJson(ResultUtil.error("导入0条，导入失败"));
         }
     }
 

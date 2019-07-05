@@ -35,6 +35,6 @@ public interface UserMapper {
     })
 
     public User getUserByUsername(String username);
-    @Select("select u.id,username,password,fullname,roleId,r.title role from tlg_user u join tlg_roles r on u.roleId=r.id where isDelete=0 and u.id>2")
+    @Select("select u.id,username,password,fullname,roleId,r.title role,u.isdelete from tlg_user u join tlg_roles r on u.roleId=r.id where u.id>2")
     public List<HashMap>  getUserList();
 }

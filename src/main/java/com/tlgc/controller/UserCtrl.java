@@ -80,8 +80,6 @@ public class UserCtrl {
     }
     @RequestMapping(value = "/roleList")
     public Object getRoles(HttpServletRequest rqs,HttpServletResponse rsp){
-
-
         List<HashMap> roles=roleMapper.getRoleList();
         return DataConvert.toJson(ResultUtil.success(roles));
     }
