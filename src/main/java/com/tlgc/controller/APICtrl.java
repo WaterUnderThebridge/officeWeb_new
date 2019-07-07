@@ -145,6 +145,7 @@ public class APICtrl {
     public Object saveAppli(HttpServletResponse rsp,@RequestParam(value = "callback",required = false) String callback,
                               @RequestParam(value = "UserName",defaultValue = "") String Name,
                               @RequestParam(value = "UserPhone",defaultValue = "") String Phone,
+                              @RequestParam(value = "wechatName",defaultValue = "") String wechatName,
                               @RequestParam(value = "UserEmail",defaultValue = "") String Email,
                               @RequestParam(value = "Time",defaultValue = "") Integer LinkTime,
                               @RequestParam(value = "Channel",defaultValue = "") String Channel,
@@ -175,6 +176,7 @@ public class APICtrl {
         franApp.setAddress(Address);
         franApp.setChannel(Channel);
         franApp.setLinkTime(LinkTime);
+        franApp.setWechatName(wechatName);
         franApp.setEmail(Email);
         franApp.setPhone(Phone);
         franApp.setMailStatus(0);
@@ -227,6 +229,7 @@ public class APICtrl {
                               @RequestParam(value = "id",required = true) Integer id,
                               @RequestParam(value = "name",defaultValue = "") String name,
                               @RequestParam(value = "phone",defaultValue = "") String phone,
+                              @RequestParam(value = "wechatName",defaultValue = "") String wechatName,
                               @RequestParam(value = "email",defaultValue = "") String email,
                               @RequestParam(value = "channel",defaultValue = "") String channel,
                               @RequestParam(value = "address",defaultValue = "") String address,
@@ -240,7 +243,7 @@ public class APICtrl {
         if (id.equals("")||id==null) {
             return DataConvert.toJson(ResultUtil.error("没有记录ID"), callback);
         }
-        if (franAppMapper.updateFranApp(id,name,phone,email,channel,address,dt,nextTime,linkTime,status) > 0) {
+        if (franAppMapper.updateFranApp(id,name,phone,email,channel,address,dt,nextTime,linkTime,status,wechatName) > 0) {
             return DataConvert.toJson(ResultUtil.success(), callback);
         } else {
             return DataConvert.toJson(ResultUtil.error(), callback);
