@@ -298,8 +298,7 @@ public class APICtrl {
 
     @RequestMapping(value = "/handleIntro")
     public Object handleIntro(HttpServletResponse rsp, @RequestParam(value = "callback", required = false) String callback, @RequestParam(value = "ids[]", required = true) String[] ids) {
-//        rsp.addHeader("Access-Control-Allow-Origin", "*");
-//        rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
+      rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
         log.info(ids.toString());
         if (ids == null) {
             return ResultUtil.error(-1, "Intro not selected");
@@ -317,8 +316,8 @@ public class APICtrl {
 
     @RequestMapping(value = "/syncGym")
     public ModelAndView syncGym(@RequestBody String param, Map<String, Object> res, HttpServletResponse rsp) {
-//        rsp.setHeader("Content-Type", "text/xml;charset=UTF-8");
-//        rsp.addHeader("Access-Control-Allow-Origin", "*");
+        rsp.setHeader("Content-Type", "text/xml;charset=UTF-8");
+
         //String soap="<?xml version=\"1.0\" encoding=\"utf-8\"?><soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><soap:Body><mGetOutMessage xmlns=\"http://tempuri.org/crm_server/Crm_OutMessage\"><outobject><UserID>279833</UserID><ID>4861</ID><SessionID /><ObjectName>crm_zdytable_238592_26277</ObjectName><fields><sobjectField><fieldsign>手机号</fieldsign><fieldname>crmzdy_81762775</fieldname><fieldvalue>test</fieldvalue><fieldtype>文本</fieldtype></sobjectField><sobjectField><fieldsign>短信内容</fieldsign><fieldname>crmzdy_81762774</fieldname><fieldvalue>stes</fieldvalue><fieldtype>文本</fieldtype></sobjectField><sobjectField><fieldsign>中心编号</fieldsign><fieldname>crmzdy_81762776</fieldname><fieldvalue>500012</fieldvalue><fieldtype>文本</fieldtype></sobjectField><sobjectField><fieldsign>记录ID</fieldsign><fieldname>id</fieldname><fieldvalue>4861</fieldvalue><fieldtype>整数</fieldtype></sobjectField></fields></outobject></mGetOutMessage></soap:Body></soap:Envelope>";
         //初始化报文，调用parse方法，获得结果map
         try {
@@ -366,8 +365,7 @@ public class APICtrl {
 
     @RequestMapping(value = "/sendSMS")
     public ModelAndView sendSMS(@RequestBody String param, Map<String, Object> res, HttpServletResponse rsp) {
-//        rsp.setHeader("Content-Type", "text/xml;charset=UTF-8");
-//        rsp.addHeader("Access-Control-Allow-Origin", "*");
+        rsp.setHeader("Content-Type", "text/xml;charset=UTF-8");
         String id="",tb="";
         try {
             XmlUtil xml = new XmlUtil(param);
