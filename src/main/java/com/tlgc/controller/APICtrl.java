@@ -284,7 +284,7 @@ public class APICtrl {
                            @RequestParam(value = "gymCode", required = false) String gymCode,
                            @RequestParam(value = "dtBegin", defaultValue = "") String dtBegin,
                            @RequestParam(value = "dtEnd", defaultValue = "") String dtEnd) {
-        rsp.addHeader("Access-Control-Allow-Origin", "*");
+
         rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
 
         if (roleId.equals("2") && gymCode == null) {
