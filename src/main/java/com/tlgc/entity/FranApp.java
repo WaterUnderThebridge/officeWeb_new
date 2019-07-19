@@ -20,6 +20,7 @@ public class FranApp {
     private Integer Id;
     private String Name;
     private String Phone;
+    private String wechatName;
     private String Email;
     private String Address;
     private String Channel;

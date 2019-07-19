@@ -145,6 +145,7 @@ public class APICtrl {
     public Object saveAppli(HttpServletResponse rsp,@RequestParam(value = "callback",required = false) String callback,
                               @RequestParam(value = "UserName",defaultValue = "") String Name,
                               @RequestParam(value = "UserPhone",defaultValue = "") String Phone,
+                              @RequestParam(value = "wechatName",defaultValue = "") String wechatName,
                               @RequestParam(value = "UserEmail",defaultValue = "") String Email,
                               @RequestParam(value = "Time",defaultValue = "") Integer LinkTime,
                               @RequestParam(value = "Channel",defaultValue = "") String Channel,
@@ -152,6 +153,7 @@ public class APICtrl {
                               @RequestParam(value = "rec_name",defaultValue = "") String rec_name,
                               @RequestParam(value = "City",defaultValue = "") String Address,
                               @RequestParam(value = "dt",defaultValue = "") String dt,
+                              @RequestParam(value = "Remark",defaultValue = "") String Remark,
                               @RequestParam(value = "followerId",defaultValue = "0") Integer followerId
     ){
 //        rsp.addHeader("Access-Control-Allow-Origin", "*");
@@ -175,10 +177,11 @@ public class APICtrl {
         franApp.setAddress(Address);
         franApp.setChannel(Channel);
         franApp.setLinkTime(LinkTime);
+        franApp.setWechatName(wechatName);
         franApp.setEmail(Email);
         franApp.setPhone(Phone);
         franApp.setMailStatus(0);
-        franApp.setRemark("");
+        franApp.setRemark(Remark);
         franApp.setRec_name(rec_name);
         franApp.setRec_phone(rec_phone);
         franApp.setSearch(franApp.toString());
@@ -227,6 +230,7 @@ public class APICtrl {
                               @RequestParam(value = "id",required = true) Integer id,
                               @RequestParam(value = "name",defaultValue = "") String name,
                               @RequestParam(value = "phone",defaultValue = "") String phone,
+                              @RequestParam(value = "wechatName",defaultValue = "") String wechatName,
                               @RequestParam(value = "email",defaultValue = "") String email,
                               @RequestParam(value = "channel",defaultValue = "") String channel,
                               @RequestParam(value = "address",defaultValue = "") String address,
@@ -240,7 +244,7 @@ public class APICtrl {
         if (id.equals("")||id==null) {
             return DataConvert.toJson(ResultUtil.error("没有记录ID"), callback);
         }
-        if (franAppMapper.updateFranApp(id,name,phone,email,channel,address,dt,nextTime,linkTime,status) > 0) {
+        if (franAppMapper.updateFranApp(id,name,phone,email,channel,address,dt,nextTime,linkTime,status,wechatName) > 0) {
             return DataConvert.toJson(ResultUtil.success(), callback);
         } else {
             return DataConvert.toJson(ResultUtil.error(), callback);
@@ -428,7 +432,7 @@ public class APICtrl {
         if(res>0) {
             return DataConvert.toJson(ResultUtil.success("导入"+res.toString()+"条"));
         }else{
-            return DataConvert.toJson(ResultUtil.error("导入失败"));
+            return DataConvert.toJson(ResultUtil.error("导入0条，导入失败"));
         }
     }
 
