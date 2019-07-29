@@ -209,7 +209,7 @@ public class APICtrl {
                                @RequestParam(value = "userid",required = false) Integer userid,
                                @RequestParam(value = "dtBegin",defaultValue = "") String dtBegin,
                                @RequestParam(value = "dtEnd",defaultValue = "") String dtEnd,
-                               @RequestParam(value = "sort",defaultValue = "dt desc") String sort,
+                               @RequestParam(value = "sort",defaultValue = "") String sort,
                                @RequestParam(value = "pageNum", defaultValue = "1") Integer pageNow,
                                @RequestParam(value = "pageSize", defaultValue = "30") Integer size,
                                @RequestParam(value = "todayFollow",defaultValue = "0") String todayFollow,

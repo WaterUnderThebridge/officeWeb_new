@@ -7,7 +7,7 @@
         isnull((select top 1 convert(varchar(10),dtGotong,120)+','+u.fullname+'：'+content from TLG_GoTong g join TLG_User u on g.FranAppId=a.id and u.id=g.userid),'')memo,
         isnull((select top 1 convert(varchar(10),dtGotong,120) from TLG_GoTong g join TLG_User u on g.FranAppId=a.id and u.id=g.userid),'')latestTime,
         isnull(Channel,'')channel,linktime,isnull(convert(varchar(10),nextTime,120),'')nextTime,
-        isnull(status,1)status,convert(varchar(10),CreateTime,120)dt FROM dbo.TLG_AffiliateInfo a
+        isnull(status,1)status,convert(varchar(10),CreateTime,120)dt,CreateTime FROM dbo.TLG_AffiliateInfo a
         <where>
             isdelete=0
             <if test="FollowerID!=null">
@@ -38,7 +38,7 @@
             </if>
         </where>
         ),TempCount as(select count(*) total from TempResult)
-        SELECT * FROM TempResult, TempCount order by ${sort} offset #{pageSize}*(#{pageNum}-1) row fetch next #{pageSize} row only
+        SELECT * FROM TempResult, TempCount order by ${sort} id desc offset #{pageSize}*(#{pageNum}-1) row fetch next #{pageSize} row only
     </select>
 
     <update id="updateFranApp" >
