@@ -50,9 +50,6 @@
                 <if test="nextTime !=null and nextTime!=''">
                     ,nextTime = #{nextTime}
                 </if>
-                <if test="linkTime !=null and linkTime!=''">
-                    ,linkTime = #{linkTime}
-                </if>
                 <if test="name !=''">
                     ,name = #{name}
                 </if>

@@ -147,7 +147,7 @@ public class APICtrl {
                               @RequestParam(value = "UserPhone",defaultValue = "") String Phone,
                               @RequestParam(value = "wechatName",defaultValue = "") String wechatName,
                               @RequestParam(value = "UserEmail",defaultValue = "") String Email,
-                              @RequestParam(value = "Time",defaultValue = "") Integer LinkTime,
+                              @RequestParam(value = "linktime",defaultValue = "") Integer LinkTime,
                               @RequestParam(value = "Channel",defaultValue = "") String Channel,
                               @RequestParam(value = "rec_phone",defaultValue = "") String rec_phone,
                               @RequestParam(value = "rec_name",defaultValue = "") String rec_name,
@@ -236,15 +236,13 @@ public class APICtrl {
                               @RequestParam(value = "address",defaultValue = "") String address,
                               @RequestParam(value = "dt",defaultValue = "") String dt,
                               @RequestParam(value = "nextTime",defaultValue = "") String nextTime,
-                              @RequestParam(value = "linkTime",required = false) Integer linkTime,
+                              @RequestParam(value = "linktime",required = false) Integer linkTime,
                               @RequestParam(value = "status",required = false) Integer status){
 
-//        rsp.addHeader("Access-Control-Allow-Origin", "*");
-//        rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
         if (id.equals("")||id==null) {
             return DataConvert.toJson(ResultUtil.error("没有记录ID"), callback);
         }
-        if (franAppMapper.updateFranApp(id,name,phone,email,channel,address,dt,nextTime,linkTime,status,wechatName) > 0) {
+        if (franAppMapper.updateFranApp(id,name,phone,email,channel,address,dt,nextTime,linkTime,status,wechatName,linkTime) > 0) {
             return DataConvert.toJson(ResultUtil.success(), callback);
         } else {
             return DataConvert.toJson(ResultUtil.error(), callback);
