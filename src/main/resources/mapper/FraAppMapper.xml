@@ -65,6 +65,11 @@
                 <if test="address !=''">
                    ,address = #{address}
                 </if>
+
+                <if test="LinkTime !=''">
+                  ,LinkTime = #{LinkTime}
+                </if>
+
                 <if test="channel !=''">
                    ,channel = #{channel}
                 </if>
