@@ -17,7 +17,8 @@ public interface FranAppMapper {
     public Integer findApp(@Param("Phone") String Phone,@Param("dtApp") String dtApp);
 
 
-    public Integer updateFranApp(@Param("id") Integer id,@Param("name") String name,@Param("phone") String phone,@Param("email") String email,@Param("channel") String channel,@Param("address") String address,@Param("dt") String dt,@Param("nextTime") String nextTime,@Param("linkTime") Integer linkTime,@Param("status") Integer status,@Param("wechatName") String wechatName,@Param("LinkTime")Integer LinkTime);
+    public Integer updateFranApp(@Param("id") Integer id,@Param("name") String name,@Param("phone") String phone,@Param("email") String email,@Param("channel") String channel,@Param("address") String address,@Param("dt") String dt,@Param("nextTime") String nextTime,@Param("linkTime") Integer linkTime,@Param("dtMeetUp") String dtMeetUp,@Param("status") Integer status,@Param("wechatName") String wechatName);
+
 
     public Integer updateFranApps(@Param("ids") String[] ids,@Param("FollowerID") Integer FollowerID);
 
