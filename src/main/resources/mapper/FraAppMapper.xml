@@ -7,7 +7,7 @@
         isnull((select top 1 convert(varchar(10),dtGotong,120)+','+u.fullname+'：'+content from TLG_GoTong g join TLG_User u on g.FranAppId=a.id and u.id=g.userid),'')memo,
         isnull((select top 1 convert(varchar(10),dtGotong,120) from TLG_GoTong g join TLG_User u on g.FranAppId=a.id and u.id=g.userid),'')latestTime,
         isnull(Channel,'')channel,linktime,isnull(convert(varchar(10),nextTime,120),'')nextTime,
-        isnull(status,1)status,convert(varchar(10),CreateTime,120)dt,convert(varchar(20),dtMeetUP,120)dtMeetUP,CreateTime FROM dbo.TLG_AffiliateInfo a
+        isnull(status,1)status,convert(varchar(10),CreateTime,120)dt,convert(varchar(20),dtMeetUp,120)dtMeetUp,CreateTime FROM dbo.TLG_AffiliateInfo a
         <where>
             isdelete=0
             <if test="FollowerID!=null">
@@ -54,9 +54,14 @@
                 <if test="linkTime !=null and linkTime!=''">
                     ,linkTime = #{linkTime}
                 </if>
-                <if test="dtMeetUp !=null and dtMeetUp!=''">
-                   ,dtMeetUp = #{dtMeetUp}
-                </if>
+                <choose>
+                    <when test="dtMeetUp !=null and dtMeetUp!=''">
+                        ,dtMeetUp = #{dtMeetUp}
+                    </when>
+                    <otherwise>
+                        ,dtMeetUp = null
+                    </otherwise>
+                </choose>
 
                 <if test="name !=''">
                     ,name = #{name}
@@ -70,17 +75,11 @@
                 <if test="address !=''">
                    ,address = #{address}
                 </if>
-
                 <if test="channel !=''">
                    ,channel = #{channel}
                 </if>
-                <if test="email !=''">
                    ,email = #{email}
-                </if>
-                <if test="wechatName !=''">
                    ,wechatName = #{wechatName}
-                </if>
-
                 <where>
                     id=#{id}
                 </where>

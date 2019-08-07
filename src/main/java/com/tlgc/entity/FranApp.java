@@ -30,6 +30,7 @@ public class FranApp {
     private Integer followerId;
     private Integer LinkTime;
     private String nextTime;
+    private String dtMeetUp;
     private Date UpdateTime =new Date();
     @JsonFormat(pattern = "yyyy-MM-dd")
     @DateTimeFormat(pattern="yyyy-MM-dd")
