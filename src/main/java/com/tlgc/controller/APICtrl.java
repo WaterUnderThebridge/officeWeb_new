@@ -236,7 +236,7 @@ public class APICtrl {
                               @RequestParam(value = "address",defaultValue = "") String address,
                               @RequestParam(value = "dt",defaultValue = "") String dt,
                               @RequestParam(value = "nextTime",defaultValue = "") String nextTime,
-                              @RequestParam(value = "linktime",required = false) Integer linkTime,
+                              @RequestParam(value = "dtSign",required = false) String dtSign,
                               @RequestParam(value = "dtMeetUp",required = false) String dtMeetUp,
                               @RequestParam(value = "status",required = false) Integer status){
 
@@ -244,7 +244,7 @@ public class APICtrl {
             return DataConvert.toJson(ResultUtil.error("没有记录ID"), callback);
         }
 
-        if (franAppMapper.updateFranApp(id,name,phone,email,channel,address,dt,nextTime,linkTime,dtMeetUp,status,wechatName) > 0) {
+        if (franAppMapper.updateFranApp(id,name,phone,email,channel,address,dt,nextTime,dtSign,dtMeetUp,status,wechatName) > 0) {
 
             return DataConvert.toJson(ResultUtil.success(), callback);
         } else {
