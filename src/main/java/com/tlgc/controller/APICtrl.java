@@ -153,6 +153,7 @@ public class APICtrl {
                               @RequestParam(value = "rec_name",defaultValue = "") String rec_name,
                               @RequestParam(value = "City",defaultValue = "") String Address,
                               @RequestParam(value = "dt",defaultValue = "") String dt,
+                              @RequestParam(value = "amtInvest",defaultValue = "") String amtInvest,
                               @RequestParam(value = "Remark",defaultValue = "") String Remark,
                               @RequestParam(value = "followerId",defaultValue = "0") Integer followerId
     ){
@@ -174,6 +175,7 @@ public class APICtrl {
         }
         FranApp franApp = new FranApp();
         franApp.setName(Name);
+        franApp.setAmtInvest(amtInvest);
         franApp.setAddress(Address);
         franApp.setChannel(Channel);
         franApp.setLinkTime(LinkTime);

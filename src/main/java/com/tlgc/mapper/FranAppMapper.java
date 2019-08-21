@@ -24,8 +24,8 @@ public interface FranAppMapper {
 
     public List<HashMap> listFranApp(@Param("FollowerID") Integer FollowerID,@Param("dtBegin") String dtBegin,@Param("dtEnd") String dtEnd,@Param("keyWord") String keyWord ,@Param("pageSize") Integer pageSize,@Param("pageNum") Integer pageNum,@Param("sort") String sort,@Param("todayFollow") String todayFollow,@Param("advSearch") String advSearch,@Param("advSearch2") String advSearch2,@Param("unAllocate") String unAllocate);
 
-    @Insert("INSERT INTO TLG_AffiliateInfo (Name,Phone,wechatName,Email,Address,Channel,MailStatus,Remark,LinkTime,CreateTime,status,rec_name,rec_phone,search,followerId)" +
-            "VALUES(#{Name},#{Phone},#{wechatName},#{Email},#{Address},#{Channel},#{MailStatus},#{Remark},#{LinkTime},#{CreateTime},1,#{rec_name},#{rec_phone},#{Search},#{followerId})")
+    @Insert("INSERT INTO TLG_AffiliateInfo (Name,Phone,wechatName,Email,Address,Channel,MailStatus,Remark,LinkTime,CreateTime,status,rec_name,rec_phone,search,followerId,amtInvest)" +
+            "VALUES(#{Name},#{Phone},#{wechatName},#{Email},#{Address},#{Channel},#{MailStatus},#{Remark},#{LinkTime},#{CreateTime},1,#{rec_name},#{rec_phone},#{Search},#{followerId},#{amtInvest})")
     public Integer saveFranApp(FranApp franApp);
 
     public Integer deleteFranApp(@Param("ids") String[] ids);
