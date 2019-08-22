@@ -240,13 +240,14 @@ public class APICtrl {
                               @RequestParam(value = "nextTime",defaultValue = "") String nextTime,
                               @RequestParam(value = "dtSign",required = false) String dtSign,
                               @RequestParam(value = "dtMeetUp",required = false) String dtMeetUp,
+                              @RequestParam(value = "amtInvest",defaultValue = "") String amtInvest,
                               @RequestParam(value = "status",required = false) Integer status){
 
         if (id.equals("")||id==null) {
             return DataConvert.toJson(ResultUtil.error("没有记录ID"), callback);
         }
 
-        if (franAppMapper.updateFranApp(id,name,phone,email,channel,address,dt,nextTime,dtSign,dtMeetUp,status,wechatName) > 0) {
+        if (franAppMapper.updateFranApp(id,name,phone,email,channel,address,dt,nextTime,dtSign,dtMeetUp,status,wechatName,amtInvest) > 0) {
 
             return DataConvert.toJson(ResultUtil.success(), callback);
         } else {

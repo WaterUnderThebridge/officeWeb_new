@@ -44,13 +44,13 @@
     <update id="updateFranApp" >
         <if test="id!=null">
             update [TLG_AffiliateInfo] set updateTime=getdate()
+                ,amtInvest=#{amtInvest}
                 <if test="status !=null and status!=''">
                     ,status = #{status}
                 </if>
                 <if test="nextTime !=null and nextTime!=''">
                     ,nextTime = #{nextTime}
                 </if>
-
                 <choose>
                     <when test="dtSign !=null and dtSign!=''">
                         ,dtSign = #{dtSign}
@@ -67,7 +67,6 @@
                         ,dtMeetUp = null
                     </otherwise>
                 </choose>
-
                 <if test="name !=''">
                     ,name = #{name}
                 </if>
