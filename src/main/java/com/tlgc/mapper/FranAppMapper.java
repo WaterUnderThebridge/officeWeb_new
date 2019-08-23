@@ -17,15 +17,15 @@ public interface FranAppMapper {
     public Integer findApp(@Param("Phone") String Phone,@Param("dtApp") String dtApp);
 
 
-    public Integer updateFranApp(@Param("id") Integer id,@Param("name") String name,@Param("phone") String phone,@Param("email") String email,@Param("channel") String channel,@Param("address") String address,@Param("dt") String dt,@Param("nextTime") String nextTime,@Param("dtSign") String dtSign,@Param("dtMeetUp") String dtMeetUp,@Param("status") Integer status,@Param("wechatName") String wechatName);
+    public Integer updateFranApp(@Param("id") Integer id,@Param("name") String name,@Param("phone") String phone,@Param("email") String email,@Param("channel") String channel,@Param("address") String address,@Param("dt") String dt,@Param("nextTime") String nextTime,@Param("dtSign") String dtSign,@Param("dtMeetUp") String dtMeetUp,@Param("status") Integer status,@Param("wechatName") String wechatName,@Param("amtInvest") String amtInvest);
 
 
     public Integer updateFranApps(@Param("ids") String[] ids,@Param("FollowerID") Integer FollowerID);
 
     public List<HashMap> listFranApp(@Param("FollowerID") Integer FollowerID,@Param("dtBegin") String dtBegin,@Param("dtEnd") String dtEnd,@Param("keyWord") String keyWord ,@Param("pageSize") Integer pageSize,@Param("pageNum") Integer pageNum,@Param("sort") String sort,@Param("todayFollow") String todayFollow,@Param("advSearch") String advSearch,@Param("advSearch2") String advSearch2,@Param("unAllocate") String unAllocate);
 
-    @Insert("INSERT INTO TLG_AffiliateInfo (Name,Phone,wechatName,Email,Address,Channel,MailStatus,Remark,LinkTime,CreateTime,status,rec_name,rec_phone,search,followerId)" +
-            "VALUES(#{Name},#{Phone},#{wechatName},#{Email},#{Address},#{Channel},#{MailStatus},#{Remark},#{LinkTime},#{CreateTime},1,#{rec_name},#{rec_phone},#{Search},#{followerId})")
+    @Insert("INSERT INTO TLG_AffiliateInfo (Name,Phone,wechatName,Email,Address,Channel,MailStatus,Remark,LinkTime,CreateTime,status,rec_name,rec_phone,search,followerId,amtInvest)" +
+            "VALUES(#{Name},#{Phone},#{wechatName},#{Email},#{Address},#{Channel},#{MailStatus},#{Remark},#{LinkTime},#{CreateTime},1,#{rec_name},#{rec_phone},#{Search},#{followerId},#{amtInvest})")
     public Integer saveFranApp(FranApp franApp);
 
     public Integer deleteFranApp(@Param("ids") String[] ids);

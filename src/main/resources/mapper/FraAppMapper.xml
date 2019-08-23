@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.tlgc.mapper.FranAppMapper" >
     <select id="listFranApp" resultType="hashmap">
-        with TempResult0 as(SELECT id,name,address,phone,isnull(wechatName,'')wechatName,email,isnull(FollowerID,0)followerID,
+        with TempResult0 as(SELECT id,name,address,phone,isnull(amtInvest,'')amtInvest,isnull(wechatName,'')wechatName,email,isnull(FollowerID,0)followerID,
         isnull((select top 1 fullname from TLG_User u where u.id=a.FollowerID),'')follower,
         isnull((select top 1 convert(varchar(10),dtGotong,120)+','+u.fullname+'：'+content from TLG_GoTong g join TLG_User u on g.FranAppId=a.id and u.id=g.userid),'')memo,
         isnull((select top 1 convert(varchar(10),dtGotong,120) from TLG_GoTong g join TLG_User u on g.FranAppId=a.id and u.id=g.userid),'')latestTime,
@@ -44,13 +44,13 @@
     <update id="updateFranApp" >
         <if test="id!=null">
             update [TLG_AffiliateInfo] set updateTime=getdate()
+                ,amtInvest=#{amtInvest}
                 <if test="status !=null and status!=''">
                     ,status = #{status}
                 </if>
                 <if test="nextTime !=null and nextTime!=''">
                     ,nextTime = #{nextTime}
                 </if>
-
                 <choose>
                     <when test="dtSign !=null and dtSign!=''">
                         ,dtSign = #{dtSign}
@@ -67,7 +67,6 @@
                         ,dtMeetUp = null
                     </otherwise>
                 </choose>
-
                 <if test="name !=''">
                     ,name = #{name}
                 </if>

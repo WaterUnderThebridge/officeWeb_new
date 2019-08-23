@@ -31,6 +31,7 @@ public class FranApp {
     private Integer LinkTime;
     private String nextTime;
     private String dtMeetUp;
+    private String amtInvest;
     private Date UpdateTime =new Date();
     @JsonFormat(pattern = "yyyy-MM-dd")
     @DateTimeFormat(pattern="yyyy-MM-dd")

@@ -153,6 +153,7 @@ public class APICtrl {
                               @RequestParam(value = "rec_name",defaultValue = "") String rec_name,
                               @RequestParam(value = "City",defaultValue = "") String Address,
                               @RequestParam(value = "dt",defaultValue = "") String dt,
+                              @RequestParam(value = "amtInvest",defaultValue = "") String amtInvest,
                               @RequestParam(value = "Remark",defaultValue = "") String Remark,
                               @RequestParam(value = "followerId",defaultValue = "0") Integer followerId
     ){
@@ -174,6 +175,7 @@ public class APICtrl {
         }
         FranApp franApp = new FranApp();
         franApp.setName(Name);
+        franApp.setAmtInvest(amtInvest);
         franApp.setAddress(Address);
         franApp.setChannel(Channel);
         franApp.setLinkTime(LinkTime);
@@ -238,13 +240,14 @@ public class APICtrl {
                               @RequestParam(value = "nextTime",defaultValue = "") String nextTime,
                               @RequestParam(value = "dtSign",required = false) String dtSign,
                               @RequestParam(value = "dtMeetUp",required = false) String dtMeetUp,
+                              @RequestParam(value = "amtInvest",defaultValue = "") String amtInvest,
                               @RequestParam(value = "status",required = false) Integer status){
 
         if (id.equals("")||id==null) {
             return DataConvert.toJson(ResultUtil.error("没有记录ID"), callback);
         }
 
-        if (franAppMapper.updateFranApp(id,name,phone,email,channel,address,dt,nextTime,dtSign,dtMeetUp,status,wechatName) > 0) {
+        if (franAppMapper.updateFranApp(id,name,phone,email,channel,address,dt,nextTime,dtSign,dtMeetUp,status,wechatName,amtInvest) > 0) {
 
             return DataConvert.toJson(ResultUtil.success(), callback);
         } else {
