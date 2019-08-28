@@ -19,6 +19,7 @@ public class City {
     private Province province;
     private String CH_Name;
     private String EN_Name;
+    private Integer isPreparing;
     private Integer Sort;
     private Integer Status;
 
