@@ -19,6 +19,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletResponse;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -82,7 +83,7 @@ public class testCtrl  {
     @GetMapping(value = "/getGym/{cityId}")
     private JSONObject getCity(@PathVariable("cityId") Integer cityId){
         //  PageHelper.startPage(3,2);
-        List<Gym> gyms = gymMapper.getAllByCityId(cityId);
+        List<HashMap> gyms = gymMapper.getAllByCityId(cityId);
         return DataConvert.toJson(ResultUtil.success(gyms));
     }
 

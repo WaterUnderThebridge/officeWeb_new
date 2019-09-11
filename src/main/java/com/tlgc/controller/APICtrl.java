@@ -74,7 +74,7 @@ public class APICtrl {
 //        rsp.addHeader("Access-Control-Allow-Origin", "*");
 //        rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
 
-        List<Gym> gyms = gymMapper.getAllByCityId(cityId);
+        List<HashMap> gyms = gymMapper.getAllByCityId(cityId);
         return DataConvert.toJson(ResultUtil.success(gyms), callback);
     }
 
