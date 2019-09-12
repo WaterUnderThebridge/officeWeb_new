@@ -70,11 +70,11 @@ public class APICtrl {
     }
 
     @GetMapping(value = "/getGym/{cityId}")
-    private Object getGym(HttpServletResponse rsp, @RequestParam(value = "callback", required = false) String callback, @PathVariable("cityId") Integer cityId) {
+    private Object getGym(HttpServletResponse rsp, @RequestParam(value = "callback", required = false) String callback, @RequestParam(value = "noShow", defaultValue = "0") String noShow, @PathVariable("cityId") Integer cityId) {
 //        rsp.addHeader("Access-Control-Allow-Origin", "*");
 //        rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
 
-        List<HashMap> gyms = gymMapper.getAllByCityId(cityId);
+        List<HashMap> gyms = gymMapper.getAllByCityId(cityId,noShow);
         return DataConvert.toJson(ResultUtil.success(gyms), callback);
     }
 

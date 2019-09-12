@@ -83,7 +83,7 @@ public class testCtrl  {
     @GetMapping(value = "/getGym/{cityId}")
     private JSONObject getCity(@PathVariable("cityId") Integer cityId){
         //  PageHelper.startPage(3,2);
-        List<HashMap> gyms = gymMapper.getAllByCityId(cityId);
+        List<HashMap> gyms = gymMapper.getAllByCityId(cityId,"0");
         return DataConvert.toJson(ResultUtil.success(gyms));
     }
 

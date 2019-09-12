@@ -15,8 +15,8 @@ import java.util.Map;
  * Created by TONY on 2017/11/19.
  */
 public interface GymMapper {
-    @Select("select c.M_Id city_id,c.CH_Name city_name,Id,isPreparing,name cH_Name,isPreparing,name CH_Name,dtPreSale,dtOpen,createTime from TLG_Gym g join tlg_city c on g.cityId=c.M_Id  where g.status=1 and (g.CityId=${CityId} or ${CityId}=-1) order by 2,3")
-    public List<HashMap> getAllByCityId(@Param("CityId") Integer CityId);
+    @Select("select c.M_Id city_id,c.CH_Name city_name,Id,isPreparing,name cH_Name,isPreparing,name CH_Name,dtPreSale,dtOpen,createTime from TLG_Gym g join tlg_city c on g.cityId=c.M_Id where g.status=1 and g.id not in(${noShow}) and (g.CityId=${CityId} or ${CityId}=-1) order by 2,3")
+    public List<HashMap> getAllByCityId(@Param("CityId") Integer CityId,@Param("noShow") String noShow);
 
     @Select("select prov,city,Id,isPreparing,name,phone,email,YYEmail,coordinate,tip,addr,dtPreSale,dtOpen,createTime from TLG_Gym where status=1 and (City=#{City} or #{City}=-1) order by 4,5")
     public List<HashMap> getAllByCity(@Param("City") String City);
