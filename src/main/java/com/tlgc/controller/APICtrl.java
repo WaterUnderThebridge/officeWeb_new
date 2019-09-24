@@ -78,6 +78,13 @@ public class APICtrl {
         return DataConvert.toJson(ResultUtil.success(gyms), callback);
     }
 
+    @GetMapping(value = "/getGymDetail/{id}")
+    private Object getGymDetail(HttpServletResponse rsp, @RequestParam(value = "callback", required = false) String callback, @PathVariable("id") String id) {
+
+        Gym gym = gymMapper.findGym(id);
+        return DataConvert.toJson(ResultUtil.success(gym), callback);
+    }
+
     @GetMapping(value = "/getGymByCity/{city}")
     private Object getGymByCity(HttpServletResponse rsp, @RequestParam(value = "callback", required = false) String callback, @PathVariable("city") String city) {
 //        rsp.addHeader("Access-Control-Allow-Origin", "*");
