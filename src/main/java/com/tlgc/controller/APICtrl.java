@@ -239,7 +239,7 @@ public class APICtrl {
                               @RequestParam(value = "id",required = true) Integer id,
                               @RequestParam(value = "name",defaultValue = "") String name,
                               @RequestParam(value = "phone",defaultValue = "") String phone,
-                              @RequestParam(value = "wechatName",defaultValue = "") String wechatName,
+                              @RequestParam(value = "wechatName",required = false) String wechatName,
                               @RequestParam(value = "email",defaultValue = "") String email,
                               @RequestParam(value = "channel",defaultValue = "") String channel,
                               @RequestParam(value = "address",defaultValue = "") String address,

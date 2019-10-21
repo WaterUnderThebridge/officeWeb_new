@@ -51,6 +51,9 @@
                 <if test="nextTime !=null and nextTime!=''">
                     ,nextTime = #{nextTime}
                 </if>
+                <if test="wechatName !=null ">
+                    ,wechatName = #{wechatName}
+                </if>
                 <choose>
                     <when test="dtSign !=null and dtSign!=''">
                         ,dtSign = #{dtSign}
@@ -83,7 +86,6 @@
                    ,channel = #{channel}
                 </if>
                    ,email = #{email}
-                   ,wechatName = #{wechatName}
                 <where>
                     id=#{id}
                 </where>
