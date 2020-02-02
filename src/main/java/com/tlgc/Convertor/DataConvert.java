@@ -3,8 +3,7 @@ package com.tlgc.Convertor;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.JSONPObject;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
+
 import com.tlgc.entity.Result;
 
 
@@ -96,11 +95,7 @@ public class DataConvert {
     }
 
     public static String toJsonStr(Object object,String function) {
-        GsonBuilder gsonBuilder = new GsonBuilder();
-        gsonBuilder.setPrettyPrinting();
-        Gson gson = gsonBuilder.disableHtmlEscaping().create();
-        String result = gson.toJson(object);
-
+       String result=JSONObject.toJSONString(object);
         if(function!=null) {
             result = new StringBuilder(function).append("(").append(result).append(")").toString();
         }

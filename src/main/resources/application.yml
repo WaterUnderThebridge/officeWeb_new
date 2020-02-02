@@ -10,6 +10,7 @@ spring:
 
   jackson:
     default-property-inclusion: non_null
+
   http:
     encoding:
       charset: utf-8
@@ -37,7 +38,7 @@ server:
     uri-encoding: UTF-8
 
 
-Sync:
+sync:
    introUrl: https://bbk.800app.com/uploadfile/staticresource/238592/279833/dataInterface_intro.aspx
    gtUrl: https://bbk.800app.com/uploadfile/staticresource/238592/279833/gt_sms_status_synch.aspx
 

@@ -1,9 +1,17 @@
 spring:
   datasource:
-    url: jdbc:sqlserver://101.37.160.171:1433;DatabaseName=TLGDB
-    username: interface
-    password: Lanyueyang@
-    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    one:
+      url: jdbc:sqlserver://101.37.160.171:1433;DatabaseName=TLGDB
+      username: interface
+      password: Lanyueyang@
+      driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+      type: com.alibaba.druid.pool.DruidDataSource
+    two:
+      url: jdbc:sqlserver://101.37.160.171:1433;DatabaseName=TLGDB
+      username: interface
+      password: Lanyueyang@
+      driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+      type: com.alibaba.druid.pool.DruidDataSource
 
 
   jpa:
@@ -21,7 +29,8 @@ spring:
 #      enabled: true
 logging:
   path: d:/
-  level: trace
+  root:
+    level: debug
   config: classpath:logback-spring-dev.xml
 
 server:

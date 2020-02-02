@@ -1,28 +1,23 @@
 package com.tlgc;
 
 
-import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
-import com.tlgc.Convertor.MJFastJsonHttpMessageConverter;
-import org.mybatis.spring.annotation.MapperScan;
+
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.web.HttpMessageConverters;
+
+
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
-import org.springframework.boot.web.support.ErrorPageFilter;
-import org.springframework.boot.web.support.SpringBootServletInitializer;
+
+import org.springframework.boot.web.servlet.support.ErrorPageFilter;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
-import org.springframework.web.servlet.config.annotation.CorsRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+
 
 @SpringBootApplication
-@MapperScan(basePackages = {"com.tlgc.mapper"}) //MyBaitis持久化类
-public class TlgcApplication extends SpringBootServletInitializer {
-	@Override
-	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-		return application.sources(TlgcApplication.class);
-	}
+public class TlgcApplication  {
+
 	public static void main(String[] args)
 
 	{
@@ -31,13 +26,7 @@ public class TlgcApplication extends SpringBootServletInitializer {
 	}
 
 
-	@Bean
-	public HttpMessageConverters fastJsonHttpMessageConverters(){
-		//创建FastJson信息转换对象
-		FastJsonHttpMessageConverter fastJsonHttpMessageConverter = new MJFastJsonHttpMessageConverter();
 
-		return new HttpMessageConverters(fastJsonHttpMessageConverter);
-	}
 
 	//启动类中加如下代码，成功解决问题
 	@Bean

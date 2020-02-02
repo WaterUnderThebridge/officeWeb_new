@@ -1,11 +1,11 @@
 package com.tlgc.controller;
 
 import com.tlgc.Convertor.DataConvert;
-import com.tlgc.dao.FranAppDao;
+
+
 import com.tlgc.dao.GongTongDao;
-import com.tlgc.entity.FranApp;
 import com.tlgc.entity.GoTong;
-import com.tlgc.enums.ResultEnum;
+
 import com.tlgc.mapper.GotongMapper;
 import com.tlgc.utils.ResultUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -28,11 +28,7 @@ import java.util.List;
 @RequestMapping("/gt")
 public class GoTongCtrl {
     @Autowired
-    private GongTongDao gongTongDao;
-    @Autowired
     private GotongMapper gotongMapper;
-    @Autowired
-    private FranAppDao franAppDao;
     @RequestMapping(value = "/save")
     public Object save(HttpServletRequest request, HttpServletResponse rsp,
                         @RequestParam(value = "content",defaultValue = "") String content,
@@ -67,7 +63,7 @@ public class GoTongCtrl {
                        @RequestParam(value = "id",defaultValue = "") Integer id
     ){
 
-        gongTongDao.delete(id);
+        gongTongDao.deleteById(id);
         return DataConvert.toJson(ResultUtil.success());
     }
 }

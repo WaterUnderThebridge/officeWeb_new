@@ -1,10 +1,7 @@
 package com.tlgc.mapper;
 
 import com.tlgc.entity.Admin;
-import org.apache.ibatis.annotations.One;
-import org.apache.ibatis.annotations.Result;
-import org.apache.ibatis.annotations.Results;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.util.HashMap;
 import java.util.List;
@@ -20,4 +17,6 @@ public interface GotongMapper {
             @Result(property="content",column="content")
     })
     public List<HashMap> getGotongs(Integer FranAppId);
+    @Delete("delete from TLG_GoTong where id=#{Id}")
+    public void  deleteById(Integer Id);
 }

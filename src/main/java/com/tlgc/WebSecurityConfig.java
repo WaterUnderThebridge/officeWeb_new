@@ -6,13 +6,11 @@ package com.tlgc;
 import com.tlgc.Convertor.DataConvert;
 import com.tlgc.enums.ResultEnum;
 import com.tlgc.utils.ResultUtil;
-import com.tlgc.utils.TokenTools;
+
 import lombok.extern.slf4j.Slf4j;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistration;
