@@ -9,7 +9,6 @@ import java.util.Date;
  * Created by TONY on 2019/6/20.
  */
 @Data
-@Entity
 @Table(name="TLG_User")
 public class User {
     @Id

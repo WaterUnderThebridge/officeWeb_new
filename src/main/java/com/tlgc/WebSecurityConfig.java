@@ -47,8 +47,11 @@ public class WebSecurityConfig extends WebMvcConfigurerAdapter {
         addInterceptor.excludePathPatterns("/user/logout**");
         addInterceptor.excludePathPatterns("/user/timeout**");
 
+
         //拦截配置
         addInterceptor.addPathPatterns("/user/**");
+        addInterceptor.addPathPatterns("/user/**");
+
 
     }
 

@@ -15,7 +15,6 @@ import java.util.Date;
  * Created by hibernate on 2018/5/24.
  */
 @Data
-@Entity
 public class PhoneMsg {
     @Id
     private int id;

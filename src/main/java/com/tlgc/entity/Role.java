@@ -11,7 +11,6 @@ import javax.persistence.Table;
  * Created by TONY on 2017/9/17.
  */
 @Data
-@Entity
 @Table(name="TLG_Roles")
 public class Role {
     @Id

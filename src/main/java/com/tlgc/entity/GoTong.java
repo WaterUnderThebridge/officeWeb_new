@@ -14,7 +14,6 @@ import java.util.Date;
  * Created by TONY on 2019/6/27.
  */
 @Data
-@Entity
 @Table(name="TLG_Gotong")
 public class GoTong {
     @Id

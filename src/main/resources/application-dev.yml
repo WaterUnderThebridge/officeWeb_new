@@ -1,32 +1,4 @@
-spring:
-  datasource:
-    one:
-      url: jdbc:sqlserver://101.37.160.171:1433;DatabaseName=TLGDB
-      username: interface
-      password: Lanyueyang@
-      driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
-      type: com.alibaba.druid.pool.DruidDataSource
-    two:
-      url: jdbc:sqlserver://101.37.160.171:1433;DatabaseName=TLGDB
-      username: interface
-      password: Lanyueyang@
-      driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
-      type: com.alibaba.druid.pool.DruidDataSource
 
-
-  jpa:
-    show-sql: true
-    hibernate:
-      ddl-auto: none
-    database: sql_server
-
-
-
-
-
-#  devtools:
-#    restart:
-#      enabled: true
 logging:
   path: d:/
   root:
@@ -41,4 +13,15 @@ filePath: D:\files
 test:
       name : jerry
       age: 19
+
+spring:
+  devtools:
+    restart:
+      enabled: true
+      additional-paths: src/main/java #重启目录
+      exclude: WEB-INF/**
+  freemarker:
+    cache: false
+  thymeleaf:
+    cache: false
 

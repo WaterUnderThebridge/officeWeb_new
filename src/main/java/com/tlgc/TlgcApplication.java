@@ -4,24 +4,28 @@ package com.tlgc;
 
 
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 
-import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 
 import org.springframework.boot.web.servlet.support.ErrorPageFilter;
-import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
 
 
+
+
+@EnableAutoConfiguration(exclude={
+		JpaRepositoriesAutoConfiguration.class//禁止springboot自动加载持久化bean,解决多数据源报错
+})
 @SpringBootApplication
 public class TlgcApplication  {
 
 	public static void main(String[] args)
 
 	{
-
 		SpringApplication.run(TlgcApplication.class, args);
 	}
 

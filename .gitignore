@@ -23,3 +23,15 @@ nbbuild/
 dist/
 nbdist/
 .nb-gradle/
+
+##vue.js###
+src/web/.DS_Store
+src/web/node_modules/
+src/web//dist/
+src/web/npm-debug.log*
+src/web/yarn-debug.log*
+src/web/yarn-error.log*
+src/main/resources/public/
+
+#log
+hs_err_pid*

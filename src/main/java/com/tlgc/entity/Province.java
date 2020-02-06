@@ -10,7 +10,7 @@ import javax.persistence.Table;
 /**
  * Created by TONY on 2017/11/18.
  */
-@Entity
+
 @Data
 @Table(name="TLG_Province")
 public class Province {

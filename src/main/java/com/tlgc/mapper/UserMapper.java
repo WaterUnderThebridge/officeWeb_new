@@ -4,7 +4,7 @@ import com.tlgc.entity.Admin;
 import com.tlgc.entity.User;
 import org.apache.ibatis.annotations.*;
 
-import javax.transaction.Transactional;
+
 import java.util.HashMap;
 import java.util.List;
 
@@ -23,7 +23,7 @@ public interface UserMapper {
     @Update("update tlg_user set isdelete=1 where id=${id}")
     public Integer userDel(@Param("id") Integer id);
 
-    @Transactional
+
     @Update("update tlg_user set city='${city}' where id=${userId}")
     public Integer updateCity(@Param("userId") Integer userId, @Param("city") String city);
 

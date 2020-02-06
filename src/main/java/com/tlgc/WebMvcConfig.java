@@ -16,7 +16,7 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
     public void addFormatters(FormatterRegistry registry) {
         registry.addConverter(new DateConverter());
     }
-    @Override
+    @Override //跨域
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
                 .allowedOrigins("*")

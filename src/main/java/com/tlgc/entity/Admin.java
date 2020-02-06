@@ -8,7 +8,7 @@ import java.util.Date;
 /**
  * Created by hibernate on 2017/5/19.
  */
-@Entity
+
 @Data
 @Table(name="TLG_Admin")
 public class Admin {

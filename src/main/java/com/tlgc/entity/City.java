@@ -7,7 +7,7 @@ import javax.persistence.*;
 /**
  * Created by TONY on 2017/11/18.
  */
-@Entity
+
 @Data
 @Table(name="TLG_City")
 public class City {

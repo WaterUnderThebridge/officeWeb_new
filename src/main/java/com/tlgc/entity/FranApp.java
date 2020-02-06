@@ -13,7 +13,6 @@ import java.util.Date;
  * Created by TONY on 2018/4/11.
  */
 @Data
-@Entity
 public class FranApp {
     @Id
     @GeneratedValue
