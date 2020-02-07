@@ -1,8 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.tlgc.mapper.lessonplan.AccontMapper" >
-    <select id="getAccount" resultType="com.tlgc.entity.EmployeeNonOMSGym"  >
-        SELECT * FROM dbo.tbl_EmployeeNonOMSGym
+    <select id="getAccount" resultType="com.tlgc.entity.EmployeeNonOMSGym">
+        SELECT top 1 * FROM dbo.tbl_EmployeeNonOMSGym where userName=#{gymCode}
     </select>
 
+    <select id="getAccounts" resultType="com.tlgc.entity.EmployeeNonOMSGym">
+        SELECT   * FROM dbo.tbl_EmployeeNonOMSGym
+    </select>
+    <update id="saveAccount">
+   with inserted as(select '${gymName}' FirstName,'${city}' LastName,'${gymCode}' FranchiseLicenseNumber,0 IsDeleted,${isActive} IsActive,GETDATE() CreatedDate,'auto'CreatedBy,GETDATE() LastModifiedDate,'auto'LastModifiedBy,getdate() HireDate,'${gymCode}' UserName,'hbwIszwAMDmfUa85Fx6UgfUU/JWidR64nakQ8yNtWVY=' Pin)
+    MERGE INTO dbo.tbl_EmployeeNonOMSGym AS a USING Inserted AS b ON a.UserName=b.UserName
+     WHEN MATCHED  THEN
+      update SET a.IsActive = b.IsActive,a.LastModifiedDate=b.LastModifiedDate
+     WHEN NOT MATCHED THEN
+     insert(FirstName,LastName,FranchiseLicenseNumber,IsDeleted,IsActive,CreatedDate,CreatedBy,LastModifiedDate,LastModifiedBy,HireDate,UserName,Pin)
+     values(b.FirstName,b.LastName,b.FranchiseLicenseNumber,b.IsDeleted,b.IsActive,b.CreatedDate,b.CreatedBy,b.LastModifiedDate,b.LastModifiedBy,b.HireDate,b.UserName,b.Pin);
+
+    </update>
 </mapper>
