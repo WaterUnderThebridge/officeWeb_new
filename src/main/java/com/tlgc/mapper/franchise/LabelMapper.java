@@ -1,6 +1,8 @@
-package com.tlgc.mapper;
+package com.tlgc.mapper.franchise;
+
 
 import org.apache.ibatis.annotations.*;
+import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
 import java.util.List;
@@ -8,6 +10,7 @@ import java.util.List;
 /**
  * Created by TONY on 2017/10/3.
  */
+@Repository
 public interface LabelMapper {
 
     @Select("select id,name value from TLG_Labels")

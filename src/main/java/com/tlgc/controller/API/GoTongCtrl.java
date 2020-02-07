@@ -6,7 +6,7 @@ import com.tlgc.Convertor.DataConvert;
 
 import com.tlgc.entity.GoTong;
 
-import com.tlgc.mapper.GotongMapper;
+import com.tlgc.mapper.franchise.GotongMapper;
 import com.tlgc.utils.ResultUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,9 +42,11 @@ public class GoTongCtrl {
         goTong.setDtGotong(dtGotong);
         goTong.setFranAppId(FranAppId);
         goTong.setUserId(userId);
+        System.out.print(goTong.getFranAppId());
         Integer res=gotongMapper.saveGoTong(goTong);
-        if(res!=null)  return DataConvert.toJson(ResultUtil.success());
-        return DataConvert.toJson(ResultUtil.error());
+        if(res!=null)  return ResultUtil.success();
+        return ResultUtil.error();
+
     }
 
     @RequestMapping(value = "/list")
@@ -54,8 +56,8 @@ public class GoTongCtrl {
 
 
          List<HashMap> goTongs=gotongMapper.getGotongs(FraAppId);
-        if(goTongs!=null)  return DataConvert.toJson(ResultUtil.success(goTongs));
-        return DataConvert.toJson(ResultUtil.error());
+        if(goTongs!=null)  return ResultUtil.success(goTongs);
+        return ResultUtil.error();
     }
 
     @RequestMapping(value = "/delete")
@@ -64,6 +66,6 @@ public class GoTongCtrl {
     ){
 
         gotongMapper.deleteById(id);
-        return DataConvert.toJson(ResultUtil.success());
+        return ResultUtil.success();
     }
 }

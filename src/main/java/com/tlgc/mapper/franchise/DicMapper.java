@@ -1,8 +1,10 @@
-package com.tlgc.mapper;
+package com.tlgc.mapper.franchise;
+
 
 import com.tlgc.entity.Admin;
 import com.tlgc.entity.User;
 import org.apache.ibatis.annotations.*;
+import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
 import java.util.HashMap;
@@ -11,6 +13,7 @@ import java.util.List;
 /**
  * Created by TONY on 2017/10/2.
  */
+@Repository
 public interface DicMapper {
 
     @Insert("INSERT INTO tlg_channel(name,isdelete)" +

@@ -9,12 +9,11 @@ spring:
       driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
       type: com.alibaba.druid.pool.DruidDataSource
     two:
-      url: jdbc:sqlserver://101.37.160.171:1433;DatabaseName=TLGDB
-      username: interface
-      password: Lanyueyang@
+      url: jdbc:sqlserver://139.196.202.251:1433;DatabaseName=oms
+      username: sa
+      password: tlg10m$
       driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
       type: com.alibaba.druid.pool.DruidDataSource
-
 
   jackson:
     default-property-inclusion: non_null
@@ -24,6 +23,7 @@ spring:
       charset: utf-8
       force: true
       enabled: true
+
 
 # redis:
 #   host: 192.168.30.113
@@ -35,7 +35,7 @@ spring:
 #     path: /error
 mybatis:
   config-location: classpath:mybatis-config.xml
-  mapper-locations: classpath:mapper/*.xml
+
 
 
 

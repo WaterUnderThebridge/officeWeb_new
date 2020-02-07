@@ -13,6 +13,7 @@ import java.util.Date;
 /**
  * Created by TONY on 2019/6/27.
  */
+
 @Data
 @Table(name="TLG_Gotong")
 public class GoTong {

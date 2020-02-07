@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 
 import javax.sql.DataSource;
 
@@ -15,7 +16,7 @@ import javax.sql.DataSource;
  * Created by sang on 2018/7/16.
  */
 @Configuration
-@MapperScan(value = "com.tlgc.mapper", sqlSessionFactoryRef = "sqlSessionFactoryBean1")
+@MapperScan(value = "com.tlgc.mapper.franchise", sqlSessionFactoryRef = "sqlSessionFactoryBean1")
 public class MyBatisConfigOne {
     @Autowired
     @Qualifier("dsOne")
@@ -25,6 +26,8 @@ public class MyBatisConfigOne {
     SqlSessionFactory sqlSessionFactoryBean1() throws Exception {
         SqlSessionFactoryBean factoryBean = new SqlSessionFactoryBean();
         factoryBean.setDataSource(dsOne);
+        PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
+        factoryBean.setMapperLocations(resolver.getResources("classpath:/mapper/franchise/*.xml"));
         return factoryBean.getObject();
     }
     @Bean

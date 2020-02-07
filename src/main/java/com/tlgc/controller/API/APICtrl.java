@@ -1,16 +1,14 @@
 package com.tlgc.controller.API;
 
 
-import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.tlgc.Convertor.DataConvert;
 import com.tlgc.entity.*;
-import com.tlgc.mapper.*;
+import com.tlgc.mapper.franchise.*;
 import com.tlgc.service.ISmsService;
 import com.tlgc.service.ISynchBackService;
-import com.tlgc.service.impl.SmsServiceImpl;
 import com.tlgc.utils.ResultUtil;
 import com.tlgc.utils.XmlUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -18,7 +16,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.*;
 
@@ -32,10 +29,6 @@ import java.util.*;
 @RequestMapping("/api")
 public class APICtrl {
 
-    @Autowired
-    private UserMapper userMapper;
-    @Autowired
-    private AdminMapper adminMapper;
     @Autowired
     private ProvinceMapper provinceMapper;
     @Autowired
@@ -61,7 +54,7 @@ public class APICtrl {
     }
 
     @GetMapping(value = "/getCity/{provinceId}")
-    private Object getCity(HttpServletResponse rsp, @RequestParam(value = "callback", required = false) String callback, @PathVariable("provinceId") Integer provinceId) {
+    private Result getCity(HttpServletResponse rsp, @RequestParam(value = "callback", required = false) String callback, @PathVariable("provinceId") Integer provinceId) {
         List<City> cities = cityMapper.getAllByProvinceId(provinceId);
         return ResultUtil.success(cities);
     }

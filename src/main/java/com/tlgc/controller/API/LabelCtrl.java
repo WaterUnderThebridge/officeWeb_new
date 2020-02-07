@@ -1,7 +1,7 @@
 package com.tlgc.controller.API;
 
 import com.tlgc.Convertor.DataConvert;
-import com.tlgc.mapper.LabelMapper;
+import com.tlgc.mapper.franchise.LabelMapper;
 import com.tlgc.utils.ResultUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +26,7 @@ public class LabelCtrl {
     @RequestMapping(value = "/list")
     public Object login(HttpServletRequest request, HttpServletResponse rsp){
         List<HashMap> labels=labelMapper.getLabels();
-        return DataConvert.toJson(ResultUtil.success(labels));
+        return ResultUtil.success(labels);
     }
     @RequestMapping(value = "/franApp")
     public Object FranAppList(HttpServletRequest request, HttpServletResponse rsp,
@@ -34,7 +34,7 @@ public class LabelCtrl {
     ){
 
         List<HashMap> labels=labelMapper.getLabelsForFran(FranAppId);
-        return DataConvert.toJson(ResultUtil.success(labels));
+        return ResultUtil.success(labels);
     }
     @RequestMapping(value = "/add")
     public Object add(HttpServletRequest request, HttpServletResponse rsp,
@@ -43,8 +43,8 @@ public class LabelCtrl {
     ){
 
         Integer res=labelMapper.labelAdd(name,FranAppId);
-        if(res==null) DataConvert.toJson(ResultUtil.error());
-        return DataConvert.toJson(ResultUtil.success());
+        if(res==null) ResultUtil.error();
+        return ResultUtil.success();
     }
     @RequestMapping(value = "/del")
     public Object del(HttpServletRequest request, HttpServletResponse rsp,
@@ -53,6 +53,6 @@ public class LabelCtrl {
     ){
 
         Integer res=labelMapper.deleteLabelFroFran(name,FranAppId);
-        return DataConvert.toJson(ResultUtil.success());
+        return ResultUtil.success();
     }
 }

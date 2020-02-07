@@ -4,8 +4,8 @@ import com.tlgc.Convertor.DataConvert;
 
 import com.tlgc.entity.User;
 import com.tlgc.enums.ResultEnum;
-import com.tlgc.mapper.RoleMapper;
-import com.tlgc.mapper.UserMapper;
+import com.tlgc.mapper.franchise.RoleMapper;
+import com.tlgc.mapper.franchise.UserMapper;
 import com.tlgc.utils.ResultUtil;
 import com.tlgc.utils.TokenTools;
 import lombok.extern.slf4j.Slf4j;
@@ -14,12 +14,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.SessionAttribute;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -48,16 +46,16 @@ public class UserCtrl {
         password=DigestUtils.md5Hex(password);
         //log.error(token);
         if (user==null) {
-            return DataConvert.toJson(ResultUtil.error(ResultEnum.LOGIN_USER_NO_EXIST));
+            return ResultUtil.error(ResultEnum.LOGIN_USER_NO_EXIST);
         }else {
             user.setToken(token);
             //request.getSession().setAttribute(username,user);
             if (password.equals(user.getPassword())) {
-                return DataConvert.toJson(ResultUtil.success(user));
+                return ResultUtil.success(user);
             }
         }
 
-        return DataConvert.toJson(ResultUtil.error(ResultEnum.LOGIN_WRONG_PWD));
+        return ResultUtil.error(ResultEnum.LOGIN_WRONG_PWD);
 
     }
 
@@ -67,27 +65,27 @@ public class UserCtrl {
 
 
         User user=userMapper.getUserByUsername(username);
-        return DataConvert.toJson(ResultUtil.success(user));
+        return ResultUtil.success(user);
     }
 
     @RequestMapping(value = "/userList")
     public Object geUsers(HttpServletRequest rqs,HttpServletResponse rsp){
 
         List<HashMap> users=userMapper.getUserList();
-        return DataConvert.toJson(ResultUtil.success(users));
+        return ResultUtil.success(users);
     }
     @RequestMapping(value = "/roleList")
     public Object getRoles(HttpServletRequest rqs,HttpServletResponse rsp){
         List<HashMap> roles=roleMapper.getRoleList();
-        return DataConvert.toJson(ResultUtil.success(roles));
+        return ResultUtil.success(roles);
     }
 
     @RequestMapping(value = "/userDel")
     public Object delUser(HttpServletResponse rsp,@RequestParam(value = "id",required = true) Integer id){
 
         Integer res=userMapper.userDel(id);
-        if(res==null) return DataConvert.toJson(ResultUtil.error());
-        return DataConvert.toJson(ResultUtil.success());
+        if(res==null) return ResultUtil.error();
+        return ResultUtil.success();
     }
     @RequestMapping(value = "/userAdd")
     public Object addUser(HttpServletResponse rsp,@RequestParam(value = "username",defaultValue = "") String username,@RequestParam(value = "fullname",defaultValue = "") String fullname,
@@ -96,8 +94,8 @@ public class UserCtrl {
         rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
         password=DigestUtils.md5Hex(password);
         Integer res=userMapper.userAdd(username,fullname,password,roleId);
-        if(res==null) return DataConvert.toJson(ResultUtil.error());
-        return DataConvert.toJson(ResultUtil.success());
+        if(res==null) return ResultUtil.error();
+        return ResultUtil.success();
     }
     @RequestMapping(value = "/userUpdate")
     public Object updateUser(HttpServletResponse rsp,@RequestParam(value = "id",required = true) Integer id,@RequestParam(value = "username",defaultValue = "") String username,@RequestParam(value = "password",defaultValue = "") String password,
@@ -105,25 +103,25 @@ public class UserCtrl {
 
         password = DigestUtils.md5Hex(password);
         Integer res=userMapper.userUpdate(id,username,fullname,password,roleId);
-        if(res==null) return DataConvert.toJson(ResultUtil.error());
-        return DataConvert.toJson(ResultUtil.success());
+        if(res==null) return ResultUtil.error();
+        return ResultUtil.success();
     }
     @RequestMapping(value = "/logout")
     public Object logut(HttpServletRequest rqs,HttpServletResponse rsp,@RequestParam(value = "username",defaultValue = "") String username){
 
         TokenTools.removeToken(rqs,"token");
-        return DataConvert.toJson(ResultUtil.error(ResultEnum.LOGIN_LOGOUT));
+        return ResultUtil.error(ResultEnum.LOGIN_LOGOUT);
     }
     @RequestMapping(value = "/resetToken")
     public Object resetToken(HttpServletRequest rqs,HttpServletResponse rsp,@RequestParam(value = "username",defaultValue = "") String username){
 
         TokenTools.removeToken(rqs,"token");
-        return DataConvert.toJson(ResultUtil.error(ResultEnum.SUCCESS));
+        return ResultUtil.error(ResultEnum.SUCCESS);
     }
 
     @RequestMapping(value = "/timeout")
     public Object timeout(HttpServletResponse rsp){
-        return DataConvert.toJson(ResultUtil.error(ResultEnum.TIMEOUT));
+        return ResultUtil.error(ResultEnum.TIMEOUT);
     }
 
 }

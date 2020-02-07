@@ -3,7 +3,7 @@ package com.tlgc.service.impl;
 import com.tlgc.entity.Admin;
 import com.tlgc.entity.Result;
 import com.tlgc.enums.ResultEnum;
-import com.tlgc.mapper.AdminMapper;
+import com.tlgc.mapper.franchise.AdminMapper;
 import com.tlgc.service.IAdminService;
 import com.tlgc.utils.ResultUtil;
 import org.springframework.beans.factory.annotation.Autowired;

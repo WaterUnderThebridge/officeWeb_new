@@ -179,12 +179,61 @@
 						<artifactId>springloaded</artifactId>
 						<version>1.2.6.RELEASE</version>
 					</dependency>
-
 				</dependencies>
 			</plugin>
-
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-clean-plugin</artifactId>
+				<version>3.0.0</version>
+				<configuration>
+					<!--<skip>true</skip>-->
+					<!--<failOnError>false</failOnError>-->
+					<!--当配置true时,只清理filesets里的文件,构建目录中得文件不被清理.默认是flase.-->
+					<excludeDefaultDirectories>false</excludeDefaultDirectories>
+					<filesets>
+						<fileset>
+							<!--要清理的目录位置-->
+							<directory> ${basedir}/src/main/java/resources/public</directory>
+							<!--是否跟随符号链接 (symbolic links)-->
+							<followSymlinks>false</followSymlinks>
+							<!--默认有些文件是不会被清理的,比如.svn文件,如果设置成false,则全部按照自定义的来处理-->
+							<useDefaultExcludes>false</useDefaultExcludes>
+							<!--对这些文件进行清理-->
+							<includes>
+								<include>**/*</include>
+							</includes>
+							<!--对这些文件不清理-->
+							<!--<excludes>-->
+								<!--<exclude>nc*</exclude>-->
+							<!--</excludes>-->
+						</fileset>
+					</filesets>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<version>1.6.0</version>
+				<executions>
+					<!--2、install完成后build-->
+					<execution>
+						<id>exec-cnpm-run-build</id>
+						<phase>initialize</phase>
+						<goals>
+							<goal>exec</goal>
+						</goals>
+						<configuration>
+							<executable>cnpm </executable>
+							<arguments>
+								<argument>run </argument>
+								<argument>build:prod</argument>
+							</arguments>
+							<workingDirectory>src/main/web/franchise</workingDirectory>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
-
 	</build>
 
 </project>
